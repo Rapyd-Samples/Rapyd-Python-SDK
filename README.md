@@ -25,7 +25,7 @@ This is Rapyd OpenAPI
 ## Installation
 
 ```bash
-pip install rapydsdk
+pip install rapyd-sdk
 ```
 
 ### Dependencies

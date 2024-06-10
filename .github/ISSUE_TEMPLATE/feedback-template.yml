@@ -1,15 +1,15 @@
-name: Bug Report
-description: File a bug report.
-title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
+name: Feedback Report
+description: Provide feedback for the new Beta SDK
+title: "[Feedback]: "
+labels: ["feedback", "sdk"]
+projects: ["Rapyd-Python-SDK"]
 assignees:
-  - octocat
+  - 
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to fill out this feedback report!
   - type: input
     id: contact
     attributes:
@@ -22,8 +22,8 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
+      description: Please provide a detailed description of your feedback. Be specific about the features you used and the context in which you used them.
+      placeholder: Tell us about your experience!
       value: "A bug happened!"
     validations:
       required: true
@@ -33,21 +33,11 @@ body:
       label: Version
       description: What version of our software are you running?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - 1.0.5 (Default)
+        - 1.0.6
       default: 0
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
   - type: textarea
     id: logs
     attributes:
@@ -58,7 +48,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/Rapyd-Samples/RapydOpenAPI/blob/master/CODE_OF_CONDUCT.md). 
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

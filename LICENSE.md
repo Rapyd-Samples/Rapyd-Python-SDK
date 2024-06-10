@@ -1,10 +1,10 @@
-THE LICENSE GRANTED BELOW GOVERNS YOUR USE OF THIS SOFTWARE DEVELOPER KIT (THE “SDK” INCLUDES SEVERAL “COMPONENTS”: “RAPYD’S API”, “ASSOCIATED DOCUMENTATION” AND “CODE/API USAGE EXAMPLES” AND ANY ERROR CORRECTIONS, UPDATES OR NEW RELEASES AS PROVIDED BY RAPYD)
+**THE LICENSE GRANTED BELOW GOVERNS YOUR USE OF THIS SOFTWARE DEVELOPER KIT (THE “SDK” INCLUDES SEVERAL “COMPONENTS”: “RAPYD’S API”, “ASSOCIATED DOCUMENTATION” AND “CODE/API USAGE EXAMPLES” AND ANY ERROR CORRECTIONS, UPDATES OR NEW RELEASES AS PROVIDED BY RAPYD)**
 
-PLEASE READ THIS SDK END-USER LICENSE AGREEMENT (THE “AGREEMENT”) CAREFULLY BEFORE PRESSING THE "I AGREE" BUTTON. BY PRESSING "I AGREE," YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU REPRESENT A LEGAL ENTITY, YOU ACKNOWLEDGE THAT YOU HAVE THE LEGAL AUTHORITY TO BIND SUCH ENTITY. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT DOWNLOAD AND USE THE SDK.
+**PLEASE READ THIS SDK END-USER LICENSE AGREEMENT (THE “AGREEMENT”) CAREFULLY BEFORE PRESSING THE "I AGREE" BUTTON. BY PRESSING "I AGREE," YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU REPRESENT A LEGAL ENTITY, YOU ACKNOWLEDGE THAT YOU HAVE THE LEGAL AUTHORITY TO BIND SUCH ENTITY. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT DOWNLOAD AND USE THE SDK.**
 
-RAPYD FINANCIAL TECHNOLOGIES (2016) LTD. PROVIDES THE SDK FOR THE INTENDED PURPOSE OF ALLOWING NETWORK ADMINISTRATORS AND DEVELOPERS (ALSO REPRESENTED AS “YOU” AND “YOUR”) TO UTILIZE THE SDK TO DEVELOP APPLICATIONS WHICH (I) ALLOW ADMINISTRATORS BETTER TO INTEGRATE RAPYD’S PRODUCTS INTO THEIR INTERNAL NETWORKS; AND (II) ALLOW DEVELOPERS TO EFFECTIVELY INCORPORATE RAPYD’S PRODUCTS INTO THEIR COMPANY’S BUNDLED PRODUCT OFFERINGS (“YOUR PRODUCTS”).
+**RAPYD FINANCIAL TECHNOLOGIES (2016) LTD. PROVIDES THE SDK FOR THE INTENDED PURPOSE OF ALLOWING NETWORK ADMINISTRATORS AND DEVELOPERS (ALSO REPRESENTED AS “YOU” AND “YOUR”) TO UTILIZE THE SDK TO DEVELOP APPLICATIONS WHICH (I) ALLOW ADMINISTRATORS BETTER TO INTEGRATE RAPYD’S PRODUCTS INTO THEIR INTERNAL NETWORKS; AND (II) ALLOW DEVELOPERS TO EFFECTIVELY INCORPORATE RAPYD’S PRODUCTS INTO THEIR COMPANY’S BUNDLED PRODUCT OFFERINGS (“YOUR PRODUCTS”).**
 
-THERE MAY BE ADDITIONAL TERMS AND CONDITIONS APPLICABLE TO CERTAIN COMPONENTS OF THE SDK, ALL OF WHICH ARE INCORPORATED HEREIN BY REFERENCE. YOU AGREE TO ABIDE BY SUCH OTHER TERMS AND CONDITIONS. TO THE EXTENT THAT A CONFLICT EXISTS BETWEEN THE TERMS PROVIDED BELOW AND THOSE POSTED FOR OR APPLICABLE TO CERTAIN COMPONENTS OF THE SDK, THE LATTER ARE CONTROLLING.
+**THERE MAY BE ADDITIONAL TERMS AND CONDITIONS APPLICABLE TO CERTAIN COMPONENTS OF THE SDK, ALL OF WHICH ARE INCORPORATED HEREIN BY REFERENCE. YOU AGREE TO ABIDE BY SUCH OTHER TERMS AND CONDITIONS. TO THE EXTENT THAT A CONFLICT EXISTS BETWEEN THE TERMS PROVIDED BELOW AND THOSE POSTED FOR OR APPLICABLE TO CERTAIN COMPONENTS OF THE SDK, THE LATTER ARE CONTROLLING.**
 
 1. License to Use SDK: Restrictions.
 
@@ -26,13 +26,13 @@ THERE MAY BE ADDITIONAL TERMS AND CONDITIONS APPLICABLE TO CERTAIN COMPONENTS OF
 
 2. Intellectual Property Rights.
 
-You understand and agree that Rapyd and its suppliers retain all legal rights, titles and interests (including but not limited to patent, copyright, trademark, trade secret and moral rights) globally to any intellectual property included in the SDK. All rights are reserved. Accordingly, You agree not to assert any intellectual property rights related to the SDK against Rapyd or its suppliers.
+   a. You understand and agree that Rapyd and its suppliers retain all legal rights, titles and interests (including but not limited to patent, copyright, trademark, trade secret and moral rights) globally to any intellectual property included in the SDK. All rights are reserved. Accordingly, You agree not to assert any intellectual property rights related to the SDK against Rapyd or its suppliers.
 
-You are expressly prohibited from using the Rapyd trademark and trade name and Rapyd’s product names in any way and anywhere (to include but not limited to use in Your business’s trade names or business names, domain names, or product names) without prior authorization from Rapyd.
+   b. You are expressly prohibited from using the Rapyd trademark and trade name and Rapyd’s product names in any way and anywhere (to include but not limited to use in Your business’s trade names or business names, domain names, or product names) without prior authorization from Rapyd.
 
-You must include Rapyd copyright and other proprietary rights notices accompanying Your Products.
+   c. You must include Rapyd copyright and other proprietary rights notices accompanying Your Products.
 
-Rapyd may, at its sole discretion and without restriction, use any feedback, suggestions and ideas (“Feedback”) You provide in future modifications of the SDK. You hereby grant Rapyd a perpetual, worldwide, fully transferable, irrevocable, royalty-free license to use, reproduce, modify, create derivative works from, distribute and display the Feedback in any manner and for any purpose.
+   d. Rapyd may, at its sole discretion and without restriction, use any feedback, suggestions and ideas (“Feedback”) You provide in future modifications of the SDK. You hereby grant Rapyd a perpetual, worldwide, fully transferable, irrevocable, royalty-free license to use, reproduce, modify, create derivative works from, distribute and display the Feedback in any manner and for any purpose.
 
 3. Confidentiality.
 

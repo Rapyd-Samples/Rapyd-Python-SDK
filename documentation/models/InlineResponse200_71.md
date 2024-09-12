@@ -1,0 +1,8 @@
+# InlineResponse_200_71
+
+**Properties**
+
+| Name   | Type       | Required | Description                                                                                                                                                                                                                                                                                                                                                                                  |
+| :----- | :--------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data   | `Discount` | ❌       | Describes the fields relating to discounts in REST messages and webhooks for customer profiles and subscriptions Contains information about the coupon that applies to the customer. Read-only field. Adding a discount is a 2-step process - 1. Create Coupon, which returns a coupon ID. 2. Add the coupon ID to the coupon field of the customer with Create Customer or Update Customer. |
+| status | `Status`   | ❌       |                                                                                                                                                                                                                                                                                                                                                                                              |

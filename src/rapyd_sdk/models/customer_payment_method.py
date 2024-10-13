@@ -27,11 +27,11 @@ class CustomerPaymentMethod(BaseModel):
     :type network_reference_id: str, optional
     :param next_action: Indicates the next action for completing the payment. Response only. One of the following values are - * 3d_verification - The next action is 3DS authentication. To simulate 3DS authentication in the sandbox, see Simulating 3DS Authentication. Relevant only to card payments. * pending_capture - The next action is pending the capture of the amount. Relevant only to card payments when the amount is not zero. * pending_confirmation - The next action is pending the confirmation for the payment. Relevant to all payment methods excluding card payment. * not_applicable - The payment has completed or the next action is not relevant., defaults to None
     :type next_action: NextAction, optional
-    :param redirect_url: URL where the customer is redirected for additional steps required for the payment. Response only. To simulate 3DS authentication in the sandbox, see Simulating 3DS Authentication - https://docs.rapyd.net/build-with-rapyd/reference-link/simulating-3ds-authentication, defaults to None
+    :param redirect_url: URL where the customer is redirected for additional steps required for the payment. Response only. To simulate 3DS authentication in the sandbox, see Simulating 3DS Authentication - "https://docs.rapyd.net/en/simulating-3ds-authentication---api-method.html", defaults to None
     :type redirect_url: str, optional
     :param supporting_documentation: Reserved. Response only., defaults to None
     :type supporting_documentation: str, optional
-    :param token: ID of the token that represents the card. String starting with card_. Relevant to cards. Relevant if the value of is_tokenizable is true for the payment method in the response to List Payment Methods by Country. See Payment Method Type Object at https://docs.rapyd.net/build-with-rapyd/reference-link/payment-method-type-object, defaults to None
+    :param token: ID of the token that represents the card. String starting with card_. Relevant to cards. Relevant if the value of is_tokenizable is true for the payment method in the response to List Payment Methods by Country. See Payment Method Type Object at "https://docs.rapyd.net/en/payment-method-type-364771.html", defaults to None
     :type token: str, optional
     :param type_: Name of the payment method type. For example, us_mastercard_card. To get a list of payment methods for a country, use List Payment Methods by Country., defaults to None
     :type type_: str, optional
@@ -76,11 +76,11 @@ class CustomerPaymentMethod(BaseModel):
         :type network_reference_id: str, optional
         :param next_action: Indicates the next action for completing the payment. Response only. One of the following values are - * 3d_verification - The next action is 3DS authentication. To simulate 3DS authentication in the sandbox, see Simulating 3DS Authentication. Relevant only to card payments. * pending_capture - The next action is pending the capture of the amount. Relevant only to card payments when the amount is not zero. * pending_confirmation - The next action is pending the confirmation for the payment. Relevant to all payment methods excluding card payment. * not_applicable - The payment has completed or the next action is not relevant., defaults to None
         :type next_action: NextAction, optional
-        :param redirect_url: URL where the customer is redirected for additional steps required for the payment. Response only. To simulate 3DS authentication in the sandbox, see Simulating 3DS Authentication - https://docs.rapyd.net/build-with-rapyd/reference-link/simulating-3ds-authentication, defaults to None
+        :param redirect_url: URL where the customer is redirected for additional steps required for the payment. Response only. To simulate 3DS authentication in the sandbox, see Simulating 3DS Authentication - "https://docs.rapyd.net/en/simulating-3ds-authentication---api-method.html", defaults to None
         :type redirect_url: str, optional
         :param supporting_documentation: Reserved. Response only., defaults to None
         :type supporting_documentation: str, optional
-        :param token: ID of the token that represents the card. String starting with card_. Relevant to cards. Relevant if the value of is_tokenizable is true for the payment method in the response to List Payment Methods by Country. See Payment Method Type Object at https://docs.rapyd.net/build-with-rapyd/reference-link/payment-method-type-object, defaults to None
+        :param token: ID of the token that represents the card. String starting with card_. Relevant to cards. Relevant if the value of is_tokenizable is true for the payment method in the response to List Payment Methods by Country. See Payment Method Type Object at "https://docs.rapyd.net/en/payment-method-type-364771.html", defaults to None
         :type token: str, optional
         :param type_: Name of the payment method type. For example, us_mastercard_card. To get a list of payment methods for a country, use List Payment Methods by Country., defaults to None
         :type type_: str, optional

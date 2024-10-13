@@ -1,8 +1,9 @@
 from __future__ import annotations
+from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .status import Status
-from .order_response import OrderResponse
+from .status_1 import Status1
+from .dispute import Dispute
 
 
 @JsonMap({})
@@ -10,18 +11,18 @@ class InlineResponse200_47(BaseModel):
     """InlineResponse200_47
 
     :param status: status, defaults to None
-    :type status: Status, optional
+    :type status: Status1, optional
     :param data: data, defaults to None
-    :type data: OrderResponse, optional
+    :type data: List[Dispute], optional
     """
 
-    def __init__(self, status: Status = None, data: OrderResponse = None):
+    def __init__(self, status: Status1 = None, data: List[Dispute] = None):
         """InlineResponse200_47
 
         :param status: status, defaults to None
-        :type status: Status, optional
+        :type status: Status1, optional
         :param data: data, defaults to None
-        :type data: OrderResponse, optional
+        :type data: List[Dispute], optional
         """
-        self.status = self._define_object(status, Status)
-        self.data = self._define_object(data, OrderResponse)
+        self.status = self._define_object(status, Status1)
+        self.data = self._define_list(data, Dispute)

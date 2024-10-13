@@ -4,7 +4,7 @@ Defines the transformation that is applied to the reported usage before the bill
 
 **Properties**
 
-| Name      | Type    | Required | Description                                                                                                                                           |
-| :-------- | :------ | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| divide_by | `float` | ❌       | Indicates the divisor in the transformation calculation. Integer. Default is 1.                                                                       |
-| round     | `str`   | ❌       | Indicates whether the reported number of units should be rounded up or down to the next whole quantity specified in divide_by. String. Default is up. |
+| Name      | Type  | Required | Description                                                                                                                                           |
+| :-------- | :---- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| divide_by | float | ❌       | Indicates the divisor in the transformation calculation. Integer. Default is 1.                                                                       |
+| round     | str   | ❌       | Indicates whether the reported number of units should be rounded up or down to the next whole quantity specified in divide_by. String. Default is up. |

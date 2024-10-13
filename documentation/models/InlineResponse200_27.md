@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                   | Required | Description |
-| :----- | :--------------------- | :------- | :---------- |
-| status | `Status`               | ❌       |             |
-| data   | `CheckoutPageResponse` | ❌       |             |
+| Name   | Type                      | Required | Description |
+| :----- | :------------------------ | :------- | :---------- |
+| data   | EwalletTransactionDetails | ❌       |             |
+| status | Status                    | ❌       |             |

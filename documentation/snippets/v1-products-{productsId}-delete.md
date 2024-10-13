@@ -1,0 +1,13 @@
+```python
+from rapyd_sdk import RapydSdk, Environment
+
+sdk = RapydSdk(
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
+)
+
+result = sdk.subscription_product.delete_product(products_id="productsId")
+
+print(result)
+
+```

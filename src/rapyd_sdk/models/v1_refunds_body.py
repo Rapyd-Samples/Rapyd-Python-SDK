@@ -11,13 +11,13 @@ class V1RefundsBody(BaseModel):
     :type amount: float, optional
     :param currency: The currency of the amount received by the original payment source. Three-letter ISO 4217 code., defaults to None
     :type currency: str, optional
-    :param ewallets: ID of the wallet contact that the card is assigned to. String starting with cont_., defaults to None
+    :param ewallets: ID of the wallet contact that the card is assigned to. String starting with **cont_**., defaults to None
     :type ewallets: List[str], optional
     :param merchant_reference_id: ID defined by the client. Limited to 255 characters., defaults to None
     :type merchant_reference_id: str, optional
     :param metadata: A JSON object defined by the client., defaults to None
     :type metadata: dict, optional
-    :param payment: ID of the Payment object that the refund is charged against. String starting with payment_.
+    :param payment: ID of the Payment object that the refund is charged against. String starting with **payment_**.
     :type payment: str
     :param reason: Description of the reason for the refund., defaults to None
     :type reason: str, optional
@@ -39,13 +39,13 @@ class V1RefundsBody(BaseModel):
         :type amount: float, optional
         :param currency: The currency of the amount received by the original payment source. Three-letter ISO 4217 code., defaults to None
         :type currency: str, optional
-        :param ewallets: ID of the wallet contact that the card is assigned to. String starting with cont_., defaults to None
+        :param ewallets: ID of the wallet contact that the card is assigned to. String starting with **cont_**., defaults to None
         :type ewallets: List[str], optional
         :param merchant_reference_id: ID defined by the client. Limited to 255 characters., defaults to None
         :type merchant_reference_id: str, optional
         :param metadata: A JSON object defined by the client., defaults to None
         :type metadata: dict, optional
-        :param payment: ID of the Payment object that the refund is charged against. String starting with payment_.
+        :param payment: ID of the Payment object that the refund is charged against. String starting with **payment_**.
         :type payment: str
         :param reason: Description of the reason for the refund., defaults to None
         :type reason: str, optional

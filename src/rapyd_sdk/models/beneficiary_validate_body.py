@@ -18,9 +18,9 @@ BeneficiaryValidateBodyBeneficiary = Union[str, Beneficiary]
 class BeneficiaryValidateBody(BaseModel):
     """BeneficiaryValidateBody
 
-    :param amount: Maximum payout amount to validate, in units of the currency defined in sender_currency. Decimal.
+    :param amount: Maximum payout amount to validate, in units of the currency defined in `sender_currency`. Decimal.
     :type amount: float
-    :param beneficiary: String starting with beneficiary_ or the object describing the beneficiary.
+    :param beneficiary: String starting with **beneficiary_** or the object describing the beneficiary.
     :type beneficiary: BeneficiaryValidateBodyBeneficiary
     :param identifier_type: Identifier type of beneficiary, defaults to None
     :type identifier_type: str, optional
@@ -28,7 +28,7 @@ class BeneficiaryValidateBody(BaseModel):
     :type identifier_value: str, optional
     :param payout_method_type: The type of the payout method. Set to a value included in the response to List Payout Method Types. The two-letter prefix must match the beneficiary country code.
     :type payout_method_type: str
-    :param sender_country: sender_country
+    :param sender_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code.
     :type sender_country: str
     :param sender_currency: sender_currency
     :type sender_currency: str
@@ -49,9 +49,9 @@ class BeneficiaryValidateBody(BaseModel):
     ):
         """BeneficiaryValidateBody
 
-        :param amount: Maximum payout amount to validate, in units of the currency defined in sender_currency. Decimal.
+        :param amount: Maximum payout amount to validate, in units of the currency defined in `sender_currency`. Decimal.
         :type amount: float
-        :param beneficiary: String starting with beneficiary_ or the object describing the beneficiary.
+        :param beneficiary: String starting with **beneficiary_** or the object describing the beneficiary.
         :type beneficiary: BeneficiaryValidateBodyBeneficiary
         :param identifier_type: Identifier type of beneficiary, defaults to None
         :type identifier_type: str, optional
@@ -59,7 +59,7 @@ class BeneficiaryValidateBody(BaseModel):
         :type identifier_value: str, optional
         :param payout_method_type: The type of the payout method. Set to a value included in the response to List Payout Method Types. The two-letter prefix must match the beneficiary country code.
         :type payout_method_type: str
-        :param sender_country: sender_country
+        :param sender_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code.
         :type sender_country: str
         :param sender_currency: sender_currency
         :type sender_currency: str
@@ -77,11 +77,7 @@ class BeneficiaryValidateBody(BaseModel):
             "identifier_value", identifier_value, nullable=True
         )
         self.payout_method_type = payout_method_type
-        self.sender_country = self._define_str(
-            "sender_country",
-            sender_country,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
-        )
+        self.sender_country = sender_country
         self.sender_currency = self._define_str(
             "sender_currency",
             sender_currency,

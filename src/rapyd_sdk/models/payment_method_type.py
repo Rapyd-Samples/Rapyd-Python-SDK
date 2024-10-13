@@ -5,7 +5,7 @@ from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .payment_amount_range_per_currency_inner import PaymentAmountRangePerCurrencyInner
 from .category import Category
-from .field import Field
+from .field_1 import Field1
 
 
 class PaymentMethodTypePaymentFlowType(Enum):
@@ -21,6 +21,10 @@ class PaymentMethodTypePaymentFlowType(Enum):
     :vartype CARD: str
     :cvar REDIRECTURL: "redirect_url"
     :vartype REDIRECTURL: str
+    :cvar CASH: "cash"
+    :vartype CASH: str
+    :cvar BANKTRANSFER: "bank transfer"
+    :vartype BANKTRANSFER: str
     """
 
     DIRECT = "direct"
@@ -28,6 +32,8 @@ class PaymentMethodTypePaymentFlowType(Enum):
     EWALLETPAYOUT = "ewallet_payout"
     CARD = "card"
     REDIRECTURL = "redirect_url"
+    CASH = "cash"
+    BANKTRANSFER = "bank transfer"
 
     def list():
         """Lists all category values.
@@ -55,6 +61,8 @@ class PaymentMethodType(BaseModel):
     :type country: str, optional
     :param currencies: currencies, defaults to None
     :type currencies: List[str], optional
+    :param fields: Payment Method Type required field, defaults to None
+    :type fields: List[Field1], optional
     :param image: A URL to the image of the icon for the type of payment method. Response only, defaults to None
     :type image: str, optional
     :param is_cancelable: Indicates whether a payment made with this payment method can be canceled. Response only, defaults to None
@@ -80,10 +88,10 @@ class PaymentMethodType(BaseModel):
     :param payment_flow_type: payment_flow_type, defaults to None
     :type payment_flow_type: PaymentMethodTypePaymentFlowType, optional
     :param payment_options: payment_options, defaults to None
-    :type payment_options: List[Field], optional
+    :type payment_options: List[Field1], optional
     :param status: Indicates the status of the payment method. One of the following value is 1 means the payment_method_type is Valid, defaults to None
     :type status: str, optional
-    :param supported_digital_wallet_providers: Describes the digital wallet providers that support the payment method. These providers may include apple_pay and google_pay, defaults to None
+    :param supported_digital_wallet_providers: Describes the digital wallet providers that support the payment method. These providers may include **apple_pay** and **google_pay**., defaults to None
     :type supported_digital_wallet_providers: List[str], optional
     :param type_: Type of the payment method. For example, it_visa_card, defaults to None
     :type type_: str, optional
@@ -101,6 +109,7 @@ class PaymentMethodType(BaseModel):
         category: Category = None,
         country: str = None,
         currencies: List[str] = None,
+        fields: List[Field1] = None,
         image: str = None,
         is_cancelable: bool = None,
         is_expirable: bool = None,
@@ -113,7 +122,7 @@ class PaymentMethodType(BaseModel):
         multiple_overage_allowed: bool = None,
         name: str = None,
         payment_flow_type: PaymentMethodTypePaymentFlowType = None,
-        payment_options: List[Field] = None,
+        payment_options: List[Field1] = None,
         status: str = None,
         supported_digital_wallet_providers: List[str] = None,
         type_: str = None,
@@ -131,6 +140,8 @@ class PaymentMethodType(BaseModel):
         :type country: str, optional
         :param currencies: currencies, defaults to None
         :type currencies: List[str], optional
+        :param fields: Payment Method Type required field, defaults to None
+        :type fields: List[Field1], optional
         :param image: A URL to the image of the icon for the type of payment method. Response only, defaults to None
         :type image: str, optional
         :param is_cancelable: Indicates whether a payment made with this payment method can be canceled. Response only, defaults to None
@@ -156,10 +167,10 @@ class PaymentMethodType(BaseModel):
         :param payment_flow_type: payment_flow_type, defaults to None
         :type payment_flow_type: PaymentMethodTypePaymentFlowType, optional
         :param payment_options: payment_options, defaults to None
-        :type payment_options: List[Field], optional
+        :type payment_options: List[Field1], optional
         :param status: Indicates the status of the payment method. One of the following value is 1 means the payment_method_type is Valid, defaults to None
         :type status: str, optional
-        :param supported_digital_wallet_providers: Describes the digital wallet providers that support the payment method. These providers may include apple_pay and google_pay, defaults to None
+        :param supported_digital_wallet_providers: Describes the digital wallet providers that support the payment method. These providers may include **apple_pay** and **google_pay**., defaults to None
         :type supported_digital_wallet_providers: List[str], optional
         :param type_: Type of the payment method. For example, it_visa_card, defaults to None
         :type type_: str, optional
@@ -185,6 +196,7 @@ class PaymentMethodType(BaseModel):
             pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
         )
         self.currencies = currencies
+        self.fields = self._define_list(fields, Field1)
         self.image = self._define_str("image", image, nullable=True)
         self.is_cancelable = is_cancelable
         self.is_expirable = is_expirable
@@ -209,7 +221,7 @@ class PaymentMethodType(BaseModel):
             if payment_flow_type
             else None
         )
-        self.payment_options = self._define_list(payment_options, Field)
+        self.payment_options = self._define_list(payment_options, Field1)
         self.status = self._define_str("status", status, nullable=True)
         self.supported_digital_wallet_providers = supported_digital_wallet_providers
         self.type_ = self._define_str("type_", type_, nullable=True)

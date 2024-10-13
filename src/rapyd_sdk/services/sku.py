@@ -1,27 +1,29 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.v1_skus_body import V1SkusBody
 from ..models.utils.cast_models import cast_models
-from ..models.skus_sku_id_body import SkusSkuIdBody
-from ..models.inline_response_200_74 import InlineResponse200_74
-from ..models.inline_response_200_73 import InlineResponse200_73
-from ..models.inline_response_200_72 import InlineResponse200_72
+from ..models import (
+    InlineResponse200_40,
+    InlineResponse200_83,
+    InlineResponse200_84,
+    SkusSkuIdBody,
+    V1SkusBody,
+)
 
 
 class SkuService(BaseService):
 
     @cast_models
-    def retrieve_sku(self, sku_id: str) -> InlineResponse200_72:
+    def retrieve_sku(self, sku_id: str) -> InlineResponse200_83:
         """Retrieve the details of an SKU.
 
-        :param sku_id: ID of the 'sku' object. String starting with sku_.
+        :param sku_id: ID of the 'sku' object. String starting with **sku_**.
         :type sku_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The requested SKU object
-        :rtype: InlineResponse200_72
+        :rtype: InlineResponse200_83
         """
 
         Validator(str).validate(sku_id)
@@ -34,12 +36,12 @@ class SkuService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_72._unmap(response)
+        return InlineResponse200_83._unmap(response)
 
     @cast_models
     def update_sku(
         self, sku_id: str, request_body: SkusSkuIdBody = None
-    ) -> InlineResponse200_72:
+    ) -> InlineResponse200_83:
         """Change or modify an SKU.
 
         :param request_body: The request body., defaults to None
@@ -50,7 +52,7 @@ class SkuService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The requested SKU object
-        :rtype: InlineResponse200_72
+        :rtype: InlineResponse200_83
         """
 
         Validator(SkusSkuIdBody).is_optional().validate(request_body)
@@ -65,19 +67,19 @@ class SkuService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_72._unmap(response)
+        return InlineResponse200_83._unmap(response)
 
     @cast_models
-    def delete_sku(self, sku_id: str) -> InlineResponse200_73:
+    def delete_sku(self, sku_id: str) -> InlineResponse200_40:
         """Delete an SKU from the Rapyd platform.
 
-        :param sku_id: ID of the 'sku' object. String starting with sku_.
+        :param sku_id: ID of the 'sku' object. String starting with **sku_**.
         :type sku_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The SKU deletion result
-        :rtype: InlineResponse200_73
+        :rtype: InlineResponse200_40
         """
 
         Validator(str).validate(sku_id)
@@ -90,7 +92,7 @@ class SkuService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_73._unmap(response)
+        return InlineResponse200_40._unmap(response)
 
     @cast_models
     def list_sku(
@@ -99,7 +101,7 @@ class SkuService(BaseService):
         starting_after: float = None,
         ending_before: float = None,
         limit: float = None,
-    ) -> InlineResponse200_74:
+    ) -> InlineResponse200_84:
         """Retrieve a list of all SKUs.
 
         :param active: Determines whether the query returns active SKUs or inactive SKUs. Default is true., defaults to None
@@ -114,7 +116,7 @@ class SkuService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: List of SKUs,
-        :rtype: InlineResponse200_74
+        :rtype: InlineResponse200_84
         """
 
         Validator(bool).is_optional().validate(active)
@@ -133,10 +135,10 @@ class SkuService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_74._unmap(response)
+        return InlineResponse200_84._unmap(response)
 
     @cast_models
-    def create_sku(self, request_body: V1SkusBody = None) -> InlineResponse200_72:
+    def create_sku(self, request_body: V1SkusBody = None) -> InlineResponse200_83:
         """Create an SKU and attach it to a product.
 
         :param request_body: The request body., defaults to None
@@ -144,8 +146,8 @@ class SkuService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Created SKU,
-        :rtype: InlineResponse200_72
+        :return: SKU created.
+        :rtype: InlineResponse200_83
         """
 
         Validator(V1SkusBody).is_optional().validate(request_body)
@@ -158,4 +160,4 @@ class SkuService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_72._unmap(response)
+        return InlineResponse200_83._unmap(response)

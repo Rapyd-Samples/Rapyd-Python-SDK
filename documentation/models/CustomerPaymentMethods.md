@@ -4,9 +4,9 @@ An object containing the following fields - _ data - A list of up to three payme
 
 **Properties**
 
-| Name        | Type                          | Required | Description |
-| :---------- | :---------------------------- | :------- | :---------- |
-| data        | `List[CustomerPaymentMethod]` | ❌       |             |
-| has_more    | `bool`                        | ❌       |             |
-| total_count | `int`                         | ❌       |             |
-| url         | `str`                         | ❌       |             |
+| Name        | Type                        | Required | Description |
+| :---------- | :-------------------------- | :------- | :---------- |
+| data        | List[CustomerPaymentMethod] | ❌       |             |
+| has_more    | bool                        | ❌       |             |
+| total_count | int                         | ❌       |             |
+| url         | str                         | ❌       |             |

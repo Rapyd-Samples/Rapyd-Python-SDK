@@ -7,8 +7,8 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription_plan.list_plans(
-    ending_before=8.11,
-    limit=4.41,
+    ending_before="ending_before",
+    limit="limit",
     starting_after="starting_after"
 )
 

@@ -6,7 +6,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.subscription_product.get_product(products_id="products_id")
+result = sdk.subscription_product.get_product(products_id_1="products_id")
 
 print(result)
 

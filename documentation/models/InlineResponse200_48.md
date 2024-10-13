@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type            | Required | Description |
-| :----- | :-------------- | :------- | :---------- |
-| data   | `OrderResponse` | ❌       |             |
-| status | `Status`        | ❌       |             |
+| Name   | Type    | Required | Description                                                                            |
+| :----- | :------ | :------- | :------------------------------------------------------------------------------------- |
+| status | Status1 | ❌       |                                                                                        |
+| data   | Dispute | ❌       | Describes the fields contained in REST messages and webhooks for disputes of payments. |

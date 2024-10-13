@@ -4,7 +4,7 @@ from .utils.base_model import BaseModel
 
 @JsonMap({})
 class MerchantCustomerSupport(BaseModel):
-    """MerchantCustomerSupport
+    """Contains details of the client’s customer support. To configure these fields, use the Client Portal.
 
     :param email: Email address., defaults to None
     :type email: str, optional
@@ -23,7 +23,7 @@ class MerchantCustomerSupport(BaseModel):
         phone_number: str = None,
         merchant_logo: str = None,
     ):
-        """MerchantCustomerSupport
+        """Contains details of the client’s customer support. To configure these fields, use the Client Portal.
 
         :param email: Email address., defaults to None
         :type email: str, optional

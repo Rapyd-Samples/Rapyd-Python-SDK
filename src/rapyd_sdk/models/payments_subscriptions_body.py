@@ -22,7 +22,7 @@ PaymentsSubscriptionsBodyPaymentMethod = Union[str, PaymentMethodType]
 class PaymentsSubscriptionsBody(BaseModel):
     """PaymentsSubscriptionsBody
 
-    :param billing: Determines the method of billing. Set to pay_automatically., defaults to None
+    :param billing: Determines the method of billing. Set to **pay_automatically**., defaults to None
     :type billing: str, optional
     :param billing_cycle_anchor: Determines the start of the next billing cycle, as defined in the plan described in the 'items'. Value must be timestamp in Unix time., defaults to None
     :type billing_cycle_anchor: float, optional
@@ -74,7 +74,7 @@ class PaymentsSubscriptionsBody(BaseModel):
     ):
         """PaymentsSubscriptionsBody
 
-        :param billing: Determines the method of billing. Set to pay_automatically., defaults to None
+        :param billing: Determines the method of billing. Set to **pay_automatically**., defaults to None
         :type billing: str, optional
         :param billing_cycle_anchor: Determines the start of the next billing cycle, as defined in the plan described in the 'items'. Value must be timestamp in Unix time., defaults to None
         :type billing_cycle_anchor: float, optional

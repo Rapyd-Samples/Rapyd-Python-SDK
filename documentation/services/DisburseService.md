@@ -8,13 +8,14 @@ A list of all methods in the `DisburseService` service. Click on the method name
 | [list_payouts](#list_payouts)                                       | Retrieve a list of payouts that you created.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | [create_payout](#create_payout)                                     | Create a payout (disbursement). This method triggers the Payout Created webhook. This webhook contains the same information as the response. If the action of a third party is not required, the Payout Completed webhook is also triggered.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | [create_beneficiary](#create_beneficiary)                           | Create a beneficiary for use in payouts. The response provides a unique beneficiary ID, which you can use in place of the Beneficiary object for Create Payout. This method triggers the Beneficiary Created webhook. This webhook contains the same information as the response. Note: In addition to the required fields documented below, you must include all other beneficiary fields listed in the response to Get Payout Required Fields, and you must conform to the regex provided. To create a beneficiary that you can use with multiple payout methods, include all fields that are required by each payout method. The client is responsible for including all required fields. |
+| [create_extended_beneficiary](#create_extended_beneficiary)         | Create a beneficiary that includes all compliance related data for payouts. The response provides a unique beneficiary ID, which you can use in place of the beneficiary object for Create Payout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | [validate_beneficiary](#validate_beneficiary)                       | Validate the format of the details for a payout beneficiary. You can validate a beneficiary multiple times for different payout methods. You can enter a Beneficiary object or a previously created beneficiary ID. Note: In addition to the required fields for Create Beneficiary, the Beneficiary object must include all required fields for the beneficiary listed in the response to Get Payout Required Fields. The examples include additional fields for the 'us_ach_bank' payout method.                                                                                                                                                                                           |
 | [get_beneficiary](#get_beneficiary)                                 | Retrieve details of a payout beneficiary. Note: The 'Retrieve Beneficiary - individual' response includes additional fields for the 'ca_general_bank' payout method. The 'Retrieve Beneficiary - company' response includes additional fields for the 'us_ach_bank' payout method.                                                                                                                                                                                                                                                                                                                                                                                                           |
 | [delete_beneficiary](#delete_beneficiary)                           | Delete a payout beneficiary from the Rapyd platform.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | [simulate_complete_payout](#simulate_complete_payout)               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [confirm_payout](#confirm_payout)                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [create_sender](#create_sender)                                     | Create a sender for use in payouts. The response provides a unique sender ID, which you can use in place of the sender object for Create Payout. Note: In addition to the required fields documented below, you must include all other sender fields listed in the response to Get Payout Required Fields, and you must conform to the regex provided. To create a sender that you can use with multiple payout methods, include all fields that are required by each payout method. The client is responsible for including all required fields.                                                                                                                                            |
-| [get_payer](#get_payer)                                             | Note: The Retrieve Sender - individual response includes additional fields for the ca_general_bank payout method. The Retrieve Sender - company response includes an additional field for the us_ach_bank payout method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [get_payer](#get_payer)                                             | Note: The Retrieve Sender - individual response includes additional fields for the **ca_general_bank** payout method. The Retrieve Sender - company response includes an additional field for the **us_ach_bank** payout method.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | [delete_payer](#delete_payer)                                       | Delete a payout sender from the Rapyd platform.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [get_payout_method_types](#get_payout_method_types)                 | Retrieve a list of payout method types that you can use when creating a payout. The response contains a list of objects. Each object includes a payout method type and its attributes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | [get_payout](#get_payout)                                           | Retrieve the details of a payout.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -30,16 +31,16 @@ Retrieve the fields required to use a payout method type. The fields are returne
 
 **Parameters**
 
-| Name                    | Type    | Required | Description                                                                                                                                                                          |
-| :---------------------- | :------ | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pomt                    | `str`   | ✅       | The type of the payout method. Set to the name of a payout method listed in the response to List Payout Method Types. The two-letter prefix must match the beneficiary country code. |
-| beneficiary_country     | `str`   | ✅       | Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. Uppercase.                                                                                                           |
-| beneficiary_entity_type | `str`   | ✅       | Type of entity for the beneficiary. One of the following, individual, company                                                                                                        |
-| payout_amount           | `float` | ✅       | Amount of the payout, in units of the currency that the beneficiary is receiving. Decimal.                                                                                           |
-| payout_currency         | `str`   | ✅       | Currency received by the beneficiary. Three-letter ISO 4217 code. Uppercase.                                                                                                         |
-| sender_country          | `str`   | ✅       | Country of the sender. Two-letter ISO 3166-1 ALPHA-2 code. Uppercase.                                                                                                                |
-| sender_currency         | `str`   | ✅       | Currency that the sender is paying with. Three-letter ISO 4217 code. Uppercase.                                                                                                      |
-| sender_entity_type      | `str`   | ✅       | Type of entity for the sender. One of the following: individual, company                                                                                                             |
+| Name                    | Type  | Required | Description                                                                                                                                                                          |
+| :---------------------- | :---- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pomt                    | str   | ✅       | The type of the payout method. Set to the name of a payout method listed in the response to List Payout Method Types. The two-letter prefix must match the beneficiary country code. |
+| beneficiary_country     | str   | ✅       | Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. Uppercase.                                                                                                           |
+| beneficiary_entity_type | str   | ✅       | Type of entity for the beneficiary. One of the following, **individual** \| **company**                                                                                              |
+| payout_amount           | float | ✅       | Amount of the payout, in units of the currency that the beneficiary is receiving. Decimal.                                                                                           |
+| payout_currency         | str   | ✅       | Currency received by the beneficiary. Three-letter ISO 4217 code. Uppercase.                                                                                                         |
+| sender_country          | str   | ✅       | Country of the sender. Two-letter ISO 3166-1 ALPHA-2 code. Uppercase.                                                                                                                |
+| sender_currency         | str   | ✅       | Currency that the sender is paying with. Three-letter ISO 4217 code. Uppercase.                                                                                                      |
+| sender_entity_type      | str   | ✅       | Type of entity for the sender. One of the following: **individual** \| **company**                                                                                                   |
 
 **Return Type**
 
@@ -59,7 +60,7 @@ result = sdk.disburse.get_payout_method_types_details(
     pomt="pomt",
     beneficiary_country="beneficiary_country",
     beneficiary_entity_type="beneficiary_entity_type",
-    payout_amount=5.58,
+    payout_amount=0.8,
     payout_currency="payout_currency",
     sender_country="sender_country",
     sender_currency="sender_currency",
@@ -78,20 +79,20 @@ Retrieve a list of payouts that you created.
 
 **Parameters**
 
-| Name                  | Type  | Required | Description                                                                                                                                                                                                                                             |
-| :-------------------- | :---- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| beneficiary           | `str` | ❌       | Filters according to the beneficiary ID. String starting with beneficiary\_.                                                                                                                                                                            |
-| created_after         | `str` | ❌       | The ID of the payout created before the first payout you want to retrieve. String starting with payout\_.                                                                                                                                               |
-| created_before        | `str` | ❌       | The ID of the payout created after the last payout you want to retrieve. String starting with payout\_.                                                                                                                                                 |
-| ending_before         | `str` | ❌       | The ID of a payout in the list. The list ends with the payout that was created before the payout with this ID. Use this filter to get the previous page of results. String starting with payout\_. Deprecated.                                          |
-| ewallet               | `str` | ❌       | Filters according to the wallet ID. String starting with ewallet\_.                                                                                                                                                                                     |
-| limit                 | `str` | ❌       | The maximum number of payouts to return. Range: 1-100. Default is 10.                                                                                                                                                                                   |
-| merchant_reference_id | `str` | ❌       | Filters according to the merchant reference ID.                                                                                                                                                                                                         |
-| payout_method_type    | `str` | ❌       | Filters according to the type of payout method. The two-letter prefix must match the beneficiary country code.                                                                                                                                          |
-| sender                | `str` | ❌       | Filters according to the sender ID. String starting with sender\_.                                                                                                                                                                                      |
-| sender_country        | `str` | ❌       | Filters according to the country of the sender. Two-letter ISO 3166-1 ALPHA-2 code.                                                                                                                                                                     |
-| sender_currency       | `str` | ❌       | Filters according to the currency that the sender is paying with. Three-letter ISO 4217 code.                                                                                                                                                           |
-| starting_after        | `str` | ❌       | The ID of a payout in the list. The list begins with the payout that was created next after the payout with this ID. Use this filter to get the next page of results. Relevant when ending*before is not used. String starting with payout*. Deprecated |
+| Name                  | Type | Required | Description                                                                                                                                                                                                                                                |
+| :-------------------- | :--- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| beneficiary           | str  | ❌       | Filters according to the beneficiary ID. String starting with **beneficiary\_**.                                                                                                                                                                           |
+| created_after         | str  | ❌       | The ID of the payout created before the first payout you want to retrieve. String starting with **payout\_**.                                                                                                                                              |
+| created_before        | str  | ❌       | The ID of the payout created after the last payout you want to retrieve. String starting with **payout\_**.                                                                                                                                                |
+| ending_before         | str  | ❌       | The ID of a payout in the list. The list ends with the payout that was created before the payout with this ID. Use this filter to get the previous page of results. String starting with **payout\_**. Deprecated.                                         |
+| ewallet               | str  | ❌       | Filters according to the wallet ID. String starting with **ewallet\_**.                                                                                                                                                                                    |
+| limit                 | str  | ❌       | The maximum number of payouts to return. Range: 1-100. Default is 10.                                                                                                                                                                                      |
+| merchant_reference_id | str  | ❌       | Filters according to the merchant reference ID.                                                                                                                                                                                                            |
+| payout_method_type    | str  | ❌       | Filters according to the type of payout method. The two-letter prefix must match the beneficiary country code.                                                                                                                                             |
+| sender                | str  | ❌       | Filters according to the sender ID. String starting with **sender\_**.                                                                                                                                                                                     |
+| sender_country        | str  | ❌       | Filters according to the country of the sender. Two-letter ISO 3166-1 ALPHA-2 code.                                                                                                                                                                        |
+| sender_currency       | str  | ❌       | Filters according to the currency that the sender is paying with. Three-letter ISO 4217 code.                                                                                                                                                              |
+| starting_after        | str  | ❌       | The ID of a payout in the list. The list begins with the payout that was created next after the payout with this ID. Use this filter to get the next page of results. Relevant when ending*before is not used. String starting \*\*payout*\*\*. Deprecated |
 
 **Return Type**
 
@@ -117,8 +118,8 @@ result = sdk.disburse.list_payouts(
     merchant_reference_id="merchant_reference_id",
     payout_method_type="payout_method_type",
     sender="sender",
-    sender_country="GB",
-    sender_currency="GBP",
+    sender_country="quis v",
+    sender_currency="NPR",
     starting_after="starting_after"
 )
 
@@ -134,9 +135,9 @@ Create a payout (disbursement). This method triggers the Payout Created webhook.
 
 **Parameters**
 
-| Name         | Type                                          | Required | Description       |
-| :----------- | :-------------------------------------------- | :------- | :---------------- |
-| request_body | `[V1PayoutsBody](../models/V1PayoutsBody.md)` | ✅       | The request body. |
+| Name         | Type                                        | Required | Description       |
+| :----------- | :------------------------------------------ | :------- | :---------------- |
+| request_body | [V1PayoutsBody](../models/V1PayoutsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
@@ -146,15 +147,15 @@ Create a payout (disbursement). This method triggers the Payout Created webhook.
 
 ```python
 from rapyd_sdk import RapydSdk, Environment
-from rapyd_sdk.models.v1_payouts_body import V1PayoutsBody1
+from rapyd_sdk.models import V1PayoutsBody
 
 sdk = RapydSdk(
     base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
-request_body = V1PayoutsBody1(
-    beneficiary="mollit u",
+request_body = V1PayoutsBody(
+    beneficiary="proident id ",
     beneficiary_country="US",
     beneficiary_entity_type="individual",
     confirm_automatically=True,
@@ -166,12 +167,12 @@ request_body = V1PayoutsBody1(
     merchant_reference_id="GHY-0YU-HUJ-POI",
     metadata={},
     payout_amount=110,
-    payout_currency="GBP",
+    payout_currency="DZD",
     payout_method_type="us_general_bank",
     payout_options={},
-    sender="irure nulla",
-    sender_country="GB",
-    sender_currency="GBP",
+    sender="incididunt sed",
+    sender_country="commodo sint ",
+    sender_currency="LRD",
     sender_entity_type="company",
     statement_descriptor="statement_descriptor"
 )
@@ -190,9 +191,9 @@ Create a beneficiary for use in payouts. The response provides a unique benefici
 
 **Parameters**
 
-| Name         | Type                                                            | Required | Description       |
-| :----------- | :-------------------------------------------------------------- | :------- | :---------------- |
-| request_body | `[PayoutsBeneficiaryBody](../models/PayoutsBeneficiaryBody.md)` | ✅       | The request body. |
+| Name         | Type                                                          | Required | Description       |
+| :----------- | :------------------------------------------------------------ | :------- | :---------------- |
+| request_body | [PayoutsBeneficiaryBody](../models/PayoutsBeneficiaryBody.md) | ✅       | The request body. |
 
 **Return Type**
 
@@ -212,8 +213,8 @@ sdk = RapydSdk(
 request_body = PayoutsBeneficiaryBody(
     category="bank",
     company_name="ABC",
-    country="GB",
-    currency="GBP",
+    country="velit qui cill",
+    currency="DJF",
     default_payout_method_type="us_general_bank",
     entity_type="company",
     first_name="John",
@@ -228,6 +229,60 @@ result = sdk.disburse.create_beneficiary(request_body=request_body)
 print(result)
 ```
 
+## create_extended_beneficiary
+
+Create a beneficiary that includes all compliance related data for payouts. The response provides a unique beneficiary ID, which you can use in place of the beneficiary object for Create Payout
+
+- HTTP Method: `POST`
+- Endpoint: `/v1/payouts/extended_beneficiary`
+
+**Parameters**
+
+| Name         | Type                                                                          | Required | Description       |
+| :----------- | :---------------------------------------------------------------------------- | :------- | :---------------- |
+| request_body | [PayoutsExtendedBeneficiaryBody](../models/PayoutsExtendedBeneficiaryBody.md) | ✅       | The request body. |
+
+**Return Type**
+
+`InlineResponse200_13`
+
+**Example Usage Code Snippet**
+
+```python
+from rapyd_sdk import RapydSdk, Environment
+from rapyd_sdk.models import PayoutsExtendedBeneficiaryBody
+
+sdk = RapydSdk(
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
+)
+
+request_body = PayoutsExtendedBeneficiaryBody(
+    address="123 East 32nd street",
+    city="anytown",
+    category="bank",
+    company_name="All Star Limousine Service",
+    country="ipsum",
+    country_of_incorporation="IT",
+    currency="HUF",
+    date_of_birth="05/03/1967",
+    date_of_incorporation="05/03/1967",
+    default_payout_method_type="us_general_bank",
+    entity_type="company",
+    first_name="John",
+    gender="male",
+    identification_type="drivers_license",
+    identification_value="ABNHDLK354665",
+    last_name="John",
+    merchant_reference_id="GHY-0YU-HUJ-POI",
+    nationality="SG"
+)
+
+result = sdk.disburse.create_extended_beneficiary(request_body=request_body)
+
+print(result)
+```
+
 ## validate_beneficiary
 
 Validate the format of the details for a payout beneficiary. You can validate a beneficiary multiple times for different payout methods. You can enter a Beneficiary object or a previously created beneficiary ID. Note: In addition to the required fields for Create Beneficiary, the Beneficiary object must include all required fields for the beneficiary listed in the response to Get Payout Required Fields. The examples include additional fields for the 'us_ach_bank' payout method.
@@ -237,9 +292,9 @@ Validate the format of the details for a payout beneficiary. You can validate a 
 
 **Parameters**
 
-| Name         | Type                                                              | Required | Description       |
-| :----------- | :---------------------------------------------------------------- | :------- | :---------------- |
-| request_body | `[BeneficiaryValidateBody](../models/BeneficiaryValidateBody.md)` | ✅       | The request body. |
+| Name         | Type                                                            | Required | Description       |
+| :----------- | :-------------------------------------------------------------- | :------- | :---------------- |
+| request_body | [BeneficiaryValidateBody](../models/BeneficiaryValidateBody.md) | ✅       | The request body. |
 
 **Return Type**
 
@@ -257,13 +312,13 @@ sdk = RapydSdk(
 )
 
 request_body = BeneficiaryValidateBody(
-    amount=4.29,
-    beneficiary="Duis c",
+    amount=3.71,
+    beneficiary="ut in",
     identifier_type="identifier_type",
     identifier_value="identifier_value",
     payout_method_type="us_general_bank",
-    sender_country="GB",
-    sender_currency="GBP",
+    sender_country="repre",
+    sender_currency="HRK",
     sender_entity_type="company"
 )
 
@@ -281,9 +336,9 @@ Retrieve details of a payout beneficiary. Note: The 'Retrieve Beneficiary - indi
 
 **Parameters**
 
-| Name           | Type  | Required | Description                                                         |
-| :------------- | :---- | :------- | :------------------------------------------------------------------ |
-| beneficiary_id | `str` | ✅       | ID of the 'beneficiary' object. String starting with beneficiary\_. |
+| Name           | Type | Required | Description                                                             |
+| :------------- | :--- | :------- | :---------------------------------------------------------------------- |
+| beneficiary_id | str  | ✅       | ID of the 'beneficiary' object. String starting with **beneficiary\_**. |
 
 **Return Type**
 
@@ -313,9 +368,9 @@ Delete a payout beneficiary from the Rapyd platform.
 
 **Parameters**
 
-| Name           | Type  | Required | Description                                                         |
-| :------------- | :---- | :------- | :------------------------------------------------------------------ |
-| beneficiary_id | `str` | ✅       | ID of the 'beneficiary' object. String starting with beneficiary\_. |
+| Name           | Type | Required | Description                                                             |
+| :------------- | :--- | :------- | :---------------------------------------------------------------------- |
+| beneficiary_id | str  | ✅       | ID of the 'beneficiary' object. String starting with **beneficiary\_**. |
 
 **Return Type**
 
@@ -343,10 +398,10 @@ print(result)
 
 **Parameters**
 
-| Name         | Type  | Required | Description                                                                                                                        |
-| :----------- | :---- | :------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-| payout_token | `str` | ✅       | ID of the payout. String starting with 'payout\_'.                                                                                 |
-| amount       | `str` | ✅       | The payout amount. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. |
+| Name         | Type | Required | Description                                                                                                                        |
+| :----------- | :--- | :------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| payout_token | str  | ✅       | ID of the payout. String starting with **payout\_**.                                                                               |
+| amount       | str  | ✅       | The payout amount. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. |
 
 **Return Type**
 
@@ -377,9 +432,9 @@ print(result)
 
 **Parameters**
 
-| Name         | Type  | Required | Description                                        |
-| :----------- | :---- | :------- | :------------------------------------------------- |
-| payout_token | `str` | ✅       | ID of the payout. String starting with 'payout\_'. |
+| Name         | Type | Required | Description                                          |
+| :----------- | :--- | :------- | :--------------------------------------------------- |
+| payout_token | str  | ✅       | ID of the payout. String starting with **payout\_**. |
 
 **Return Type**
 
@@ -409,9 +464,9 @@ Create a sender for use in payouts. The response provides a unique sender ID, wh
 
 **Parameters**
 
-| Name         | Type                                                  | Required | Description       |
-| :----------- | :---------------------------------------------------- | :------- | :---------------- |
-| request_body | `[PayoutsSenderBody](../models/PayoutsSenderBody.md)` | ✅       | The request body. |
+| Name         | Type                                                | Required | Description       |
+| :----------- | :-------------------------------------------------- | :------- | :---------------- |
+| request_body | [PayoutsSenderBody](../models/PayoutsSenderBody.md) | ✅       | The request body. |
 
 **Return Type**
 
@@ -430,8 +485,8 @@ sdk = RapydSdk(
 
 request_body = PayoutsSenderBody(
     company_name="ABC",
-    country="GB",
-    currency="GBP",
+    country="esseesse ut",
+    currency="UZS",
     entity_type="company",
     first_name="Scott",
     identification_type="drivers_license",
@@ -446,16 +501,16 @@ print(result)
 
 ## get_payer
 
-Note: The Retrieve Sender - individual response includes additional fields for the ca_general_bank payout method. The Retrieve Sender - company response includes an additional field for the us_ach_bank payout method.
+Note: The Retrieve Sender - individual response includes additional fields for the **ca_general_bank** payout method. The Retrieve Sender - company response includes an additional field for the **us_ach_bank** payout method.
 
 - HTTP Method: `GET`
 - Endpoint: `/v1/payouts/sender/{senderId}`
 
 **Parameters**
 
-| Name      | Type  | Required | Description                                               |
-| :-------- | :---- | :------- | :-------------------------------------------------------- |
-| sender_id | `str` | ✅       | ID of the Sender object. String starting with 'sender\_'. |
+| Name      | Type | Required | Description                                                 |
+| :-------- | :--- | :------- | :---------------------------------------------------------- |
+| sender_id | str  | ✅       | ID of the Sender object. String starting with **sender\_**. |
 
 **Return Type**
 
@@ -485,9 +540,9 @@ Delete a payout sender from the Rapyd platform.
 
 **Parameters**
 
-| Name      | Type  | Required | Description                                               |
-| :-------- | :---- | :------- | :-------------------------------------------------------- |
-| sender_id | `str` | ✅       | ID of the 'sender' object. String starting with sender\_. |
+| Name      | Type | Required | Description                                                   |
+| :-------- | :--- | :------- | :------------------------------------------------------------ |
+| sender_id | str  | ✅       | ID of the `sender` object. String starting with **sender\_**. |
 
 **Return Type**
 
@@ -517,21 +572,21 @@ Retrieve a list of payout method types that you can use when creating a payout. 
 
 **Parameters**
 
-| Name                    | Type   | Required | Description                                                                                                                                                                                                                        |
-| :---------------------- | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sender_entity_type      | `str`  | ❌       | Filters the type of entity for the payer. One of the following: individual, company                                                                                                                                                |
-| beneficiary_country     | `str`  | ❌       | Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code.                                                                                                                                                                    |
-| payout_currency         | `str`  | ❌       | Currency received by the beneficiary. Three-letter ISO 4217 code.                                                                                                                                                                  |
-| sender_currency         | `str`  | ❌       | Currency that the sender is paying with. Three-letter ISO 4217 code.                                                                                                                                                               |
-| sender_country          | `str`  | ❌       | Country of the sender. Two-letter ISO 3166-1 ALPHA-2 code. Note: This field does not appear in the response.                                                                                                                       |
-| beneficiary_entity_type | `str`  | ❌       | Filters the type of entity for the beneficiary. One of the following: individual, company                                                                                                                                          |
-| category                | `str`  | ❌       | The category of payout method. One of the following: bank, card, cash, rapyd_ewallet, ewallet                                                                                                                                      |
-| is_cancelable           | `bool` | ❌       | Indicates whether the payout can be canceled. Relevant when category is cash.                                                                                                                                                      |
-| is_location_specific    | `bool` | ❌       | Indicates whether the payout must be made at a specific physical location. Relevant when category is cash.                                                                                                                         |
-| is_expirable            | `bool` | ❌       | Indicates whether the payout expires if not completed. Relevant when category is cash.                                                                                                                                             |
-| starting_after          | `str`  | ❌       | The name of a payout method in the list. The list begins with the record that was created next after the record with this payout method. Use this filter to get the next page of results. Relevant when ending_before is not used. |
-| ending_before           | `str`  | ❌       | The name of a payout method in the list. The list ends with the last record that was created before the record with this payout method. Use this filter to get the previous page of results.                                       |
-| limit                   | `str`  | ❌       | The maximum number of payout methods to return. Range: 1-100. Default is 10.                                                                                                                                                       |
+| Name                    | Type | Required | Description                                                                                                                                                                                                                        |
+| :---------------------- | :--- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sender_entity_type      | str  | ❌       | Filters the type of entity for the payer. One of the following: **individual** \| **company**                                                                                                                                      |
+| beneficiary_country     | str  | ❌       | Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code.                                                                                                                                                                    |
+| payout_currency         | str  | ❌       | Currency received by the beneficiary. Three-letter ISO 4217 code.                                                                                                                                                                  |
+| sender_currency         | str  | ❌       | Currency that the sender is paying with. Three-letter ISO 4217 code.                                                                                                                                                               |
+| sender_country          | str  | ❌       | Country of the sender. Two-letter ISO 3166-1 ALPHA-2 code. Note: This field does not appear in the response.                                                                                                                       |
+| beneficiary_entity_type | str  | ❌       | Filters the type of entity for the beneficiary. One of the following: **individual** \| **company**                                                                                                                                |
+| category                | str  | ❌       | The category of payout method. One of the following: bank, card, cash, rapyd_ewallet, ewallet                                                                                                                                      |
+| is_cancelable           | bool | ❌       | Indicates whether the payout can be canceled. Relevant when category is cash.                                                                                                                                                      |
+| is_location_specific    | bool | ❌       | Indicates whether the payout must be made at a specific physical location. Relevant when category is cash.                                                                                                                         |
+| is_expirable            | bool | ❌       | Indicates whether the payout expires if not completed. Relevant when category is cash.                                                                                                                                             |
+| starting_after          | str  | ❌       | The name of a payout method in the list. The list begins with the record that was created next after the record with this payout method. Use this filter to get the next page of results. Relevant when ending_before is not used. |
+| ending_before           | str  | ❌       | The name of a payout method in the list. The list ends with the last record that was created before the record with this payout method. Use this filter to get the previous page of results.                                       |
+| limit                   | str  | ❌       | The maximum number of payout methods to return. Range: 1-100. Default is 10.                                                                                                                                                       |
 
 **Return Type**
 
@@ -556,7 +611,7 @@ result = sdk.disburse.get_payout_method_types(
     beneficiary_entity_type="beneficiary_entity_type",
     category="category",
     is_cancelable=True,
-    is_location_specific=True,
+    is_location_specific=False,
     is_expirable=False,
     starting_after="starting_after",
     ending_before="ending_before",
@@ -575,9 +630,9 @@ Retrieve the details of a payout.
 
 **Parameters**
 
-| Name      | Type  | Required | Description                                        |
-| :-------- | :---- | :------- | :------------------------------------------------- |
-| payout_id | `str` | ✅       | ID of the payout. String starting with 'payout\_'. |
+| Name      | Type | Required | Description                                          |
+| :-------- | :--- | :------- | :--------------------------------------------------- |
+| payout_id | str  | ✅       | ID of the payout. String starting with **payout\_**. |
 
 **Return Type**
 
@@ -607,14 +662,14 @@ Change or modify a payout. This method triggers the Payout Updated webhook. This
 
 **Parameters**
 
-| Name         | Type                                                      | Required | Description                                      |
-| :----------- | :-------------------------------------------------------- | :------- | :----------------------------------------------- |
-| request_body | `[PayoutsPayoutIdBody](../models/PayoutsPayoutIdBody.md)` | ✅       | The request body.                                |
-| payout_id    | `str`                                                     | ✅       | ID of the payout. String starting with payout\_. |
+| Name         | Type                                                    | Required | Description                                          |
+| :----------- | :------------------------------------------------------ | :------- | :--------------------------------------------------- |
+| request_body | [PayoutsPayoutIdBody](../models/PayoutsPayoutIdBody.md) | ✅       | The request body.                                    |
+| payout_id    | str                                                     | ✅       | ID of the payout. String starting with **payout\_**. |
 
 **Return Type**
 
-`InlineResponse200_12`
+`InlineResponse200_19`
 
 **Example Usage Code Snippet**
 
@@ -649,9 +704,9 @@ The payout can be canceled unless its status is confirmation or completed. This 
 
 **Parameters**
 
-| Name      | Type  | Required | Description                                      |
-| :-------- | :---- | :------- | :----------------------------------------------- |
-| payout_id | `str` | ✅       | ID of the payout. String starting with payout\_. |
+| Name      | Type | Required | Description                                          |
+| :-------- | :--- | :------- | :--------------------------------------------------- |
+| payout_id | str  | ✅       | ID of the payout. String starting with **payout\_**. |
 
 **Return Type**
 

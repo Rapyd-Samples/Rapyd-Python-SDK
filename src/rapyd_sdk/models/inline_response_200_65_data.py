@@ -23,7 +23,7 @@ class InlineResponse200_65Data(BaseModel):
     :type description: str, optional
     :param expiration: End of the time allowed for customers to make this payment, in Unix time. Response only., defaults to None
     :type expiration: float, optional
-    :param id_: ID of the Group Payment object. String starting with gp_., defaults to None
+    :param id_: ID of the Group Payment object. String starting with **gp_**., defaults to None
     :type id_: str, optional
     :param merchant_reference_id: Merchant-defined ID. Limited to 255 characters., defaults to None
     :type merchant_reference_id: str, optional
@@ -66,7 +66,7 @@ class InlineResponse200_65Data(BaseModel):
         :type description: str, optional
         :param expiration: End of the time allowed for customers to make this payment, in Unix time. Response only., defaults to None
         :type expiration: float, optional
-        :param id_: ID of the Group Payment object. String starting with gp_., defaults to None
+        :param id_: ID of the Group Payment object. String starting with **gp_**., defaults to None
         :type id_: str, optional
         :param merchant_reference_id: Merchant-defined ID. Limited to 255 characters., defaults to None
         :type merchant_reference_id: str, optional

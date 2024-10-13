@@ -1,21 +1,25 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.v1_payouts_body import V1PayoutsBody
 from ..models.utils.cast_models import cast_models
-from ..models.payouts_sender_body import PayoutsSenderBody
-from ..models.payouts_payout_id_body import PayoutsPayoutIdBody
-from ..models.payouts_beneficiary_body import PayoutsBeneficiaryBody
-from ..models.inline_response_200_18 import InlineResponse200_18
-from ..models.inline_response_200_17 import InlineResponse200_17
-from ..models.inline_response_200_16 import InlineResponse200_16
-from ..models.inline_response_200_15 import InlineResponse200_15
-from ..models.inline_response_200_14 import InlineResponse200_14
-from ..models.inline_response_200_13 import InlineResponse200_13
-from ..models.inline_response_200_12 import InlineResponse200_12
-from ..models.inline_response_200_11 import InlineResponse200_11
-from ..models.inline_response_200_10 import InlineResponse200_10
-from ..models.beneficiary_validate_body import BeneficiaryValidateBody
+from ..models import (
+    BeneficiaryValidateBody,
+    InlineResponse200_10,
+    InlineResponse200_11,
+    InlineResponse200_12,
+    InlineResponse200_13,
+    InlineResponse200_14,
+    InlineResponse200_15,
+    InlineResponse200_16,
+    InlineResponse200_17,
+    InlineResponse200_18,
+    InlineResponse200_19,
+    PayoutsBeneficiaryBody,
+    PayoutsExtendedBeneficiaryBody,
+    PayoutsPayoutIdBody,
+    PayoutsSenderBody,
+    V1PayoutsBody,
+)
 
 
 class DisburseService(BaseService):
@@ -39,7 +43,7 @@ class DisburseService(BaseService):
         :type pomt: str
         :param beneficiary_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. Uppercase.
         :type beneficiary_country: str
-        :param beneficiary_entity_type: Type of entity for the beneficiary. One of the following, individual, company
+        :param beneficiary_entity_type: Type of entity for the beneficiary. One of the following, **individual** | **company**
         :type beneficiary_entity_type: str
         :param payout_amount: Amount of the payout, in units of the currency that the beneficiary is receiving. Decimal.
         :type payout_amount: float
@@ -49,7 +53,7 @@ class DisburseService(BaseService):
         :type sender_country: str
         :param sender_currency: Currency that the sender is paying with. Three-letter ISO 4217 code. Uppercase.
         :type sender_currency: str
-        :param sender_entity_type: Type of entity for the sender. One of the following: individual, company
+        :param sender_entity_type: Type of entity for the sender. One of the following: **individual** | **company**
         :type sender_entity_type: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -105,15 +109,15 @@ class DisburseService(BaseService):
     ) -> InlineResponse200_11:
         """Retrieve a list of payouts that you created.
 
-        :param beneficiary: Filters according to the beneficiary ID. String starting with beneficiary_., defaults to None
+        :param beneficiary: Filters according to the beneficiary ID. String starting with **beneficiary_**., defaults to None
         :type beneficiary: str, optional
-        :param created_after: The ID of the payout created before the first payout you want to retrieve. String starting with payout_., defaults to None
+        :param created_after: The ID of the payout created before the first payout you want to retrieve. String starting with **payout_**., defaults to None
         :type created_after: str, optional
-        :param created_before: The ID of the payout created after the last payout you want to retrieve. String starting with payout_., defaults to None
+        :param created_before: The ID of the payout created after the last payout you want to retrieve. String starting with **payout_**., defaults to None
         :type created_before: str, optional
-        :param ending_before: The ID of a payout in the list. The list ends with the payout that was created before the payout with this ID. Use this filter to get the previous page of results. String starting with payout_. Deprecated., defaults to None
+        :param ending_before: The ID of a payout in the list. The list ends with the payout that was created before the payout with this ID. Use this filter to get the previous page of results. String starting with **payout_**. Deprecated., defaults to None
         :type ending_before: str, optional
-        :param ewallet: Filters according to the wallet ID. String starting with ewallet_., defaults to None
+        :param ewallet: Filters according to the wallet ID. String starting with **ewallet_**., defaults to None
         :type ewallet: str, optional
         :param limit: The maximum number of payouts to return. Range: 1-100. Default is 10., defaults to None
         :type limit: str, optional
@@ -121,13 +125,13 @@ class DisburseService(BaseService):
         :type merchant_reference_id: str, optional
         :param payout_method_type: Filters according to the type of payout method. The two-letter prefix must match the beneficiary country code., defaults to None
         :type payout_method_type: str, optional
-        :param sender: Filters according to the sender ID. String starting with sender_., defaults to None
+        :param sender: Filters according to the sender ID. String starting with **sender_**., defaults to None
         :type sender: str, optional
         :param sender_country: Filters according to the country of the sender. Two-letter ISO 3166-1 ALPHA-2 code., defaults to None
         :type sender_country: str, optional
         :param sender_currency: Filters according to the currency that the sender is paying with. Three-letter ISO 4217 code., defaults to None
         :type sender_currency: str, optional
-        :param starting_after: The ID of a payout in the list. The list begins with the payout that was created next after the payout with this ID. Use this filter to get the next page of results. Relevant when ending_before is not used. String starting with payout_. Deprecated, defaults to None
+        :param starting_after: The ID of a payout in the list. The list begins with the payout that was created next after the payout with this ID. Use this filter to get the next page of results. Relevant when ending_before is not used. String starting **payout_**. Deprecated, defaults to None
         :type starting_after: str, optional
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -145,9 +149,7 @@ class DisburseService(BaseService):
         Validator(str).is_optional().validate(merchant_reference_id)
         Validator(str).is_optional().validate(payout_method_type)
         Validator(str).is_optional().validate(sender)
-        Validator(str).is_optional().pattern(
-            "^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$"
-        ).validate(sender_country)
+        Validator(str).is_optional().validate(sender_country)
         Validator(str).is_optional().pattern(
             "/^AED|AFN|ALL|AMD|ANG|AOA|ARS|AUD|AWG|AZN|BAM|BBD|BDT|BGN|BHD|BIF|BMD|BND|BOB|BRL|BSD|BTN|BWP|BYR|BZD|CAD|CDF|CHF|CLP|CNY|COP|CRC|CUC|CUP|CVE|CZK|DJF|DKK|DOP|DZD|EGP|ERN|ETB|EUR|FJD|FKP|GBP|GEL|GGP|GHS|GIP|GMD|GNF|GTQ|GYD|HKD|HNL|HRK|HTG|HUF|IDR|ILS|IMP|INR|IQD|IRR|ISK|JEP|JMD|JOD|JPY|KES|KGS|KHR|KMF|KPW|KRW|KWD|KYD|KZT|LAK|LBP|LKR|LRD|LSL|LYD|MAD|MDL|MGA|MKD|MMK|MNT|MOP|MRO|MUR|MVR|MWK|MXN|MYR|MZN|NAD|NGN|NIO|NOK|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PLN|PYG|QAR|RON|RSD|RUB|RWF|SAR|SBD|SCR|SDG|SEK|SGD|SHP|SLL|SOS|SPL|SRD|STD|SVC|SYP|SZL|THB|TJS|TMT|TND|TOP|TRY|TTD|TVD|TWD|TZS|UAH|UGX|USD|UYU|UZS|VEF|VND|VUV|WST|XAF|XCD|XDR|XOF|XPF|YER|ZAR|ZMW|ZWD$/"
         ).validate(sender_currency)
@@ -176,7 +178,8 @@ class DisburseService(BaseService):
 
     @cast_models
     def create_payout(self, request_body: V1PayoutsBody) -> InlineResponse200_12:
-        """Create a payout (disbursement). This method triggers the Payout Created webhook. This webhook contains the same information as the response. If the action of a third party is not required, the Payout Completed webhook is also triggered.
+        """Create a payout (disbursement).
+        This method triggers the Payout Created webhook. This webhook contains the same information as the response. If the action of a third party is not required, the Payout Completed webhook is also triggered.
 
         :param request_body: The request body.
         :type request_body: V1PayoutsBody
@@ -234,6 +237,36 @@ class DisburseService(BaseService):
         return InlineResponse200_13._unmap(response)
 
     @cast_models
+    def create_extended_beneficiary(
+        self, request_body: PayoutsExtendedBeneficiaryBody
+    ) -> InlineResponse200_13:
+        """Create a beneficiary that includes all compliance related data for payouts. The response provides a unique beneficiary ID, which you can use in place of the beneficiary object for Create Payout
+
+        :param request_body: The request body.
+        :type request_body: PayoutsExtendedBeneficiaryBody
+        ...
+        :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
+        ...
+        :return: Beneficiary Created Successfully
+        :rtype: InlineResponse200_13
+        """
+
+        Validator(PayoutsExtendedBeneficiaryBody).validate(request_body)
+
+        serialized_request = (
+            Serializer(
+                f"{self.base_url}/v1/payouts/extended_beneficiary",
+                self.get_default_headers(),
+            )
+            .serialize()
+            .set_method("POST")
+            .set_body(request_body)
+        )
+
+        response = self.send_request(serialized_request)
+        return InlineResponse200_13._unmap(response)
+
+    @cast_models
     def validate_beneficiary(
         self, request_body: BeneficiaryValidateBody
     ) -> InlineResponse200_14:
@@ -269,7 +302,7 @@ class DisburseService(BaseService):
         """Retrieve details of a payout beneficiary.
          Note: The 'Retrieve Beneficiary - individual' response includes additional fields for the 'ca_general_bank' payout method. The 'Retrieve Beneficiary - company' response includes additional fields for the 'us_ach_bank' payout method.
 
-        :param beneficiary_id: ID of the 'beneficiary' object. String starting with beneficiary_.
+        :param beneficiary_id: ID of the 'beneficiary' object. String starting with **beneficiary_**.
         :type beneficiary_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -297,7 +330,7 @@ class DisburseService(BaseService):
     def delete_beneficiary(self, beneficiary_id: str) -> InlineResponse200_15:
         """Delete a payout beneficiary from the Rapyd platform.
 
-        :param beneficiary_id: ID of the 'beneficiary' object. String starting with beneficiary_.
+        :param beneficiary_id: ID of the 'beneficiary' object. String starting with **beneficiary_**.
         :type beneficiary_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -327,14 +360,14 @@ class DisburseService(BaseService):
     ) -> InlineResponse200_12:
         """simulate_complete_payout
 
-        :param payout_token: ID of the payout. String starting with 'payout_'.
+        :param payout_token: ID of the payout. String starting with **payout_**.
         :type payout_token: str
         :param amount: The payout amount. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015.
         :type amount: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: The 'Retrieve Sender - individual' response includes additional fields for the 'ca_general_bank' payout method. The 'Retrieve Sender - company' response includes an additional field for the 'us_ach_bank' payout method.
+        :return: The `Retrieve Sender - individual` response includes additional fields for the `ca_general_bank` payout method. The `Retrieve Sender - company` response includes an additional field for the `us_ach_bank` payout method.
         :rtype: InlineResponse200_12
         """
 
@@ -359,12 +392,12 @@ class DisburseService(BaseService):
     def confirm_payout(self, payout_token: str) -> InlineResponse200_12:
         """confirm_payout
 
-        :param payout_token: ID of the payout. String starting with 'payout_'.
+        :param payout_token: ID of the payout. String starting with **payout_**.
         :type payout_token: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: The 'Retrieve Sender - individual' response includes additional fields for the 'ca_general_bank' payout method. The 'Retrieve Sender - company' response includes an additional field for the 'us_ach_bank' payout method.
+        :return: The `Retrieve Sender - individual` response includes additional fields for the `ca_general_bank` payout method. The `Retrieve Sender - company` response includes an additional field for the `us_ach_bank` payout method.
         :rtype: InlineResponse200_12
         """
 
@@ -414,14 +447,14 @@ class DisburseService(BaseService):
 
     @cast_models
     def get_payer(self, sender_id: str) -> InlineResponse200_16:
-        """Note: The Retrieve Sender - individual response includes additional fields for the ca_general_bank payout method. The Retrieve Sender - company response includes an additional field for the us_ach_bank payout method.
+        """Note: The Retrieve Sender - individual response includes additional fields for the **ca_general_bank** payout method. The Retrieve Sender - company response includes an additional field for the **us_ach_bank** payout method.
 
-        :param sender_id: ID of the Sender object. String starting with 'sender_'.
+        :param sender_id: ID of the Sender object. String starting with **sender_**.
         :type sender_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: The 'Retrieve Sender - individual' response includes additional fields for the 'ca_general_bank' payout method. The 'Retrieve Sender - company' response includes an additional field for the 'us_ach_bank' payout method.
+        :return: The 'Retrieve Sender - individual' response includes additional fields for the 'ca_general_bank' payout method. The 'Retrieve Sender - company' response includes an additional field for the **us_ach_bank** payout method.
         :rtype: InlineResponse200_16
         """
 
@@ -444,7 +477,7 @@ class DisburseService(BaseService):
     def delete_payer(self, sender_id: str) -> InlineResponse200_17:
         """Delete a payout sender from the Rapyd platform.
 
-        :param sender_id: ID of the 'sender' object. String starting with sender_.
+        :param sender_id: ID of the `sender` object. String starting with **sender_**.
         :type sender_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -487,7 +520,7 @@ class DisburseService(BaseService):
     ) -> InlineResponse200_18:
         """Retrieve a list of payout method types that you can use when creating a payout. The response contains a list of objects. Each object includes a payout method type and its attributes.
 
-        :param sender_entity_type: Filters the type of entity for the payer. One of the following: individual, company, defaults to None
+        :param sender_entity_type: Filters the type of entity for the payer. One of the following: **individual** | **company**, defaults to None
         :type sender_entity_type: str, optional
         :param beneficiary_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code., defaults to None
         :type beneficiary_country: str, optional
@@ -497,7 +530,7 @@ class DisburseService(BaseService):
         :type sender_currency: str, optional
         :param sender_country: Country of the sender. Two-letter ISO 3166-1 ALPHA-2 code. Note: This field does not appear in the response., defaults to None
         :type sender_country: str, optional
-        :param beneficiary_entity_type: Filters the type of entity for the beneficiary. One of the following: individual, company, defaults to None
+        :param beneficiary_entity_type: Filters the type of entity for the beneficiary. One of the following: **individual** | **company**, defaults to None
         :type beneficiary_entity_type: str, optional
         :param category: The category of payout method. One of the following: bank, card, cash, rapyd_ewallet, ewallet, defaults to None
         :type category: str, optional
@@ -560,7 +593,7 @@ class DisburseService(BaseService):
     def get_payout(self, payout_id: str) -> InlineResponse200_12:
         """Retrieve the details of a payout.
 
-        :param payout_id: ID of the payout. String starting with 'payout_'.
+        :param payout_id: ID of the payout. String starting with **payout_**.
         :type payout_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
@@ -586,18 +619,18 @@ class DisburseService(BaseService):
     @cast_models
     def update_payout(
         self, request_body: PayoutsPayoutIdBody, payout_id: str
-    ) -> InlineResponse200_12:
+    ) -> InlineResponse200_19:
         """Change or modify a payout. This method triggers the Payout Updated webhook. This webhook contains the same information as the response.
 
         :param request_body: The request body.
         :type request_body: PayoutsPayoutIdBody
-        :param payout_id: ID of the payout. String starting with payout_.
+        :param payout_id: ID of the payout. String starting with **payout_**.
         :type payout_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: payout updated successfuly
-        :rtype: InlineResponse200_12
+        :rtype: InlineResponse200_19
         """
 
         Validator(PayoutsPayoutIdBody).validate(request_body)
@@ -614,14 +647,14 @@ class DisburseService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_12._unmap(response)
+        return InlineResponse200_19._unmap(response)
 
     @cast_models
     def cancel_payout(self, payout_id: str) -> InlineResponse200_12:
         """The payout can be canceled unless its status is confirmation or completed.
         This method triggers the Payout Canceled webhook. This webhook contains the same information as the response.
 
-        :param payout_id: ID of the payout. String starting with payout_.
+        :param payout_id: ID of the payout. String starting with **payout_**.
         :type payout_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.

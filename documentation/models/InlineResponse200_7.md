@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                    | Required | Description |
-| :----- | :---------------------- | :------- | :---------- |
-| data   | `VirtualAccountIssuing` | ❌       |             |
-| status | `Status`                | ❌       |             |
+| Name   | Type                  | Required | Description |
+| :----- | :-------------------- | :------- | :---------- |
+| data   | VirtualAccountIssuing | ❌       |             |
+| status | Status1               | ❌       |             |

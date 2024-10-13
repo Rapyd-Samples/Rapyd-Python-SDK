@@ -1,27 +1,27 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .dispute import Dispute
-from .status import Status
+from .inline_response_200_40_data import InlineResponse200_40Data
+from .status_1 import Status1
 
 
 @JsonMap({})
 class InlineResponse200_42(BaseModel):
     """InlineResponse200_42
 
-    :param data: Describes the fields contained in REST messages and webhooks for disputes of payments., defaults to None
-    :type data: Dispute, optional
+    :param data: data, defaults to None
+    :type data: InlineResponse200_40Data, optional
     :param status: status, defaults to None
-    :type status: Status, optional
+    :type status: Status1, optional
     """
 
-    def __init__(self, data: Dispute = None, status: Status = None):
+    def __init__(self, data: InlineResponse200_40Data = None, status: Status1 = None):
         """InlineResponse200_42
 
-        :param data: Describes the fields contained in REST messages and webhooks for disputes of payments., defaults to None
-        :type data: Dispute, optional
+        :param data: data, defaults to None
+        :type data: InlineResponse200_40Data, optional
         :param status: status, defaults to None
-        :type status: Status, optional
+        :type status: Status1, optional
         """
-        self.data = self._define_object(data, Dispute)
-        self.status = self._define_object(status, Status)
+        self.data = self._define_object(data, InlineResponse200_40Data)
+        self.status = self._define_object(status, Status1)

@@ -4,9 +4,9 @@ Indicates the next action for completing the payment. Response only. One of the 
 
 **Properties**
 
-| Name                | Type  | Required | Description            |
-| :------------------ | :---- | :------- | :--------------------- |
-| \_3DVERIFICATION    | `str` | ✅       | "3d_verification"      |
-| PENDINGCAPTURE      | `str` | ✅       | "pending_capture"      |
-| PENDINGCONFIRMATION | `str` | ✅       | "pending_confirmation" |
-| NOTAPPLICABLE       | `str` | ✅       | "not_applicable"       |
+| Name                | Type | Required | Description            |
+| :------------------ | :--- | :------- | :--------------------- |
+| \_3DVERIFICATION    | str  | ✅       | "3d_verification"      |
+| PENDINGCAPTURE      | str  | ✅       | "pending_capture"      |
+| PENDINGCONFIRMATION | str  | ✅       | "pending_confirmation" |
+| NOTAPPLICABLE       | str  | ✅       | "not_applicable"       |

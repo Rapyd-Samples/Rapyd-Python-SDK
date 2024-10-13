@@ -19,7 +19,7 @@ fi
 
 pip install build
 python -m build --outdir dist .
-pip install dist/rapyd_sdk-1.0.6-py3-none-any.whl --force-reinstall
+pip install dist/rapyd_sdk-1.0.9-py3-none-any.whl --force-reinstall
 
 if [ "$USE_VENV" -eq 1 ]; then
     deactivate

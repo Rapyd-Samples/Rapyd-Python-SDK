@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                              | Required | Description                         |
-| :----- | :-------------------------------- | :------- | :---------------------------------- |
-| data   | `PaymentMethodTypeRequiredFields` | ❌       | Payment Method Type required fields |
-| status | `Status`                          | ❌       |                                     |
+| Name   | Type                  | Required | Description |
+| :----- | :-------------------- | :------- | :---------- |
+| status | Status1               | ❌       |             |
+| data   | List[InvoiceResponse] | ❌       |             |

@@ -1,34 +1,27 @@
 from __future__ import annotations
-from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .ewallet_transaction_details import (
-    EwalletTransactionDetails,
-    EwalletTransactionDetailsGuard,
-)
-from .ewallet_transaction import EwalletTransaction
 from .status import Status
+from .account import Account
 
 
 @JsonMap({})
 class InlineResponse200_25(BaseModel):
     """InlineResponse200_25
 
-    :param data: data, defaults to None
-    :type data: List[EwalletTransactionDetails], optional
     :param status: status, defaults to None
     :type status: Status, optional
+    :param data: data, defaults to None
+    :type data: Account, optional
     """
 
-    def __init__(
-        self, data: List[EwalletTransactionDetails] = None, status: Status = None
-    ):
+    def __init__(self, status: Status = None, data: Account = None):
         """InlineResponse200_25
 
-        :param data: data, defaults to None
-        :type data: List[EwalletTransactionDetails], optional
         :param status: status, defaults to None
         :type status: Status, optional
+        :param data: data, defaults to None
+        :type data: Account, optional
         """
-        self.data = self._define_list(data, EwalletTransactionDetails)
         self.status = self._define_object(status, Status)
+        self.data = self._define_object(data, Account)

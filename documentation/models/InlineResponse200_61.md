@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type            | Required | Description |
-| :----- | :-------------- | :------- | :---------- |
-| data   | `List[Product]` | ❌       |             |
-| status | `Status`        | ❌       |             |
+| Name   | Type                    | Required | Description |
+| :----- | :---------------------- | :------- | :---------- |
+| status | Status1                 | ❌       |             |
+| data   | List[CardTokenResponse] | ❌       |             |

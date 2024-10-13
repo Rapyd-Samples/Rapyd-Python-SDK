@@ -9,7 +9,7 @@ sdk = RapydSdk(
 result = sdk.coupon.list_coupon(
     starting_after="starting_after",
     ending_before="ending_before",
-    limit="1"
+    limit="100"
 )
 
 print(result)

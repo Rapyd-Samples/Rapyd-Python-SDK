@@ -9,7 +9,7 @@ tokens=[
     "tokens"
 ]
 
-result = sdk.order.list_order_return(
+result = sdk.order_return.list_order_return(
     limit="limit",
     ending_before="ending_before",
     starting_after="starting_after",

@@ -9,7 +9,7 @@ sdk = RapydSdk(
 
 result = sdk.e_wallets.update_ewallet_status(
     ewallet_token="ewalletToken",
-    status="enable"
+    status="ACT"
 )
 
 print(result)

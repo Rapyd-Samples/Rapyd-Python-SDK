@@ -8,13 +8,13 @@ sdk = RapydSdk(
 )
 
 request_body = BeneficiaryValidateBody(
-    amount=4.29,
-    beneficiary="Duis c",
+    amount=3.71,
+    beneficiary="ut in",
     identifier_type="identifier_type",
     identifier_value="identifier_value",
     payout_method_type="us_general_bank",
-    sender_country="GB",
-    sender_currency="GBP",
+    sender_country="repre",
+    sender_currency="HRK",
     sender_entity_type="company"
 )
 

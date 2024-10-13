@@ -19,26 +19,26 @@ Retrieve a list of all payments that you have created. You can filter the list w
 
 **Parameters**
 
-| Name                  | Type                                | Required | Description                                                                                                                                                                                                                                      |
-| :-------------------- | :---------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| created_after         | `str`                               | ❌       | The ID of the payment created before the first payment you want to retrieve. String starting with payment\_.                                                                                                                                     |
-| created_before        | `str`                               | ❌       | The ID of the payment created after the last payment you want to retrieve. String starting with payment\_.                                                                                                                                       |
-| customer              | `[Customer](../models/Customer.md)` | ❌       | Filters the list for payments related to the specified customer.                                                                                                                                                                                 |
-| destination_card      | `str`                               | ❌       | Filters the list for payments related to the specified destination card.                                                                                                                                                                         |
-| ending_before         | `str`                               | ❌       | The ID of the payment created after the last payment you want to retrieve. String starting with payment\_. Deprecated.                                                                                                                           |
-| ewallet               | `str`                               | ❌       | Filters the list for payments related to the specified wallet.                                                                                                                                                                                   |
-| group                 | `bool`                              | ❌       | When true, includes only group payments in the response. When false, excludes group payments from the response. Default is false.                                                                                                                |
-| invoice               | `str`                               | ❌       | Filters according to the invoice. String starting with invoice\_.                                                                                                                                                                                |
-| limit                 | `str`                               | ❌       | The maximum number of payments to return. Range, 1-100. Default is 10.                                                                                                                                                                           |
-| payment_method        | `str`                               | ❌       | Filters the list for payments related to the specified payment method.                                                                                                                                                                           |
-| order                 | `str`                               | ❌       | Filters the list for payments related to the specified order.                                                                                                                                                                                    |
-| starting_after        | `str`                               | ❌       | The ID of a payment in the list. The list begins with the payment that was created next after the payment with this ID. Use this filter to get the next page of results. Relevant when ending*before is not used. String starting with payment*. |
-| subscription          | `str`                               | ❌       | Filters the list for payments related to the specified subscription.                                                                                                                                                                             |
-| merchant_reference_id | `str`                               | ❌       | Merchant-defined ID.                                                                                                                                                                                                                             |
+| Name                  | Type                              | Required | Description                                                                                                                                                                                                                                      |
+| :-------------------- | :-------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| created_after         | str                               | ❌       | The ID of the payment created before the first payment you want to retrieve. String starting with **payment\_**.                                                                                                                                 |
+| created_before        | str                               | ❌       | The ID of the payment created after the last payment you want to retrieve. String starting with **payment\_**.                                                                                                                                   |
+| customer              | [Customer](../models/Customer.md) | ❌       | Filters the list for payments related to the specified customer.                                                                                                                                                                                 |
+| destination_card      | str                               | ❌       | Filters the list for payments related to the specified destination card.                                                                                                                                                                         |
+| ending_before         | str                               | ❌       | The ID of the payment created after the last payment you want to retrieve. String starting with payment\_. Deprecated.                                                                                                                           |
+| ewallet               | str                               | ❌       | Filters the list for payments related to the specified wallet.                                                                                                                                                                                   |
+| group                 | bool                              | ❌       | When true, includes only group payments in the response. When false, excludes group payments from the response. Default is false.                                                                                                                |
+| invoice               | str                               | ❌       | Filters according to the invoice. String starting with invoice\_.                                                                                                                                                                                |
+| limit                 | str                               | ❌       | The maximum number of payments to return. Range, 1-100. Default is 10.                                                                                                                                                                           |
+| payment_method        | str                               | ❌       | Filters the list for payments related to the specified payment method.                                                                                                                                                                           |
+| order                 | str                               | ❌       | Filters the list for payments related to the specified order.                                                                                                                                                                                    |
+| starting_after        | str                               | ❌       | The ID of a payment in the list. The list begins with the payment that was created next after the payment with this ID. Use this filter to get the next page of results. Relevant when ending*before is not used. String starting with payment*. |
+| subscription          | str                               | ❌       | Filters the list for payments related to the specified subscription.                                                                                                                                                                             |
+| merchant_reference_id | str                               | ❌       | Merchant-defined ID.                                                                                                                                                                                                                             |
 
 **Return Type**
 
-`InlineResponse200_53`
+`InlineResponse200_62`
 
 **Example Usage Code Snippet**
 
@@ -56,7 +56,7 @@ customer=Customer(
             "canton": "canton",
             "city": "city",
             "country": "GB",
-            "created_at": 3.34,
+            "created_at": 8.2,
             "district": "district",
             "id_": "id",
             "line_1": "line_1",
@@ -70,18 +70,18 @@ customer=Customer(
         }
     ],
     business_vat_id="business_vat_id",
-    created_at=7,
+    created_at=3,
     default_payment_method="default_payment_method",
     delinquent=False,
     description="description",
     discount={
         "coupon": {
-            "amount_off": 0.13,
+            "amount_off": 6.55,
             "created": 1671697165,
             "currency": "GBP",
             "description": "Sample Coupon 1",
             "discount_duration_in_uses": 2,
-            "discount_valid_until": 7.67,
+            "discount_valid_until": 0.57,
             "discount_validity_in_months": 2,
             "duration": "forever",
             "duration_in_months": 3,
@@ -89,14 +89,14 @@ customer=Customer(
             "max_redemptions": 2,
             "metadata": {},
             "percent_off": 10,
-            "redeem_by": 0.44,
-            "times_redeemed": 6.69,
+            "redeem_by": 0.14,
+            "times_redeemed": 2.17,
             "valid": True
         },
         "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
         "end": 1679473563,
         "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-        "number_of_uses": 2.89,
+        "number_of_uses": 5.55,
         "start": 1679473563,
         "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
         "valid": True
@@ -114,7 +114,7 @@ customer=Customer(
                 "fingerprint_token": "fingerprint_token",
                 "id_": "id",
                 "image": "image",
-                "last4": "4487",
+                "last4": "6326",
                 "metadata": {},
                 "name": "name",
                 "network_reference_id": "network_reference_id",
@@ -126,8 +126,8 @@ customer=Customer(
                 "webhook_url": "webhook_url"
             }
         ],
-        "has_more": True,
-        "total_count": 7,
+        "has_more": False,
+        "total_count": 3,
         "url": "url"
     },
     phone_number="phone_number",
@@ -136,7 +136,7 @@ customer=Customer(
             "billing": "pay_automatically",
             "billing_cycle_anchor": "now",
             "cancel_at_period_end": True,
-            "canceled_at": 5.63,
+            "canceled_at": 4,
             "created_at": 1592379647,
             "current_period_end": 1594971647,
             "current_period_start": 1592379647,
@@ -144,12 +144,12 @@ customer=Customer(
             "days_until_due": 30,
             "discount": {
                 "coupon": {
-                    "amount_off": 0.13,
+                    "amount_off": 6.55,
                     "created": 1671697165,
                     "currency": "GBP",
                     "description": "Sample Coupon 1",
                     "discount_duration_in_uses": 2,
-                    "discount_valid_until": 7.67,
+                    "discount_valid_until": 0.57,
                     "discount_validity_in_months": 2,
                     "duration": "forever",
                     "duration_in_months": 3,
@@ -157,19 +157,19 @@ customer=Customer(
                     "max_redemptions": 2,
                     "metadata": {},
                     "percent_off": 10,
-                    "redeem_by": 0.44,
-                    "times_redeemed": 6.69,
+                    "redeem_by": 0.14,
+                    "times_redeemed": 2.17,
                     "valid": True
                 },
                 "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                 "end": 1679473563,
                 "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                "number_of_uses": 2.89,
+                "number_of_uses": 5.55,
                 "start": 1679473563,
                 "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                 "valid": True
             },
-            "ended_at": 7.3,
+            "ended_at": 4.95,
             "id_": "sub_04fd8fbd78d7dd7e0e6323810a69275c",
             "metadata": {},
             "payment_fields": {},
@@ -180,12 +180,13 @@ customer=Customer(
             "subscription_items": {
                 "data": [
                     {
-                        "created": 1.05,
+                        "created": 1.1,
                         "id_": "subi_e5dbbf84c68e5bb7db761625158d4262",
                         "metadata": "{\"merchant_defined\": True }",
                         "plan": {
+                            "active": True,
                             "aggregate_usage": "max",
-                            "amount": 5.37,
+                            "amount": 1.34,
                             "billing_scheme": "per_unit",
                             "created_at": 1592311574,
                             "currency": "GBP",
@@ -245,7 +246,7 @@ customer=Customer(
                             "tiers": [
                                 {
                                     "amount": 15,
-                                    "flat_amount": 6.45,
+                                    "flat_amount": 4.6,
                                     "up_to": "inf"
                                 }
                             ],
@@ -254,20 +255,20 @@ customer=Customer(
                                 "divide_by": 1,
                                 "round": "round"
                             },
-                            "trial_period_days": 9.42,
+                            "trial_period_days": 4.85,
                             "usage_type": "metered"
                         },
-                        "quantity": 4.27,
+                        "quantity": 1.01,
                         "subscription_id": "sub_0de9c79c1e2beee09499dc8220493d5"
                     }
                 ],
-                "has_more": True,
+                "has_more": False,
                 "total_count": 1,
                 "url": "/v1/subscription_items?subscription=sub_324ee75f8c26f1df94bc8cc693f3c729"
             },
             "tax_percent": 10.5,
-            "trial_end": 9.98,
-            "trial_start": 3.73,
+            "trial_end": 4.72,
+            "trial_start": 1.39,
             "type_": "payout"
         }
     ]
@@ -302,13 +303,13 @@ Create a payment
 
 **Parameters**
 
-| Name         | Type                                            | Required | Description       |
-| :----------- | :---------------------------------------------- | :------- | :---------------- |
-| request_body | `[V1PaymentsBody](../models/V1PaymentsBody.md)` | ✅       | The request body. |
+| Name         | Type                                          | Required | Description       |
+| :----------- | :-------------------------------------------- | :------- | :---------------- |
+| request_body | [V1PaymentsBody](../models/V1PaymentsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_54`
+`InlineResponse200_63`
 
 **Example Usage Code Snippet**
 
@@ -326,7 +327,7 @@ request_body = V1PaymentsBody(
         "canton": "canton",
         "city": "city",
         "country": "GB",
-        "created_at": 3.34,
+        "created_at": 8.2,
         "district": "district",
         "id_": "id",
         "line_1": "line_1",
@@ -338,16 +339,16 @@ request_body = V1PaymentsBody(
         "state": "state",
         "zip": "zip"
     },
-    amount=5.04,
+    amount=5.22,
     capture=True,
     client_details={
         "ip_address": "ip_address",
-        "java_enabled": False,
+        "java_enabled": True,
         "java_script_enabled": False,
         "language": "language",
         "screen_color_depth": 1,
-        "screen_height": 4,
-        "screen_width": 8,
+        "screen_height": 8,
+        "screen_width": 2,
         "time_zone_offset": 5
     },
     complete_payment_url="complete_payment_url",
@@ -355,11 +356,11 @@ request_body = V1PaymentsBody(
     customer="customer",
     description="description",
     error_payment_url="error_payment_url",
-    escrow=True,
-    escrow_release_days="/6/",
+    escrow=False,
+    escrow_release_days="/0/",
     ewallet="ewallet",
     ewallets="",
-    expiration=3.35,
+    expiration=6.05,
     fixed_side="fixed_side",
     group_payment="group_payment",
     initiation_type="customer_present",
@@ -371,15 +372,15 @@ request_body = V1PaymentsBody(
             "value": 2.5
         },
         "gross_fees": 4.23,
-        "net_fees": 2.4,
+        "net_fees": 8.22,
         "transaction_fee": {
             "calc_type": "gross",
             "fee_type": "absolute",
             "value": 2
         },
-        "total_merchant_fees": 3.19
+        "total_merchant_fees": 5.86
     },
-    payment_method="uteli",
+    payment_method="minim magn",
     payment_method_options={},
     receipt_email="receipt_email",
     requested_currency="requested_currency",
@@ -400,13 +401,13 @@ Retrieve details of a payment
 
 **Parameters**
 
-| Name       | Type  | Required | Description                                          |
-| :--------- | :---- | :------- | :--------------------------------------------------- |
-| payment_id | `str` | ✅       | ID of the payment. String starting with 'payment\_'. |
+| Name       | Type | Required | Description                                            |
+| :--------- | :--- | :------- | :----------------------------------------------------- |
+| payment_id | str  | ✅       | ID of the payment. String starting with **payment\_**. |
 
 **Return Type**
 
-`InlineResponse200_54`
+`InlineResponse200_63`
 
 **Example Usage Code Snippet**
 
@@ -432,14 +433,14 @@ Change or modify a payment when the status of the payment is ACT (active). You c
 
 **Parameters**
 
-| Name         | Type                                                          | Required | Description                                        |
-| :----------- | :------------------------------------------------------------ | :------- | :------------------------------------------------- |
-| request_body | `[PaymentsPaymentIdBody](../models/PaymentsPaymentIdBody.md)` | ✅       | The request body.                                  |
-| payment_id   | `str`                                                         | ✅       | ID of the payment. String starting with payment\_. |
+| Name         | Type                                                        | Required | Description                                        |
+| :----------- | :---------------------------------------------------------- | :------- | :------------------------------------------------- |
+| request_body | [PaymentsPaymentIdBody](../models/PaymentsPaymentIdBody.md) | ✅       | The request body.                                  |
+| payment_id   | str                                                         | ✅       | ID of the payment. String starting with payment\_. |
 
 **Return Type**
 
-`InlineResponse200_54`
+`InlineResponse200_63`
 
 **Example Usage Code Snippet**
 
@@ -457,7 +458,7 @@ request_body = PaymentsPaymentIdBody(
         "canton": "canton",
         "city": "city",
         "country": "GB",
-        "created_at": 3.34,
+        "created_at": 8.2,
         "district": "district",
         "id_": "id",
         "line_1": "line_1",
@@ -471,7 +472,7 @@ request_body = PaymentsPaymentIdBody(
     },
     description="description",
     escrow=True,
-    escrow_release_days="/3/",
+    escrow_release_days="/6/",
     initiation_type="initiation_type",
     metadata={},
     receipt_email="receipt_email"
@@ -494,13 +495,13 @@ Cancel a payment where the status of the payment is ACT. Relevant to payment met
 
 **Parameters**
 
-| Name       | Type  | Required | Description                                        |
-| :--------- | :---- | :------- | :------------------------------------------------- |
-| payment_id | `str` | ✅       | ID of the payment. String starting with payment\_. |
+| Name       | Type | Required | Description                                        |
+| :--------- | :--- | :------- | :------------------------------------------------- |
+| payment_id | str  | ✅       | ID of the payment. String starting with payment\_. |
 
 **Return Type**
 
-`InlineResponse200_54`
+`InlineResponse200_63`
 
 **Example Usage Code Snippet**
 

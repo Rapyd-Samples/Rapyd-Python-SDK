@@ -10,7 +10,7 @@ sdk = RapydSdk(
 result = sdk.dispute.get_disputes_list_by_org_id(
     starting_after="starting_after",
     ending_before="ending_before",
-    limit="6",
+    limit="9",
     status="ACT",
     payment="payment"
 )

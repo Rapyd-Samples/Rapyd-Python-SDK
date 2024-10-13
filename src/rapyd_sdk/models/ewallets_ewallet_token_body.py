@@ -6,7 +6,7 @@ from .utils.base_model import BaseModel
 class EwalletsEwalletTokenBody(BaseModel):
     """EwalletsEwalletTokenBody
 
-    :param ewallet_reference_id: Rapyd Wallet ID defined by the customer or end user. Must be unique., defaults to None
+    :param ewallet_reference_id: Rapyd Wallet ID defined by the customer or end user.  Must be unique., defaults to None
     :type ewallet_reference_id: str, optional
     :param first_name: First name of the Rapyd Wallet owner., defaults to None
     :type first_name: str, optional
@@ -25,7 +25,7 @@ class EwalletsEwalletTokenBody(BaseModel):
     ):
         """EwalletsEwalletTokenBody
 
-        :param ewallet_reference_id: Rapyd Wallet ID defined by the customer or end user. Must be unique., defaults to None
+        :param ewallet_reference_id: Rapyd Wallet ID defined by the customer or end user.  Must be unique., defaults to None
         :type ewallet_reference_id: str, optional
         :param first_name: First name of the Rapyd Wallet owner., defaults to None
         :type first_name: str, optional

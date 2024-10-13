@@ -11,8 +11,8 @@ request_body = EwalletIdContactsBody(
     address={
         "canton": "canton",
         "city": "city",
-        "country": "GB",
-        "created_at": 3.34,
+        "country": "dolore u",
+        "created_at": 2.12,
         "district": "district",
         "id_": "id",
         "line_1": "line_1",

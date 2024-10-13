@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name     | Type                                    | Required | Description |
-| :------- | :-------------------------------------- | :------- | :---------- |
-| level    | `float`                                 | ❌       |             |
-| elements | `List[InlineResponse200_4DataElements]` | ❌       |             |
+| Name     | Type                                  | Required | Description |
+| :------- | :------------------------------------ | :------- | :---------- |
+| level    | float                                 | ❌       |             |
+| elements | List[InlineResponse200_4DataElements] | ❌       |             |

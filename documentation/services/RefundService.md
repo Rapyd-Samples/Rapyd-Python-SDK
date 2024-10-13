@@ -20,15 +20,15 @@ Retrieve a list of all refunds.
 
 **Parameters**
 
-| Name           | Type  | Required | Description                                                                                               |
-| :------------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------- |
-| ending_before  | `str` | ❌       | The ID of the refund created after the last refund you want to retrieve. String starting with refund\_.   |
-| limit          | `str` | ❌       | The maximum number of refunds to return. Range, 1-100. Default is 10.                                     |
-| starting_after | `str` | ❌       | The ID of the refund created before the first refund you want to retrieve. String starting with refund\_. |
+| Name           | Type | Required | Description                                                                                                   |
+| :------------- | :--- | :------- | :------------------------------------------------------------------------------------------------------------ |
+| ending_before  | str  | ❌       | The ID of the refund created after the last refund you want to retrieve. String starting with refund\_.       |
+| limit          | str  | ❌       | The maximum number of refunds to return. Range, 1-100. Default is 10.                                         |
+| starting_after | str  | ❌       | The ID of the refund created before the first refund you want to retrieve. String starting with **refund\_**. |
 
 **Return Type**
 
-`InlineResponse200_63`
+`InlineResponse200_74`
 
 **Example Usage Code Snippet**
 
@@ -58,13 +58,13 @@ Refund of a payment. The refund is credited against a specific payment. The mone
 
 **Parameters**
 
-| Name         | Type                                          | Required | Description       |
-| :----------- | :-------------------------------------------- | :------- | :---------------- |
-| request_body | `[V1RefundsBody](../models/V1RefundsBody.md)` | ✅       | The request body. |
+| Name         | Type                                        | Required | Description       |
+| :----------- | :------------------------------------------ | :------- | :---------------- |
+| request_body | [V1RefundsBody](../models/V1RefundsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_64`
+`InlineResponse200_75`
 
 **Example Usage Code Snippet**
 
@@ -78,7 +78,7 @@ sdk = RapydSdk(
 )
 
 request_body = V1RefundsBody(
-    amount=1.28,
+    amount=5.34,
     currency="currency",
     ewallets=[
         "ewallets"
@@ -103,13 +103,13 @@ Simulate the action of a third party that is required for completing the refund 
 
 **Parameters**
 
-| Name         | Type                                                      | Required | Description       |
-| :----------- | :-------------------------------------------------------- | :------- | :---------------- |
-| request_body | `[RefundsCompleteBody](../models/RefundsCompleteBody.md)` | ✅       | The request body. |
+| Name         | Type                                                    | Required | Description       |
+| :----------- | :------------------------------------------------------ | :------- | :---------------- |
+| request_body | [RefundsCompleteBody](../models/RefundsCompleteBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_64`
+`InlineResponse200_75`
 
 **Example Usage Code Snippet**
 
@@ -140,13 +140,13 @@ Refund a group payment when the status of the group payment is closed. The refun
 
 **Parameters**
 
-| Name         | Type                                                                | Required | Description       |
-| :----------- | :------------------------------------------------------------------ | :------- | :---------------- |
-| request_body | `[RefundsGroupPaymentsBody](../models/RefundsGroupPaymentsBody.md)` | ✅       | The request body. |
+| Name         | Type                                                              | Required | Description       |
+| :----------- | :---------------------------------------------------------------- | :------- | :---------------- |
+| request_body | [RefundsGroupPaymentsBody](../models/RefundsGroupPaymentsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_65`
+`InlineResponse200_76`
 
 **Example Usage Code Snippet**
 
@@ -160,7 +160,7 @@ sdk = RapydSdk(
 )
 
 request_body = RefundsGroupPaymentsBody(
-    amount=3.98,
+    amount=1.08,
     group_payment="group_payment"
 )
 
@@ -178,13 +178,13 @@ Retrieve the details of a refund object.
 
 **Parameters**
 
-| Name      | Type  | Required | Description                                                                    |
-| :-------- | :---- | :------- | :----------------------------------------------------------------------------- |
-| refund_id | `str` | ✅       | ID of the 'refund' object you want to retrieve. String starting with refund\_. |
+| Name      | Type | Required | Description                                                                        |
+| :-------- | :--- | :------- | :--------------------------------------------------------------------------------- |
+| refund_id | str  | ✅       | ID of the 'refund' object you want to retrieve. String starting with **refund\_**. |
 
 **Return Type**
 
-`InlineResponse200_64`
+`InlineResponse200_75`
 
 **Example Usage Code Snippet**
 
@@ -210,14 +210,14 @@ Change or modify the metadata in a refund object.
 
 **Parameters**
 
-| Name         | Type                                                      | Required | Description                                                                    |
-| :----------- | :-------------------------------------------------------- | :------- | :----------------------------------------------------------------------------- |
-| request_body | `[RefundsRefundIdBody](../models/RefundsRefundIdBody.md)` | ✅       | The request body.                                                              |
-| refund_id    | `str`                                                     | ✅       | ID of the 'refund' object you want to retrieve. String starting with refund\_. |
+| Name         | Type                                                    | Required | Description                                                                        |
+| :----------- | :------------------------------------------------------ | :------- | :--------------------------------------------------------------------------------- |
+| request_body | [RefundsRefundIdBody](../models/RefundsRefundIdBody.md) | ✅       | The request body.                                                                  |
+| refund_id    | str                                                     | ✅       | ID of the 'refund' object you want to retrieve. String starting with **refund\_**. |
 
 **Return Type**
 
-`InlineResponse200_64`
+`InlineResponse200_75`
 
 **Example Usage Code Snippet**
 

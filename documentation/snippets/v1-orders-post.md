@@ -19,7 +19,7 @@ request_body = V1OrdersBody(
             "description": "description",
             "parent": "parent",
             "type_": "shipping",
-            "quantity": 0.44
+            "quantity": 2.7
         }
     ],
     metadata={},
@@ -27,7 +27,7 @@ request_body = V1OrdersBody(
         "canton": "canton",
         "city": "city",
         "country": "GB",
-        "created_at": 3.34,
+        "created_at": 8.2,
         "district": "district",
         "id_": "id",
         "line_1": "line_1",
@@ -39,7 +39,7 @@ request_body = V1OrdersBody(
         "state": "state",
         "zip": "zip"
     },
-    tax_percent=1.76,
+    tax_percent=2.68,
     upstream_id="upstream_id"
 )
 

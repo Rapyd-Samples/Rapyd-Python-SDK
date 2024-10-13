@@ -49,21 +49,21 @@ class Transfer(BaseModel):
     :type created_at: float, optional
     :param currency_code: Three-letter ISO 4217 code for the currency used in the amount field., defaults to None
     :type currency_code: str, optional
-    :param destination_ewallet_id: ID of the wallet receiving the money. String starting with ewallet_. Response only., defaults to None
+    :param destination_ewallet_id: ID of the wallet receiving the money. String starting with **ewallet_**. Response only., defaults to None
     :type destination_ewallet_id: str, optional
     :param destination_phone_number: Phone number of the owner of the wallet receiving the money, in E.164 format., defaults to None
     :type destination_phone_number: str, optional
-    :param destination_transaction_id: ID of the transaction with regard to the destination. String starting with wt_., defaults to None
+    :param destination_transaction_id: ID of the transaction with regard to the destination. String starting with **wt_**., defaults to None
     :type destination_transaction_id: str, optional
-    :param id_: ID of the transaction. String starting with wt_ or UUID., defaults to None
+    :param id_: ID of the transaction. String starting with **wt_** or UUID., defaults to None
     :type id_: str, optional
     :param metadata: A JSON object defined by the client., defaults to None
     :type metadata: dict, optional
     :param response_metadata: Metadata created with Set Transfer Response. Response only., defaults to None
     :type response_metadata: dict, optional
-    :param source_ewallet_id: ID of the wallet sending the money. String starting with ewallet_. Response only., defaults to None
+    :param source_ewallet_id: ID of the wallet sending the money. String starting with **ewallet_**. Response only., defaults to None
     :type source_ewallet_id: str, optional
-    :param source_transaction_id: ID of the transaction with regard to the source. String starting with wt_., defaults to None
+    :param source_transaction_id: ID of the transaction with regard to the source. String starting with **wt_**., defaults to None
     :type source_transaction_id: str, optional
     :param status: < Status of the transaction. CAN - Canceled. The transferor canceled the transfer. CLO - Closed. The transferee accepted the funds. DEC - Declined. The transferee rejected the transfer. EXP - Expired. The transferee did not respond before the transfer expired. HLD - Hold. Rapyd Protect is putting this transfer on hold and reviewing it. PEN - Pending. Waiting for the transferee to accept. REJ - Rejected. Rapyd Protect has rejected this transfer., defaults to None
     :type status: TransferStatus, optional
@@ -98,21 +98,21 @@ class Transfer(BaseModel):
         :type created_at: float, optional
         :param currency_code: Three-letter ISO 4217 code for the currency used in the amount field., defaults to None
         :type currency_code: str, optional
-        :param destination_ewallet_id: ID of the wallet receiving the money. String starting with ewallet_. Response only., defaults to None
+        :param destination_ewallet_id: ID of the wallet receiving the money. String starting with **ewallet_**. Response only., defaults to None
         :type destination_ewallet_id: str, optional
         :param destination_phone_number: Phone number of the owner of the wallet receiving the money, in E.164 format., defaults to None
         :type destination_phone_number: str, optional
-        :param destination_transaction_id: ID of the transaction with regard to the destination. String starting with wt_., defaults to None
+        :param destination_transaction_id: ID of the transaction with regard to the destination. String starting with **wt_**., defaults to None
         :type destination_transaction_id: str, optional
-        :param id_: ID of the transaction. String starting with wt_ or UUID., defaults to None
+        :param id_: ID of the transaction. String starting with **wt_** or UUID., defaults to None
         :type id_: str, optional
         :param metadata: A JSON object defined by the client., defaults to None
         :type metadata: dict, optional
         :param response_metadata: Metadata created with Set Transfer Response. Response only., defaults to None
         :type response_metadata: dict, optional
-        :param source_ewallet_id: ID of the wallet sending the money. String starting with ewallet_. Response only., defaults to None
+        :param source_ewallet_id: ID of the wallet sending the money. String starting with **ewallet_**. Response only., defaults to None
         :type source_ewallet_id: str, optional
-        :param source_transaction_id: ID of the transaction with regard to the source. String starting with wt_., defaults to None
+        :param source_transaction_id: ID of the transaction with regard to the source. String starting with **wt_**., defaults to None
         :type source_transaction_id: str, optional
         :param status: < Status of the transaction. CAN - Canceled. The transferor canceled the transfer. CLO - Closed. The transferee accepted the funds. DEC - Declined. The transferee rejected the transfer. EXP - Expired. The transferee did not respond before the transfer expired. HLD - Hold. Rapyd Protect is putting this transfer on hold and reviewing it. PEN - Pending. Waiting for the transferee to accept. REJ - Rejected. Rapyd Protect has rejected this transfer., defaults to None
         :type status: TransferStatus, optional

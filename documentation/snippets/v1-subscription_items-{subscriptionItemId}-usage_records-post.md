@@ -10,8 +10,8 @@ sdk = RapydSdk(
 request_body = SubscriptionItemIdUsageRecordsBody(
     action="action",
     metadata={},
-    quantity=0.99,
-    timestamp=7.16
+    quantity=5.56,
+    timestamp=1.86
 )
 
 result = sdk.subscription_subscription_item.create_subscription_item_usage_record(

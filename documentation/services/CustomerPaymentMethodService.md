@@ -19,18 +19,18 @@ Retrieve payment methods for a customer
 
 **Parameters**
 
-| Name           | Type                                | Required | Description                                                               |
-| :------------- | :---------------------------------- | :------- | :------------------------------------------------------------------------ |
-| customer_id    | `str`                               | ✅       | customer Id                                                               |
-| category       | `[Category](../models/Category.md)` | ❌       |                                                                           |
-| starting_after | `str`                               | ❌       | The ID of the coupon created before the first coupon you want to retrieve |
-| ending_before  | `str`                               | ❌       | The ID of the coupon created after the last coupon you want to retrieve   |
-| limit          | `str`                               | ❌       | The maximum number of coupons to return. Range is 1-100. Default is 10    |
-| type\_         | `str`                               | ❌       | The type of payment method to find.                                       |
+| Name           | Type                              | Required | Description                                                               |
+| :------------- | :-------------------------------- | :------- | :------------------------------------------------------------------------ |
+| customer_id    | str                               | ✅       | customer Id                                                               |
+| category       | [Category](../models/Category.md) | ❌       |                                                                           |
+| starting_after | str                               | ❌       | The ID of the coupon created before the first coupon you want to retrieve |
+| ending_before  | str                               | ❌       | The ID of the coupon created after the last coupon you want to retrieve   |
+| limit          | str                               | ❌       | The maximum number of coupons to return. Range is 1-100. Default is 10    |
+| type\_         | str                               | ❌       | The type of payment method to find.                                       |
 
 **Return Type**
 
-`InlineResponse200_37`
+`InlineResponse200_43`
 
 **Example Usage Code Snippet**
 
@@ -64,14 +64,14 @@ Add a payment method to a customer profile
 
 **Parameters**
 
-| Name         | Type                                                                        | Required | Description       |
-| :----------- | :-------------------------------------------------------------------------- | :------- | :---------------- |
-| request_body | `[CustomerIdPaymentMethodsBody](../models/CustomerIdPaymentMethodsBody.md)` | ✅       | The request body. |
-| customer_id  | `str`                                                                       | ✅       | customer Id       |
+| Name         | Type                                                                      | Required | Description       |
+| :----------- | :------------------------------------------------------------------------ | :------- | :---------------- |
+| request_body | [CustomerIdPaymentMethodsBody](../models/CustomerIdPaymentMethodsBody.md) | ✅       | The request body. |
+| customer_id  | str                                                                       | ✅       | customer Id       |
 
 **Return Type**
 
-`InlineResponse200_38`
+`InlineResponse200_44`
 
 **Example Usage Code Snippet**
 
@@ -88,8 +88,8 @@ request_body = CustomerIdPaymentMethodsBody(
     data={
         "amount_range_per_currency": [
             {
-                "maximum_amount": 8.96,
-                "minimum_amount": 8.01,
+                "maximum_amount": 4.53,
+                "minimum_amount": 0.65,
                 "currency": "GBP"
             }
         ],
@@ -98,15 +98,57 @@ request_body = CustomerIdPaymentMethodsBody(
         "currencies": [
             "GBP"
         ],
+        "fields": [
+            {
+                "code": "code",
+                "is_required": False,
+                "is_updatable": True,
+                "instructions": "instructions",
+                "name": "name",
+                "numeric_code": "numeric_code",
+                "required_fields": [
+                    {
+                        "code": "code",
+                        "is_required": False,
+                        "is_updatable": True,
+                        "instructions": "instructions",
+                        "name": "name",
+                        "numeric_code": "numeric_code",
+                        "type_": "boolean",
+                        "regex": "regex",
+                        "conditions": [
+                            {
+                                "description": "description",
+                                "element_name": "element_name",
+                                "operator": "operator",
+                                "threshold_value": "reprehenderit "
+                            }
+                        ],
+                        "description": "description"
+                    }
+                ],
+                "type_": "boolean",
+                "regex": "regex",
+                "conditions": [
+                    {
+                        "description": "description",
+                        "element_name": "element_name",
+                        "operator": "operator",
+                        "threshold_value": "reprehenderit "
+                    }
+                ],
+                "description": "description"
+            }
+        ],
         "image": "image",
-        "is_cancelable": False,
+        "is_cancelable": True,
         "is_expirable": False,
-        "is_online": False,
-        "is_refundable": True,
+        "is_online": True,
+        "is_refundable": False,
         "is_tokenizable": False,
         "is_virtual": True,
-        "maximum_expiration_seconds": 6.94,
-        "minimum_expiration_seconds": 2.06,
+        "maximum_expiration_seconds": 1.03,
+        "minimum_expiration_seconds": 6.1,
         "multiple_overage_allowed": False,
         "name": "name",
         "payment_flow_type": "direct",
@@ -133,7 +175,7 @@ request_body = CustomerIdPaymentMethodsBody(
                                 "description": "description",
                                 "element_name": "element_name",
                                 "operator": "operator",
-                                "threshold_value": "adnon"
+                                "threshold_value": "reprehenderit "
                             }
                         ],
                         "description": "description"
@@ -146,7 +188,7 @@ request_body = CustomerIdPaymentMethodsBody(
                         "description": "description",
                         "element_name": "element_name",
                         "operator": "operator",
-                        "threshold_value": "adnon"
+                        "threshold_value": "reprehenderit "
                     }
                 ],
                 "description": "description"
@@ -180,14 +222,14 @@ Retrieve a payment method for a specific customer
 
 **Parameters**
 
-| Name        | Type  | Required | Description |
-| :---------- | :---- | :------- | :---------- |
-| customer_id | `str` | ✅       | customer Id |
-| pmt_id      | `str` | ✅       | Pmt Id      |
+| Name        | Type | Required | Description |
+| :---------- | :--- | :------- | :---------- |
+| customer_id | str  | ✅       | customer Id |
+| pmt_id      | str  | ✅       | Pmt Id      |
 
 **Return Type**
 
-`InlineResponse200_39`
+`InlineResponse200_44`
 
 **Example Usage Code Snippet**
 
@@ -216,15 +258,15 @@ Change or modify a payment method that was stored in a customer profile
 
 **Parameters**
 
-| Name         | Type                                                          | Required | Description       |
-| :----------- | :------------------------------------------------------------ | :------- | :---------------- |
-| request_body | `[CustomerPaymentMethod](../models/CustomerPaymentMethod.md)` | ✅       | The request body. |
-| customer_id  | `str`                                                         | ✅       | customer Id       |
-| pmt_id       | `str`                                                         | ✅       | Pmt Id            |
+| Name         | Type                                                        | Required | Description       |
+| :----------- | :---------------------------------------------------------- | :------- | :---------------- |
+| request_body | [CustomerPaymentMethod](../models/CustomerPaymentMethod.md) | ✅       | The request body. |
+| customer_id  | str                                                         | ✅       | customer Id       |
+| pmt_id       | str                                                         | ✅       | Pmt Id            |
 
 **Return Type**
 
-`InlineResponse200_39`
+`InlineResponse200_44`
 
 **Example Usage Code Snippet**
 
@@ -242,7 +284,7 @@ request_body = CustomerPaymentMethod(
     fingerprint_token="fingerprint_token",
     id_="id",
     image="image",
-    last4="4487",
+    last4="6326",
     metadata={},
     name="name",
     network_reference_id="network_reference_id",
@@ -272,14 +314,14 @@ This method triggers the Webhook - Payment Method Canceled webhook. This webhook
 
 **Parameters**
 
-| Name        | Type  | Required | Description |
-| :---------- | :---- | :------- | :---------- |
-| customer_id | `str` | ✅       | customer Id |
-| pmt_id      | `str` | ✅       | Pmt Id      |
+| Name        | Type | Required | Description |
+| :---------- | :--- | :------- | :---------- |
+| customer_id | str  | ✅       | customer Id |
+| pmt_id      | str  | ✅       | Pmt Id      |
 
 **Return Type**
 
-`InlineResponse200_40`
+`InlineResponse200_45`
 
 **Example Usage Code Snippet**
 

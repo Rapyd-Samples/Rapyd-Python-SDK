@@ -6,7 +6,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.virtual_accounts.retrieve_issuing_transaction(
+result = sdk.virtual_accounts.retrieve_virtual_account_transaction(
     virtual_account_id="virtualAccountId",
     transaction_id="transactionId"
 )

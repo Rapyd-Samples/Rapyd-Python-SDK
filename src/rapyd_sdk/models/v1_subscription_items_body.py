@@ -16,7 +16,7 @@ class V1SubscriptionItemsBody(BaseModel):
     :type proration_date: float, optional
     :param quantity: The number of units of the service defined in the plan., defaults to None
     :type quantity: float, optional
-    :param subscription: ID of the subscription that this item belongs to. String starting with sub_.
+    :param subscription: ID of the subscription that this item belongs to. String starting with **sub_**.
     :type subscription: str
     """
 
@@ -41,7 +41,7 @@ class V1SubscriptionItemsBody(BaseModel):
         :type proration_date: float, optional
         :param quantity: The number of units of the service defined in the plan., defaults to None
         :type quantity: float, optional
-        :param subscription: ID of the subscription that this item belongs to. String starting with sub_.
+        :param subscription: ID of the subscription that this item belongs to. String starting with **sub_**.
         :type subscription: str
         """
         self.metadata = metadata

@@ -4,7 +4,7 @@ from typing import Union
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
 from .utils.one_of_base_model import OneOfBaseModel
-from .address import Address
+from .address_1 import Address1
 from .client_details_object import ClientDetailsObject
 from .fee import Fee
 from .payment_method_type import PaymentMethodType
@@ -52,7 +52,7 @@ class V1PaymentsBody(BaseModel):
     """V1PaymentsBody
 
     :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-    :type address: Address, optional
+    :type address: Address1, optional
     :param amount: The amount received by the recipient, in units of the currency defined in currency. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. To verify a card, set to 0.
     :type amount: float
     :param capture: Determines when the payment is processed for capture. When true, the payment is captured immediately. When false, the payment is captured at a later time. Relevant to cards. Default is true., defaults to None
@@ -73,7 +73,7 @@ class V1PaymentsBody(BaseModel):
     :type escrow: bool, optional
     :param escrow_release_days: Determines the number of days after creation of the payment that funds are released from escrow. Funds are released at 5:00 pm GMT on the day indicated. Integer, range between 1-90. Default is 90., defaults to None
     :type escrow_release_days: int, optional
-    :param ewallet: ID of the wallet that the money is paid into. String starting with ewallet_. Relevant when the request includes a single wallet., defaults to None
+    :param ewallet: ID of the wallet that the money is paid into. String starting with **ewallet_**. Relevant when the request includes a single wallet., defaults to None
     :type ewallet: str, optional
     :param ewallets: Represents the wallets that the money is paid into. Array of objects., defaults to None
     :type ewallets: any, optional
@@ -107,7 +107,7 @@ class V1PaymentsBody(BaseModel):
         self,
         amount: float,
         currency: str,
-        address: Address = None,
+        address: Address1 = None,
         capture: bool = None,
         client_details: ClientDetailsObject = None,
         complete_payment_url: str = None,
@@ -134,7 +134,7 @@ class V1PaymentsBody(BaseModel):
         """V1PaymentsBody
 
         :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-        :type address: Address, optional
+        :type address: Address1, optional
         :param amount: The amount received by the recipient, in units of the currency defined in currency. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. To verify a card, set to 0.
         :type amount: float
         :param capture: Determines when the payment is processed for capture. When true, the payment is captured immediately. When false, the payment is captured at a later time. Relevant to cards. Default is true., defaults to None
@@ -155,7 +155,7 @@ class V1PaymentsBody(BaseModel):
         :type escrow: bool, optional
         :param escrow_release_days: Determines the number of days after creation of the payment that funds are released from escrow. Funds are released at 5:00 pm GMT on the day indicated. Integer, range between 1-90. Default is 90., defaults to None
         :type escrow_release_days: int, optional
-        :param ewallet: ID of the wallet that the money is paid into. String starting with ewallet_. Relevant when the request includes a single wallet., defaults to None
+        :param ewallet: ID of the wallet that the money is paid into. String starting with **ewallet_**. Relevant when the request includes a single wallet., defaults to None
         :type ewallet: str, optional
         :param ewallets: Represents the wallets that the money is paid into. Array of objects., defaults to None
         :type ewallets: any, optional
@@ -184,7 +184,7 @@ class V1PaymentsBody(BaseModel):
         :param statement_descriptor: A text description that appears in the customer's bank statement., defaults to None
         :type statement_descriptor: str, optional
         """
-        self.address = self._define_object(address, Address)
+        self.address = self._define_object(address, Address1)
         self.amount = amount
         self.capture = capture
         self.client_details = self._define_object(client_details, ClientDetailsObject)

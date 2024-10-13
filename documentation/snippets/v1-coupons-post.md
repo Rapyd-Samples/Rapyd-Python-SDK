@@ -8,12 +8,12 @@ sdk = RapydSdk(
 )
 
 request_body = Coupon(
-    amount_off=0.13,
+    amount_off=6.55,
     created=1671697165,
     currency="GBP",
     description="Sample Coupon 1",
     discount_duration_in_uses=2,
-    discount_valid_until=7.67,
+    discount_valid_until=0.57,
     discount_validity_in_months=2,
     duration="forever",
     duration_in_months=3,
@@ -21,8 +21,8 @@ request_body = Coupon(
     max_redemptions=2,
     metadata={},
     percent_off=10,
-    redeem_by=0.44,
-    times_redeemed=6.69,
+    redeem_by=0.14,
+    times_redeemed=2.17,
     valid=True
 )
 

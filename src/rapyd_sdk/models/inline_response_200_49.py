@@ -1,27 +1,27 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .order_returned_response import OrderReturnedResponse
-from .status import Status
+from .status_1 import Status1
+from .escrow_response import EscrowResponse
 
 
 @JsonMap({})
 class InlineResponse200_49(BaseModel):
     """InlineResponse200_49
 
-    :param data: data, defaults to None
-    :type data: OrderReturnedResponse, optional
     :param status: status, defaults to None
-    :type status: Status, optional
+    :type status: Status1, optional
+    :param data: data, defaults to None
+    :type data: EscrowResponse, optional
     """
 
-    def __init__(self, data: OrderReturnedResponse = None, status: Status = None):
+    def __init__(self, status: Status1 = None, data: EscrowResponse = None):
         """InlineResponse200_49
 
-        :param data: data, defaults to None
-        :type data: OrderReturnedResponse, optional
         :param status: status, defaults to None
-        :type status: Status, optional
+        :type status: Status1, optional
+        :param data: data, defaults to None
+        :type data: EscrowResponse, optional
         """
-        self.data = self._define_object(data, OrderReturnedResponse)
-        self.status = self._define_object(status, Status)
+        self.status = self._define_object(status, Status1)
+        self.data = self._define_object(data, EscrowResponse)

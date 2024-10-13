@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name | Type  | Required | Description |
-| :--- | :---- | :------- | :---------- |
-| step | `str` | ❌       |             |
+| Name | Type | Required | Description |
+| :--- | :--- | :------- | :---------- |
+| step | str  | ❌       |             |

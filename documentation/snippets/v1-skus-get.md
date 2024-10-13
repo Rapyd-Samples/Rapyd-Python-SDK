@@ -8,9 +8,9 @@ sdk = RapydSdk(
 
 result = sdk.sku.list_sku(
     active=False,
-    starting_after=9.68,
-    ending_before=5.31,
-    limit=1.17
+    starting_after=9.83,
+    ending_before=3.58,
+    limit=3.06
 )
 
 print(result)

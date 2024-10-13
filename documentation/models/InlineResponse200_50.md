@@ -2,7 +2,6 @@
 
 **Properties**
 
-| Name   | Type                          | Required | Description |
-| :----- | :---------------------------- | :------- | :---------- |
-| status | `Status`                      | ❌       |             |
-| data   | `List[OrderReturnedResponse]` | ❌       |             |
+| Name | Type           | Required | Description |
+| :--- | :------------- | :------- | :---------- |
+| data | EscrowResponse | ❌       |             |

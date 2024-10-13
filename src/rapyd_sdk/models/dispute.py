@@ -45,7 +45,7 @@ class Dispute(BaseModel):
 
     :param id_: Reserved., defaults to None
     :type id_: str, optional
-    :param token: ID of the dispute. String starting with dispute_., defaults to None
+    :param token: ID of the dispute. String starting with **dispute_**., defaults to None
     :type token: str, optional
     :param status: Indicates the status of the dispute operation. One of the following values: * ACT (Active) - The dispute was initiated and is awaiting action by the merchant. * RVW (Review) - Rapyd is reviewing the merchant's evidence contesting the dispute. * PRA (Pre-Arbitration) - Rapyd is reviewing the merchant's evidence contesting a previously contested dispute. * ARB (Arbitration) - The merchant rejected a pre-arbitration outcome. Rapyd is awaiting a ruling by an arbitration committee from the card schemes. * LOS (Lose) - The merchant lost the dispute. Funds were deducted from the merchant wallet. Final status. * WIN (Win) - The merchant won the dispute. Funds were credited to the merchant wallet. Final status. * REV (Reverse) - The card issuer reversed the dispute. Funds were credited to the merchant wallet. Final status. , defaults to None
     :type status: DisputeStatus, optional
@@ -65,9 +65,9 @@ class Dispute(BaseModel):
     :type original_dispute_amount: float, optional
     :param original_dispute_currency: original_dispute_currency, defaults to None
     :type original_dispute_currency: str, optional
-    :param original_transaction_id: ID of the payment that the dispute is charged against. String starting with payment_., defaults to None
+    :param original_transaction_id: ID of the payment that the dispute is charged against. String starting with **payment_**., defaults to None
     :type original_transaction_id: str, optional
-    :param ewallet_id: ID of the wallet that the money is paid into. String starting with ewallet_. Relevant when the request includes a single wallet. Response only., defaults to None
+    :param ewallet_id: ID of the wallet that the money is paid into. String starting with **ewallet_**. Relevant when the request includes a single wallet. Response only., defaults to None
     :type ewallet_id: str, optional
     :param central_processing_date: The date the transaction was processed by the card network., defaults to None
     :type central_processing_date: float, optional
@@ -77,7 +77,7 @@ class Dispute(BaseModel):
     :type updated_at: float, optional
     :param due_date: The latest date for the dispute to be contested in Unix time. Response only., defaults to None
     :type due_date: float, optional
-    :param payment_method: ID of the payment method. String starting with card_., defaults to None
+    :param payment_method: ID of the payment method. String starting with **card_**., defaults to None
     :type payment_method: str, optional
     :param payment_method_data: Details of the payment method that was used for the payment. See Payment Method Data Object. Response only., defaults to None
     :type payment_method_data: dict, optional
@@ -124,7 +124,7 @@ class Dispute(BaseModel):
 
         :param id_: Reserved., defaults to None
         :type id_: str, optional
-        :param token: ID of the dispute. String starting with dispute_., defaults to None
+        :param token: ID of the dispute. String starting with **dispute_**., defaults to None
         :type token: str, optional
         :param status: Indicates the status of the dispute operation. One of the following values: * ACT (Active) - The dispute was initiated and is awaiting action by the merchant. * RVW (Review) - Rapyd is reviewing the merchant's evidence contesting the dispute. * PRA (Pre-Arbitration) - Rapyd is reviewing the merchant's evidence contesting a previously contested dispute. * ARB (Arbitration) - The merchant rejected a pre-arbitration outcome. Rapyd is awaiting a ruling by an arbitration committee from the card schemes. * LOS (Lose) - The merchant lost the dispute. Funds were deducted from the merchant wallet. Final status. * WIN (Win) - The merchant won the dispute. Funds were credited to the merchant wallet. Final status. * REV (Reverse) - The card issuer reversed the dispute. Funds were credited to the merchant wallet. Final status. , defaults to None
         :type status: DisputeStatus, optional
@@ -144,9 +144,9 @@ class Dispute(BaseModel):
         :type original_dispute_amount: float, optional
         :param original_dispute_currency: original_dispute_currency, defaults to None
         :type original_dispute_currency: str, optional
-        :param original_transaction_id: ID of the payment that the dispute is charged against. String starting with payment_., defaults to None
+        :param original_transaction_id: ID of the payment that the dispute is charged against. String starting with **payment_**., defaults to None
         :type original_transaction_id: str, optional
-        :param ewallet_id: ID of the wallet that the money is paid into. String starting with ewallet_. Relevant when the request includes a single wallet. Response only., defaults to None
+        :param ewallet_id: ID of the wallet that the money is paid into. String starting with **ewallet_**. Relevant when the request includes a single wallet. Response only., defaults to None
         :type ewallet_id: str, optional
         :param central_processing_date: The date the transaction was processed by the card network., defaults to None
         :type central_processing_date: float, optional
@@ -156,7 +156,7 @@ class Dispute(BaseModel):
         :type updated_at: float, optional
         :param due_date: The latest date for the dispute to be contested in Unix time. Response only., defaults to None
         :type due_date: float, optional
-        :param payment_method: ID of the payment method. String starting with card_., defaults to None
+        :param payment_method: ID of the payment method. String starting with **card_**., defaults to None
         :type payment_method: str, optional
         :param payment_method_data: Details of the payment method that was used for the payment. See Payment Method Data Object. Response only., defaults to None
         :type payment_method_data: dict, optional

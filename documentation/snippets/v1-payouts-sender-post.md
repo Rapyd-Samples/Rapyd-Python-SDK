@@ -9,8 +9,8 @@ sdk = RapydSdk(
 
 request_body = PayoutsSenderBody(
     company_name="ABC",
-    country="GB",
-    currency="GBP",
+    country="esseesse ut",
+    currency="UZS",
     entity_type="company",
     first_name="Scott",
     identification_type="drivers_license",

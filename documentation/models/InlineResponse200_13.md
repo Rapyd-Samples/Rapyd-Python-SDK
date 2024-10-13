@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type          | Required | Description |
-| :----- | :------------ | :------- | :---------- |
-| data   | `Beneficiary` | ❌       |             |
-| status | `Status`      | ❌       |             |
+| Name   | Type        | Required | Description |
+| :----- | :---------- | :------- | :---------- |
+| data   | Beneficiary | ❌       |             |
+| status | Status      | ❌       |             |

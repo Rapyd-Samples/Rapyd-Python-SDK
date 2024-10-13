@@ -2,13 +2,14 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.invoices_invoice_id_body import InvoicesInvoiceIdBody
-from ..models.invoice_id_pay_body import InvoiceIdPayBody
-from ..models.inline_response_200_45 import InlineResponse200_45
-from ..models.inline_response_200_44 import InlineResponse200_44
-from ..models.inline_response_200_43 import InlineResponse200_43
-from ..models.inline_response_200_36 import InlineResponse200_36
-from ..models.customer import Customer
+from ..models import (
+    Customer,
+    InlineResponse200_40,
+    InlineResponse200_52,
+    InlineResponse200_53,
+    InvoiceIdPayBody,
+    InvoicesInvoiceIdBody,
+)
 
 
 class SubscriptionInvoiceService(BaseService):
@@ -22,11 +23,11 @@ class SubscriptionInvoiceService(BaseService):
         ending_before: str = None,
         limit: str = None,
         starting_after: str = None,
-        subscription: bool = None,
-    ) -> InlineResponse200_43:
+        subscription: str = None,
+    ) -> InlineResponse200_52:
         """Retrieve the basic data of an invoice, with individual invoice lines.
 
-        :param customer: ID of the customer. String starting with cus_., defaults to None
+        :param customer: ID of the customer. String starting with **cus_**., defaults to None
         :type customer: Customer, optional
         :param date_: Date that the invoice was created., defaults to None
         :type date_: str, optional
@@ -39,12 +40,12 @@ class SubscriptionInvoiceService(BaseService):
         :param starting_after: The ID of the invoice created before the first invoice you want to retrieve., defaults to None
         :type starting_after: str, optional
         :param subscription: ID of the subscription. String starting with sub_., defaults to None
-        :type subscription: bool, optional
+        :type subscription: str, optional
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Invoices Fetched successfully
-        :rtype: InlineResponse200_43
+        :rtype: InlineResponse200_52
         """
 
         Validator(Customer).is_optional().validate(customer)
@@ -53,7 +54,7 @@ class SubscriptionInvoiceService(BaseService):
         Validator(str).is_optional().validate(ending_before)
         Validator(str).is_optional().validate(limit)
         Validator(str).is_optional().validate(starting_after)
-        Validator(bool).is_optional().validate(subscription)
+        Validator(str).is_optional().validate(subscription)
 
         serialized_request = (
             Serializer(f"{self.base_url}/v1/invoices", self.get_default_headers())
@@ -69,10 +70,10 @@ class SubscriptionInvoiceService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_43._unmap(response)
+        return InlineResponse200_52._unmap(response)
 
     @cast_models
-    def retrieve_invoice(self, invoice_id: str) -> InlineResponse200_44:
+    def retrieve_invoice(self, invoice_id: str) -> InlineResponse200_53:
         """Retrieve the basic data of an invoice, with individual invoice lines.
 
         :param invoice_id: The ID of the invoice that you want to retrieve.
@@ -81,7 +82,7 @@ class SubscriptionInvoiceService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Invoice Fetched successfully
-        :rtype: InlineResponse200_44
+        :rtype: InlineResponse200_53
         """
 
         Validator(str).validate(invoice_id)
@@ -96,12 +97,12 @@ class SubscriptionInvoiceService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_44._unmap(response)
+        return InlineResponse200_53._unmap(response)
 
     @cast_models
     def update_invoice(
         self, invoice_id: str, request_body: InvoicesInvoiceIdBody = None
-    ) -> InlineResponse200_43:
+    ) -> InlineResponse200_53:
         """Change or modify an invoice. You can modify the invoice when its status is draft.
 
         :param request_body: The request body., defaults to None
@@ -112,7 +113,7 @@ class SubscriptionInvoiceService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Invoice updated successfully
-        :rtype: InlineResponse200_43
+        :rtype: InlineResponse200_53
         """
 
         Validator(InvoicesInvoiceIdBody).is_optional().validate(request_body)
@@ -129,10 +130,10 @@ class SubscriptionInvoiceService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_43._unmap(response)
+        return InlineResponse200_53._unmap(response)
 
     @cast_models
-    def delete_invoice(self, invoice_id: str) -> InlineResponse200_36:
+    def delete_invoice(self, invoice_id: str) -> InlineResponse200_40:
         """Delete an invoice. You can delete an invoice when status is draft.
 
         :param invoice_id: The ID of the invoice that you want to delete.
@@ -141,7 +142,7 @@ class SubscriptionInvoiceService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Invoice deleted successfully
-        :rtype: InlineResponse200_36
+        :rtype: InlineResponse200_40
         """
 
         Validator(str).validate(invoice_id)
@@ -156,10 +157,10 @@ class SubscriptionInvoiceService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_36._unmap(response)
+        return InlineResponse200_40._unmap(response)
 
     @cast_models
-    def finalize_invoice(self, invoice_id: str) -> InlineResponse200_45:
+    def finalize_invoice(self, invoice_id: str) -> InlineResponse200_53:
         """Finalize an invoice.Invoices are initially created with a draft status, and this is the only state in which an invoice can be finalized. When an invoice is ready to be paid, finalize it. This sets its status to open. Subscriptions automatically create draft invoices during each billing cycle, which are then automatically finalized. When an invoice is finalized, it can no longer be deleted and its final status can be one of the following - Paid Uncollectible* Void. An invoice can be finalized only one time.
 
         :param invoice_id: ID of the invoice you want to pay.
@@ -168,7 +169,7 @@ class SubscriptionInvoiceService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Finalized Invoice,
-        :rtype: InlineResponse200_45
+        :rtype: InlineResponse200_53
         """
 
         Validator(str).validate(invoice_id)
@@ -184,12 +185,12 @@ class SubscriptionInvoiceService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_45._unmap(response)
+        return InlineResponse200_53._unmap(response)
 
     @cast_models
     def pay_invoice(
         self, invoice_id: str, request_body: InvoiceIdPayBody = None
-    ) -> InlineResponse200_44:
+    ) -> InlineResponse200_53:
         """Make a payment against an invoice.
 
         :param request_body: The request body., defaults to None
@@ -200,7 +201,7 @@ class SubscriptionInvoiceService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: The Invoice
-        :rtype: InlineResponse200_44
+        :rtype: InlineResponse200_53
         """
 
         Validator(InvoiceIdPayBody).is_optional().validate(request_body)
@@ -218,4 +219,4 @@ class SubscriptionInvoiceService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_44._unmap(response)
+        return InlineResponse200_53._unmap(response)

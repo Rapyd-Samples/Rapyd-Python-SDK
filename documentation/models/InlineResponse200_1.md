@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type            | Required | Description |
-| :----- | :-------------- | :------- | :---------- |
-| data   | `List[Contact]` | ❌       |             |
-| status | `Status`        | ❌       |             |
+| Name   | Type          | Required | Description |
+| :----- | :------------ | :------- | :---------- |
+| data   | List[Contact] | ❌       |             |
+| status | Status        | ❌       |             |

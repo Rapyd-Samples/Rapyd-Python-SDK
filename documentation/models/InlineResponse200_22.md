@@ -2,6 +2,7 @@
 
 **Properties**
 
-| Name   | Type     | Required | Description |
-| :----- | :------- | :------- | :---------- |
-| status | `Status` | ❌       |             |
+| Name   | Type    | Required | Description |
+| :----- | :------ | :------- | :---------- |
+| data   | Ewallet | ❌       |             |
+| status | Status  | ❌       |             |

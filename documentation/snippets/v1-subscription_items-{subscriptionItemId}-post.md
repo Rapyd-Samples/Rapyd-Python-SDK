@@ -9,9 +9,9 @@ sdk = RapydSdk(
 
 request_body = SubscriptionItemsSubscriptionItemIdBody(
     metadata={},
-    prorate=False,
-    proration_date=1.81,
-    quantity=3.53
+    prorate=True,
+    proration_date=8.99,
+    quantity=8.22
 )
 
 result = sdk.subscription_subscription_item.update_subscription_item(

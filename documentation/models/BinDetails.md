@@ -4,11 +4,11 @@ Bank Identification Number (BIN) details. Read-only. Object containing the follo
 
 **Properties**
 
-| Name       | Type  | Required | Description |
-| :--------- | :---- | :------- | :---------- |
-| brand      | `str` | ❌       |             |
-| bin_number | `str` | ❌       |             |
-| type\_     | `str` | ❌       |             |
-| issuer     | `str` | ❌       |             |
-| country    | `str` | ❌       |             |
-| level      | `str` | ❌       |             |
+| Name       | Type | Required | Description |
+| :--------- | :--- | :------- | :---------- |
+| brand      | str  | ❌       |             |
+| bin_number | str  | ❌       |             |
+| type\_     | str  | ❌       |             |
+| issuer     | str  | ❌       |             |
+| country    | str  | ❌       |             |
+| level      | str  | ❌       |             |

@@ -6,7 +6,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.virtual_accounts.retrieve_issuing_by_rapyd_token(virtual_account_id="virtualAccountId")
+result = sdk.virtual_accounts.retrieve_virtual_account(virtual_account_id="virtualAccountId")
 
 print(result)
 

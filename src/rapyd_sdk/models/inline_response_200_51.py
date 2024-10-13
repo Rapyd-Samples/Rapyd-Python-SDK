@@ -1,28 +1,27 @@
 from __future__ import annotations
-from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .payment_method_type import PaymentMethodType
-from .status import Status
+from .status_1 import Status1
+from .group_payment import GroupPayment
 
 
 @JsonMap({})
 class InlineResponse200_51(BaseModel):
     """InlineResponse200_51
 
-    :param data: data, defaults to None
-    :type data: List[PaymentMethodType], optional
     :param status: status, defaults to None
-    :type status: Status, optional
+    :type status: Status1, optional
+    :param data: Group Payment, defaults to None
+    :type data: GroupPayment, optional
     """
 
-    def __init__(self, data: List[PaymentMethodType] = None, status: Status = None):
+    def __init__(self, status: Status1 = None, data: GroupPayment = None):
         """InlineResponse200_51
 
-        :param data: data, defaults to None
-        :type data: List[PaymentMethodType], optional
         :param status: status, defaults to None
-        :type status: Status, optional
+        :type status: Status1, optional
+        :param data: Group Payment, defaults to None
+        :type data: GroupPayment, optional
         """
-        self.data = self._define_list(data, PaymentMethodType)
-        self.status = self._define_object(status, Status)
+        self.status = self._define_object(status, Status1)
+        self.data = self._define_object(data, GroupPayment)

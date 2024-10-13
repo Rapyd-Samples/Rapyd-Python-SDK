@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .address import Address
+from .address_1 import Address1
 from .payment_amount_range_per_currency_inner import PaymentAmountRangePerCurrencyInner
 from .bin_details import BinDetails
 from .category import Category
@@ -48,7 +48,7 @@ class PaymentOptions(BaseModel):
     """A payment method type is a type of payment method that any customer can use, for example, ee_mastercard_card, Mastercard for Estonia. When it is added to a customer profile, it becomes a payment method that is specific to that one customer. The name of the payment method type starts with a prefix for the country, the 2-letter ISO 3166-1 alpha-2 code. If the payment method is valid in multiple countries, the prefix is xx_. The payment method type has a suffix with one of the following values - _bank - Bank transfer or bank redirect _card - Credit card, debit card or other card _cash - Cash _ewallet - Local eWallet
 
     :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-    :type address: Address, optional
+    :type address: Address1, optional
     :param amount_range_per_currency: Indicates the amount range for the payment method's currencies. Each object contains the following fields:* currency - Three-letter ISO 4217 format of currency* maximum_amount - The maximum payment amount* minimum_amount - The minimum payment amount, defaults to None
     :type amount_range_per_currency: List[PaymentAmountRangePerCurrencyInner], optional
     :param bin_details: Bank Identification Number (BIN) details. Read-only. Object containing the following fields - * bin_number - BIN number * country - The two-letter ISO 3166-1 ALPHA-2 code for the country. Uppercase. * funding - Type of card funding. One of the following [credit, debit, prepaid, unknown] * bank - Name of the issuing bank. Relevant to cards, defaults to None
@@ -99,7 +99,7 @@ class PaymentOptions(BaseModel):
 
     def __init__(
         self,
-        address: Address = None,
+        address: Address1 = None,
         amount_range_per_currency: List[PaymentAmountRangePerCurrencyInner] = None,
         bin_details: BinDetails = None,
         category: Category = None,
@@ -127,7 +127,7 @@ class PaymentOptions(BaseModel):
         """A payment method type is a type of payment method that any customer can use, for example, ee_mastercard_card, Mastercard for Estonia. When it is added to a customer profile, it becomes a payment method that is specific to that one customer. The name of the payment method type starts with a prefix for the country, the 2-letter ISO 3166-1 alpha-2 code. If the payment method is valid in multiple countries, the prefix is xx_. The payment method type has a suffix with one of the following values - _bank - Bank transfer or bank redirect _card - Credit card, debit card or other card _cash - Cash _ewallet - Local eWallet
 
         :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-        :type address: Address, optional
+        :type address: Address1, optional
         :param amount_range_per_currency: Indicates the amount range for the payment method's currencies. Each object contains the following fields:* currency - Three-letter ISO 4217 format of currency* maximum_amount - The maximum payment amount* minimum_amount - The minimum payment amount, defaults to None
         :type amount_range_per_currency: List[PaymentAmountRangePerCurrencyInner], optional
         :param bin_details: Bank Identification Number (BIN) details. Read-only. Object containing the following fields - * bin_number - BIN number * country - The two-letter ISO 3166-1 ALPHA-2 code for the country. Uppercase. * funding - Type of card funding. One of the following [credit, debit, prepaid, unknown] * bank - Name of the issuing bank. Relevant to cards, defaults to None
@@ -175,7 +175,7 @@ class PaymentOptions(BaseModel):
         :param payment_flow_type: payment_flow_type, defaults to None
         :type payment_flow_type: PaymentOptionsPaymentFlowType, optional
         """
-        self.address = self._define_object(address, Address)
+        self.address = self._define_object(address, Address1)
         self.amount_range_per_currency = self._define_list(
             amount_range_per_currency, PaymentAmountRangePerCurrencyInner
         )

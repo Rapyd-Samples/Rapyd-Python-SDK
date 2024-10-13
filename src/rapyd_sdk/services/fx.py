@@ -2,7 +2,7 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_19 import InlineResponse200_19
+from ..models import InlineResponse200_20
 
 
 class FxService(BaseService):
@@ -16,7 +16,7 @@ class FxService(BaseService):
         amount: float = None,
         date_: str = None,
         fixed_side: str = None,
-    ) -> InlineResponse200_19:
+    ) -> InlineResponse200_20:
         """Retrieve a daily rate for conversion of currencies in payments and payouts. Rapyd uses a snapshot of daily foreign exchange rates fetched at 9 PM UTC. The rate returned includes the FX markup fees.
 
         :param action_type: Determines the type of transaction that the currency exchange applies to. One of the following - payment, payout
@@ -35,7 +35,7 @@ class FxService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Retrieve fixed daily rate
-        :rtype: InlineResponse200_19
+        :rtype: InlineResponse200_20
         """
 
         Validator(str).validate(action_type)
@@ -46,7 +46,7 @@ class FxService(BaseService):
         Validator(str).is_optional().validate(fixed_side)
 
         serialized_request = (
-            Serializer(f"{self.base_url}/v1/rates/daily", self.get_default_headers())
+            Serializer(f"{self.base_url}/v1/fx_rate", self.get_default_headers())
             .add_query("action_type", action_type)
             .add_query("amount", amount)
             .add_query("buy_currency", buy_currency)
@@ -58,4 +58,4 @@ class FxService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_19._unmap(response)
+        return InlineResponse200_20._unmap(response)

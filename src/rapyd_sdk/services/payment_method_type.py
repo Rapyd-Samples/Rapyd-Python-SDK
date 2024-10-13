@@ -2,8 +2,7 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_52 import InlineResponse200_52
-from ..models.inline_response_200_51 import InlineResponse200_51
+from ..models import InlineResponse200_58, InlineResponse200_59
 
 
 class PaymentMethodTypeService(BaseService):
@@ -11,7 +10,7 @@ class PaymentMethodTypeService(BaseService):
     @cast_models
     def get_payment_methods_types_by_country(
         self, country_id: str, currency: str = None
-    ) -> InlineResponse200_51:
+    ) -> InlineResponse200_58:
         """You can filter the results by specifying the currency query parameter
 
         :param country_id: Two-letter ISO 3166-1 ALPHA-2 code for the country. Uppercase.
@@ -22,7 +21,7 @@ class PaymentMethodTypeService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: SUCCESS
-        :rtype: InlineResponse200_51
+        :rtype: InlineResponse200_58
         """
 
         Validator(str).pattern(
@@ -44,12 +43,12 @@ class PaymentMethodTypeService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_51._unmap(response)
+        return InlineResponse200_58._unmap(response)
 
     @cast_models
     def get_payment_method_type_required_fields(
         self, pmt_id: str
-    ) -> InlineResponse200_52:
+    ) -> InlineResponse200_59:
         """The fields are returned as a list of objects. The name of each field appears in the name field of the response
 
         :param pmt_id: discount Id
@@ -58,7 +57,7 @@ class PaymentMethodTypeService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: SUCCESS
-        :rtype: InlineResponse200_52
+        :rtype: InlineResponse200_59
         """
 
         Validator(str).validate(pmt_id)
@@ -74,4 +73,4 @@ class PaymentMethodTypeService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_52._unmap(response)
+        return InlineResponse200_59._unmap(response)

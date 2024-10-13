@@ -8,7 +8,7 @@ class DailyRate(BaseModel):
 
     :param action_type: The type of transaction that the currency exchange applies to. One of the following - payment, payout, defaults to None
     :type action_type: str, optional
-    :param buy_amount: If fixed_side is buy, the value of amount. If fixed_side is sell, the value of buy_currency following the currency exchange transaction. Relevant when amount and fixed_side are specified., defaults to None
+    :param buy_amount: If fixed_side is buy, the value of amount. If fixed_side is sell, the value of buy_currency following the currency exchange transaction. Relevant when amount and `fixed_side` are specified., defaults to None
     :type buy_amount: float, optional
     :param buy_currency: The currency purchased in the currency exchange transaction. Three-letter ISO 4217 code. Uppercase., defaults to None
     :type buy_currency: str, optional
@@ -18,7 +18,7 @@ class DailyRate(BaseModel):
     :type fixed_side: str, optional
     :param rate: The exchange rate. Includes FX markup fees., defaults to None
     :type rate: float, optional
-    :param sell_amount: If fixed_side is sell, the value of amount. If fixed_side is buy, the value of sell_currency following the currency exchange transaction. Relevant when amount and fixed_side are specified., defaults to None
+    :param sell_amount: If `fixed_side` is **sell**, the value of amount. If `fixed_side` is **buy**, the value of `sell_currency` following the currency exchange transaction. Relevant when `amount` and `fixed_side` are specified., defaults to None
     :type sell_amount: float, optional
     :param sell_currency: Selling currency, defaults to None
     :type sell_currency: str, optional
@@ -39,7 +39,7 @@ class DailyRate(BaseModel):
 
         :param action_type: The type of transaction that the currency exchange applies to. One of the following - payment, payout, defaults to None
         :type action_type: str, optional
-        :param buy_amount: If fixed_side is buy, the value of amount. If fixed_side is sell, the value of buy_currency following the currency exchange transaction. Relevant when amount and fixed_side are specified., defaults to None
+        :param buy_amount: If fixed_side is buy, the value of amount. If fixed_side is sell, the value of buy_currency following the currency exchange transaction. Relevant when amount and `fixed_side` are specified., defaults to None
         :type buy_amount: float, optional
         :param buy_currency: The currency purchased in the currency exchange transaction. Three-letter ISO 4217 code. Uppercase., defaults to None
         :type buy_currency: str, optional
@@ -49,7 +49,7 @@ class DailyRate(BaseModel):
         :type fixed_side: str, optional
         :param rate: The exchange rate. Includes FX markup fees., defaults to None
         :type rate: float, optional
-        :param sell_amount: If fixed_side is sell, the value of amount. If fixed_side is buy, the value of sell_currency following the currency exchange transaction. Relevant when amount and fixed_side are specified., defaults to None
+        :param sell_amount: If `fixed_side` is **sell**, the value of amount. If `fixed_side` is **buy**, the value of `sell_currency` following the currency exchange transaction. Relevant when `amount` and `fixed_side` are specified., defaults to None
         :type sell_amount: float, optional
         :param sell_currency: Selling currency, defaults to None
         :type sell_currency: str, optional

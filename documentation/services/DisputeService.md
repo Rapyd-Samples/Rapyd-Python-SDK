@@ -16,17 +16,17 @@ Retrieve a detailed list of 'dispute' objects.
 
 **Parameters**
 
-| Name           | Type                                                                        | Required | Description                                                                                                  |
-| :------------- | :-------------------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------- |
-| starting_after | `str`                                                                       | ❌       | The ID of the dispute created before the first dispute you want to retrieve. String starting with dispute\_. |
-| ending_before  | `str`                                                                       | ❌       | The ID of the dispute created after the last dispute you want to retrieve. String starting with dispute\_.   |
-| limit          | `str`                                                                       | ❌       | The maximum number of disputes to return. Range is 1-100. Default is 10.                                     |
-| status         | `[GetDisputesListByOrgIdStatus](../models/GetDisputesListByOrgIdStatus.md)` | ❌       | Filters the list for disputes with the specified dispute status.                                             |
-| payment        | `str`                                                                       | ❌       | The ID of the payment that is linked to the dispute. String starting with payment\_.                         |
+| Name           | Type                                                                      | Required | Description                                                                                                  |
+| :------------- | :------------------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------- |
+| starting_after | str                                                                       | ❌       | The ID of the dispute created before the first dispute you want to retrieve. String starting with dispute\_. |
+| ending_before  | str                                                                       | ❌       | The ID of the dispute created after the last dispute you want to retrieve. String starting with dispute\_.   |
+| limit          | str                                                                       | ❌       | The maximum number of disputes to return. Range is 1-100. Default is 10.                                     |
+| status         | [GetDisputesListByOrgIdStatus](../models/GetDisputesListByOrgIdStatus.md) | ❌       | Filters the list for disputes with the specified dispute status.                                             |
+| payment        | str                                                                       | ❌       | The ID of the payment that is linked to the dispute. String starting with payment\_.                         |
 
 **Return Type**
 
-`InlineResponse200_41`
+`InlineResponse200_47`
 
 **Example Usage Code Snippet**
 
@@ -42,7 +42,7 @@ sdk = RapydSdk(
 result = sdk.dispute.get_disputes_list_by_org_id(
     starting_after="starting_after",
     ending_before="ending_before",
-    limit="6",
+    limit="9",
     status="ACT",
     payment="payment"
 )
@@ -59,13 +59,13 @@ Retrieve the details of a dispute.
 
 **Parameters**
 
-| Name       | Type  | Required | Description                                                             |
-| :--------- | :---- | :------- | :---------------------------------------------------------------------- |
-| dispute_id | `str` | ✅       | ID of the dispute you want to retrieve. String starting with dispute\_. |
+| Name       | Type | Required | Description                                                             |
+| :--------- | :--- | :------- | :---------------------------------------------------------------------- |
+| dispute_id | str  | ✅       | ID of the dispute you want to retrieve. String starting with dispute\_. |
 
 **Return Type**
 
-`InlineResponse200_42`
+`InlineResponse200_48`
 
 **Example Usage Code Snippet**
 

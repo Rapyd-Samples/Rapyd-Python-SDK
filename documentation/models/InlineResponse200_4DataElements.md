@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name         | Type   | Required | Description |
-| :----------- | :----- | :------- | :---------- |
-| element_name | `str`  | ❌       |             |
-| verified     | `bool` | ❌       |             |
+| Name         | Type | Required | Description |
+| :----------- | :--- | :------- | :---------- |
+| element_name | str  | ❌       |             |
+| verified     | bool | ❌       |             |

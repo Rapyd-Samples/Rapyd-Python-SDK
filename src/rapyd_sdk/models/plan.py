@@ -138,6 +138,8 @@ class UsageType(Enum):
 class Plan(BaseModel):
     """Plan
 
+    :param active: Indicates whether the plan is available to be added to a subscription., defaults to None
+    :type active: bool, optional
     :param aggregate_usage: Determines which quantity is used to calculate the pricing. One of the following:  * max - The maximum reported usage within the billing cycle.  * sum - The sum of all usage during a billing cycle. This is the default.  * last_during_period - The last usage reported within the billing cycle.  * last_ever - The last usage ever reported, if the latest billing cycles contain no usage at all. Required when usage_type is metered. Relevant when billing_scheme is set to per_unit. , defaults to None
     :type aggregate_usage: AggregateUsage, optional
     :param amount: The amount to charge, in units of the currency defined in currency. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. If the amount is a whole number, use an integer and not a decimal. For a free service, use 0. Must be null when tiers is set. Relevant when billing_scheme is set to per_unit., defaults to None
@@ -148,7 +150,7 @@ class Plan(BaseModel):
     :type created_at: float, optional
     :param currency: currency, defaults to None
     :type currency: str, optional
-    :param id_: Unique ID for this plan. English alphanumeric characters with no special characters except underscore. If the client does not define an ID, Rapyd generates a string starting with plan_., defaults to None
+    :param id_: Unique ID for this plan. English alphanumeric characters with no special characters except underscore. If the client does not define an ID, Rapyd generates a string starting with **plan_**., defaults to None
     :type id_: str, optional
     :param interval: Specifies the units used in defining the billing cycle. One of the following:  * day  * week  * month  * year Maximum interval is 1 year.  , defaults to None
     :type interval: Interval, optional
@@ -174,6 +176,7 @@ class Plan(BaseModel):
 
     def __init__(
         self,
+        active: bool = None,
         aggregate_usage: AggregateUsage = None,
         amount: float = None,
         billing_scheme: BillingScheme = None,
@@ -193,6 +196,8 @@ class Plan(BaseModel):
     ):
         """Plan
 
+        :param active: Indicates whether the plan is available to be added to a subscription., defaults to None
+        :type active: bool, optional
         :param aggregate_usage: Determines which quantity is used to calculate the pricing. One of the following:  * max - The maximum reported usage within the billing cycle.  * sum - The sum of all usage during a billing cycle. This is the default.  * last_during_period - The last usage reported within the billing cycle.  * last_ever - The last usage ever reported, if the latest billing cycles contain no usage at all. Required when usage_type is metered. Relevant when billing_scheme is set to per_unit. , defaults to None
         :type aggregate_usage: AggregateUsage, optional
         :param amount: The amount to charge, in units of the currency defined in currency. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. If the amount is a whole number, use an integer and not a decimal. For a free service, use 0. Must be null when tiers is set. Relevant when billing_scheme is set to per_unit., defaults to None
@@ -203,7 +208,7 @@ class Plan(BaseModel):
         :type created_at: float, optional
         :param currency: currency, defaults to None
         :type currency: str, optional
-        :param id_: Unique ID for this plan. English alphanumeric characters with no special characters except underscore. If the client does not define an ID, Rapyd generates a string starting with plan_., defaults to None
+        :param id_: Unique ID for this plan. English alphanumeric characters with no special characters except underscore. If the client does not define an ID, Rapyd generates a string starting with **plan_**., defaults to None
         :type id_: str, optional
         :param interval: Specifies the units used in defining the billing cycle. One of the following:  * day  * week  * month  * year Maximum interval is 1 year.  , defaults to None
         :type interval: Interval, optional
@@ -226,6 +231,7 @@ class Plan(BaseModel):
         :param usage_type: Determines whether the customer is billed when the service is not actually used. Relevant when billing_scheme is set to per_unit. One of the following:  * metered - The customer is billed only for actual usage. You must also set aggregate_usage.  * licensed - The customer is billed even if the service is not used. This is the default. , defaults to None
         :type usage_type: UsageType, optional
         """
+        self.active = active
         self.aggregate_usage = (
             self._enum_matching(
                 aggregate_usage, AggregateUsage.list(), "aggregate_usage"

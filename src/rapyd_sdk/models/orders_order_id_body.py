@@ -42,7 +42,7 @@ class OrdersOrderIdBodyStatus(Enum):
 class OrdersOrderIdBody(BaseModel):
     """OrdersOrderIdBody
 
-    :param coupon: ID of a coupon that is applied against this order. String starting with coupon_. The duration field of the coupon must be set to repeating, and the duration_in_months and discount_duration_in_uses fields must be set to 1., defaults to None
+    :param coupon: ID of a coupon that is applied against this order. String starting with **coupon_**. The duration field of the coupon must be set to **repeating**, and the `duration_in_months` and `discount_duration_in_uses` fields must be set to **1**., defaults to None
     :type coupon: str, optional
     :param metadata: A JSON object defined by the client., defaults to None
     :type metadata: dict, optional
@@ -61,7 +61,7 @@ class OrdersOrderIdBody(BaseModel):
     ):
         """OrdersOrderIdBody
 
-        :param coupon: ID of a coupon that is applied against this order. String starting with coupon_. The duration field of the coupon must be set to repeating, and the duration_in_months and discount_duration_in_uses fields must be set to 1., defaults to None
+        :param coupon: ID of a coupon that is applied against this order. String starting with **coupon_**. The duration field of the coupon must be set to **repeating**, and the `duration_in_months` and `discount_duration_in_uses` fields must be set to **1**., defaults to None
         :type coupon: str, optional
         :param metadata: A JSON object defined by the client., defaults to None
         :type metadata: dict, optional

@@ -13,7 +13,7 @@ request_body = VirtualAccountsTransactionsBody(
     issued_bank_account="issued_bank_account"
 )
 
-result = sdk.virtual_accounts.simulate_complete_bank_account_issuing_transaction(request_body=request_body)
+result = sdk.virtual_accounts.simulate_bank_transfer_to_virtual_account(request_body=request_body)
 
 print(result)
 

@@ -95,7 +95,7 @@ class Ewallet(BaseModel):
     :type ewallet_reference_id: str, optional
     :param first_name: First name of the wallet owner., defaults to None
     :type first_name: str, optional
-    :param id_: Unique identifier of the wallet object. String starting with ewallet_., defaults to None
+    :param id_: Unique identifier of the wallet object. String starting with **ewallet_**., defaults to None
     :type id_: str, optional
     :param last_name: Last name of the wallet owner., defaults to None
     :type last_name: str, optional
@@ -141,7 +141,7 @@ class Ewallet(BaseModel):
         :type ewallet_reference_id: str, optional
         :param first_name: First name of the wallet owner., defaults to None
         :type first_name: str, optional
-        :param id_: Unique identifier of the wallet object. String starting with ewallet_., defaults to None
+        :param id_: Unique identifier of the wallet object. String starting with **ewallet_**., defaults to None
         :type id_: str, optional
         :param last_name: Last name of the wallet owner., defaults to None
         :type last_name: str, optional

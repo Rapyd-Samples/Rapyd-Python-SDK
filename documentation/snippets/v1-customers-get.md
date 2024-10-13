@@ -9,7 +9,7 @@ sdk = RapydSdk(
 result = sdk.customer.list_customer(
     starting_after="starting_after",
     ending_before="ending_before",
-    limit="100"
+    limit="5"
 )
 
 print(result)

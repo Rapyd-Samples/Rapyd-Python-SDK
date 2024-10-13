@@ -1,14 +1,14 @@
 ```python
 from rapyd_sdk import RapydSdk, Environment
-from rapyd_sdk.models.v1_payouts_body import V1PayoutsBody1
+from rapyd_sdk.models import V1PayoutsBody
 
 sdk = RapydSdk(
     base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
-request_body = V1PayoutsBody1(
-    beneficiary="mollit u",
+request_body = V1PayoutsBody(
+    beneficiary="proident id ",
     beneficiary_country="US",
     beneficiary_entity_type="individual",
     confirm_automatically=True,
@@ -20,12 +20,12 @@ request_body = V1PayoutsBody1(
     merchant_reference_id="GHY-0YU-HUJ-POI",
     metadata={},
     payout_amount=110,
-    payout_currency="GBP",
+    payout_currency="DZD",
     payout_method_type="us_general_bank",
     payout_options={},
-    sender="irure nulla",
-    sender_country="GB",
-    sender_currency="GBP",
+    sender="incididunt sed",
+    sender_country="commodo sint ",
+    sender_currency="LRD",
     sender_entity_type="company",
     statement_descriptor="statement_descriptor"
 )

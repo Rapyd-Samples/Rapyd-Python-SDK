@@ -61,7 +61,7 @@ class CardTransaction(BaseModel):
     :type card_authorization: str, optional
     :param card_id: ID of the card. String starting with card_. Response only., defaults to None
     :type card_id: str, optional
-    :param card_program: ID of the card program that the card is issued from. String starting with cardprog_. Response only., defaults to None
+    :param card_program: ID of the card program that the card is issued from. String starting with **cardprog_**. Response only., defaults to None
     :type card_program: str, optional
     :param created_at: Time of creation of the transaction object, in Unix time. Response only., defaults to None
     :type created_at: float, optional
@@ -69,7 +69,7 @@ class CardTransaction(BaseModel):
     :type currency: str, optional
     :param fx_rate: The exchange rate. Response only., defaults to None
     :type fx_rate: float, optional
-    :param id_: ID of the issued card transaction object. String starting with cit_., defaults to None
+    :param id_: ID of the issued card transaction object. String starting with **cit_**., defaults to None
     :type id_: str, optional
     :param issuing_txn_type: Type of the transaction., defaults to None
     :type issuing_txn_type: str, optional
@@ -91,7 +91,7 @@ class CardTransaction(BaseModel):
     :type retrieval_reference_number: str, optional
     :param systems_trace_audit_number: Reserved, defaults to None
     :type systems_trace_audit_number: str, optional
-    :param wallet_transaction_id: ID of the wallet transaction. String starting with wt_. Response only., defaults to None
+    :param wallet_transaction_id: ID of the wallet transaction. String starting with **wt_**. Response only., defaults to None
     :type wallet_transaction_id: str, optional
     """
 
@@ -134,7 +134,7 @@ class CardTransaction(BaseModel):
         :type card_authorization: str, optional
         :param card_id: ID of the card. String starting with card_. Response only., defaults to None
         :type card_id: str, optional
-        :param card_program: ID of the card program that the card is issued from. String starting with cardprog_. Response only., defaults to None
+        :param card_program: ID of the card program that the card is issued from. String starting with **cardprog_**. Response only., defaults to None
         :type card_program: str, optional
         :param created_at: Time of creation of the transaction object, in Unix time. Response only., defaults to None
         :type created_at: float, optional
@@ -142,7 +142,7 @@ class CardTransaction(BaseModel):
         :type currency: str, optional
         :param fx_rate: The exchange rate. Response only., defaults to None
         :type fx_rate: float, optional
-        :param id_: ID of the issued card transaction object. String starting with cit_., defaults to None
+        :param id_: ID of the issued card transaction object. String starting with **cit_**., defaults to None
         :type id_: str, optional
         :param issuing_txn_type: Type of the transaction., defaults to None
         :type issuing_txn_type: str, optional
@@ -164,7 +164,7 @@ class CardTransaction(BaseModel):
         :type retrieval_reference_number: str, optional
         :param systems_trace_audit_number: Reserved, defaults to None
         :type systems_trace_audit_number: str, optional
-        :param wallet_transaction_id: ID of the wallet transaction. String starting with wt_. Response only., defaults to None
+        :param wallet_transaction_id: ID of the wallet transaction. String starting with **wt_**. Response only., defaults to None
         :type wallet_transaction_id: str, optional
         """
         self.amount = self._define_number("amount", amount, nullable=True)

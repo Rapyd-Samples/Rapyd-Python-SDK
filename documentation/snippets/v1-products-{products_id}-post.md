@@ -1,24 +1,24 @@
 ```python
 from rapyd_sdk import RapydSdk, Environment
-from rapyd_sdk.models import ProductsProductsIdBody
+from rapyd_sdk.models import SubscriptionProductUpdateProductRequest2
 
 sdk = RapydSdk(
     base_url=Environment.DEFAULT.value,
     timeout=10000
 )
 
-request_body = ProductsProductsIdBody(
-    active=False,
+request_body = SubscriptionProductUpdateProductRequest2(
+    active=True,
     attributes=[
         "attributes"
     ],
     metadata={},
     name="name",
     package_dimensions={
-        "height": 5.88,
-        "length": 3.28,
-        "weight": 1.4,
-        "width": 7.3
+        "height": 8.98,
+        "length": 1.11,
+        "weight": 6.53,
+        "width": 2.25
     },
     statement_descriptor="statement_descriptor",
     unit_label="unit_label"
@@ -26,7 +26,7 @@ request_body = ProductsProductsIdBody(
 
 result = sdk.subscription_product.update_product(
     request_body=request_body,
-    products_id="products_id"
+    products_id_1="products_id"
 )
 
 print(result)

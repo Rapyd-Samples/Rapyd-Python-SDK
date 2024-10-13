@@ -6,7 +6,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.order.retrieve_order_return(order_returns_id="orderReturnsId")
+result = sdk.order_return.retrieve_order_return(order_returns_id="orderReturnsId")
 
 print(result)
 

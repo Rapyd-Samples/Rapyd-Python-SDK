@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type              | Required | Description |
-| :----- | :---------------- | :------- | :---------- |
-| status | `Status`          | ❌       |             |
-| data   | `InvoiceResponse` | ❌       | Invoice     |
+| Name   | Type                     | Required | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| status | Status1                  | ❌       |             |
+| data   | InlineResponse200_45Data | ❌       |             |

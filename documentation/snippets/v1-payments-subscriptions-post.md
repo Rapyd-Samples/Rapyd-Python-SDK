@@ -9,18 +9,18 @@ sdk = RapydSdk(
 
 request_body = PaymentsSubscriptionsBody(
     billing="billing",
-    billing_cycle_anchor=2.91,
+    billing_cycle_anchor=7.45,
     cancel_at_period_end=True,
     coupon="coupon",
     customer="customer",
-    days_until_due=4.17,
+    days_until_due=4.24,
     metadata={},
     payment_fields={
         "address": {
             "canton": "canton",
             "city": "city",
             "country": "GB",
-            "created_at": 3.34,
+            "created_at": 8.2,
             "district": "district",
             "id_": "id",
             "line_1": "line_1",
@@ -32,13 +32,13 @@ request_body = PaymentsSubscriptionsBody(
             "state": "state",
             "zip": "zip"
         },
-        "amount": 3.28,
+        "amount": 0.07,
         "auth_code": "auth_code",
         "cancel_reason": "cancel_reason",
         "captured": True,
         "complete_payment_url": "complete_payment_url",
         "country_code": "GB",
-        "created_at": 3,
+        "created_at": 9,
         "currency_code": "GBP",
         "customer_token": "customer_token",
         "description": "description",
@@ -46,26 +46,26 @@ request_body = PaymentsSubscriptionsBody(
             "id_": "id",
             "token": "dispute_6bd95ecec6bee6a505d39b56dbded2ec",
             "status": "ACT",
-            "amount": 6.69,
+            "amount": 1.06,
             "currency": "currency",
             "dispute_category": "dispute_category",
             "dispute_reason_description": "dispute_reason_description",
             "original_transaction_currency": "GBP",
-            "original_transaction_amount": 5.78,
-            "original_dispute_amount": 9.23,
+            "original_transaction_amount": 0.51,
+            "original_dispute_amount": 7.33,
             "original_dispute_currency": "GBP",
             "original_transaction_id": "payment_ce936f36d93bc9307a3db9ebfd3deaaa",
             "ewallet_id": "ewallet_id",
-            "central_processing_date": 0.59,
-            "created_at": 0.69,
-            "updated_at": 9.59,
-            "due_date": 6.87,
-            "payment_method": "card_39d8aee398dfa5492fc2a0ea2822958f\"",
+            "central_processing_date": 2.02,
+            "created_at": 6.13,
+            "updated_at": 0.9,
+            "due_date": 8.04,
+            "payment_method": "card_39d8aee398dfa5492fc2a0ea2822958f",
             "payment_method_data": {},
-            "rate": 8.99,
+            "rate": 8.7,
             "evidence": "evidence",
             "evidence_reason_code": "evidence_reason_code",
-            "pre_dispute": False,
+            "pre_dispute": True,
             "arn": "arn"
         },
         "error_code": "error_code",
@@ -75,12 +75,13 @@ request_body = PaymentsSubscriptionsBody(
         "ewallets": [
             {
                 "ewallet_id": "ewallet_id",
-                "amount": 8.57,
-                "percent": 5.39,
-                "refunded_amount": 4.4
+                "amount": 2.05,
+                "percent": 0.82,
+                "refunded_amount": 5.53,
+                "released_amount": 4.48
             }
         ],
-        "expiration": 2.42,
+        "expiration": 3.15,
         "failure_code": "failure_code",
         "failure_message": "failure_message",
         "fixed_side": "fixed_side",
@@ -100,7 +101,7 @@ request_body = PaymentsSubscriptionsBody(
             }
         ],
         "invoice": "invoice",
-        "is_partial": True,
+        "is_partial": False,
         "merchant_reference_id": "merchant_reference_id",
         "merchant_requested_amount": "merchant_requested_amount",
         "merchant_requested_currency": "merchant_requested_currency",
@@ -108,7 +109,7 @@ request_body = PaymentsSubscriptionsBody(
         "mid": "mid",
         "next_action": "3d_verification",
         "order": "order",
-        "original_amount": 7.95,
+        "original_amount": 7.53,
         "outcome": {
             "network_status": "approved_by_network",
             "payment_flow_type": "direct",
@@ -117,7 +118,7 @@ request_body = PaymentsSubscriptionsBody(
                     "canton": "canton",
                     "city": "city",
                     "country": "GB",
-                    "created_at": 3.34,
+                    "created_at": 8.2,
                     "district": "district",
                     "id_": "id",
                     "line_1": "line_1",
@@ -131,8 +132,8 @@ request_body = PaymentsSubscriptionsBody(
                 },
                 "amount_range_per_currency": [
                     {
-                        "maximum_amount": 8.96,
-                        "minimum_amount": 8.01,
+                        "maximum_amount": 4.53,
+                        "minimum_amount": 0.65,
                         "currency": "GBP"
                     }
                 ],
@@ -150,7 +151,7 @@ request_body = PaymentsSubscriptionsBody(
                         "description": "description",
                         "element_name": "element_name",
                         "operator": "operator",
-                        "threshold_value": "estadi"
+                        "threshold_value": "quis sed u"
                     }
                 ],
                 "country": "GB",
@@ -163,7 +164,7 @@ request_body = PaymentsSubscriptionsBody(
                             "canton": "canton",
                             "city": "city",
                             "country": "GB",
-                            "created_at": 3.34,
+                            "created_at": 8.2,
                             "district": "district",
                             "id_": "id",
                             "line_1": "line_1",
@@ -177,18 +178,18 @@ request_body = PaymentsSubscriptionsBody(
                         }
                     ],
                     "business_vat_id": "business_vat_id",
-                    "created_at": 7,
+                    "created_at": 3,
                     "default_payment_method": "default_payment_method",
                     "delinquent": False,
                     "description": "description",
                     "discount": {
                         "coupon": {
-                            "amount_off": 0.13,
+                            "amount_off": 6.55,
                             "created": 1671697165,
                             "currency": "GBP",
                             "description": "Sample Coupon 1",
                             "discount_duration_in_uses": 2,
-                            "discount_valid_until": 7.67,
+                            "discount_valid_until": 0.57,
                             "discount_validity_in_months": 2,
                             "duration": "forever",
                             "duration_in_months": 3,
@@ -196,14 +197,14 @@ request_body = PaymentsSubscriptionsBody(
                             "max_redemptions": 2,
                             "metadata": {},
                             "percent_off": 10,
-                            "redeem_by": 0.44,
-                            "times_redeemed": 6.69,
+                            "redeem_by": 0.14,
+                            "times_redeemed": 2.17,
                             "valid": True
                         },
                         "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                         "end": 1679473563,
                         "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                        "number_of_uses": 2.89,
+                        "number_of_uses": 5.55,
                         "start": 1679473563,
                         "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                         "valid": True
@@ -221,7 +222,7 @@ request_body = PaymentsSubscriptionsBody(
                                 "fingerprint_token": "fingerprint_token",
                                 "id_": "id",
                                 "image": "image",
-                                "last4": "4487",
+                                "last4": "6326",
                                 "metadata": {},
                                 "name": "name",
                                 "network_reference_id": "network_reference_id",
@@ -233,8 +234,8 @@ request_body = PaymentsSubscriptionsBody(
                                 "webhook_url": "webhook_url"
                             }
                         ],
-                        "has_more": True,
-                        "total_count": 7,
+                        "has_more": False,
+                        "total_count": 3,
                         "url": "url"
                     },
                     "phone_number": "phone_number",
@@ -243,7 +244,7 @@ request_body = PaymentsSubscriptionsBody(
                             "billing": "pay_automatically",
                             "billing_cycle_anchor": "now",
                             "cancel_at_period_end": True,
-                            "canceled_at": 5.63,
+                            "canceled_at": 4,
                             "created_at": 1592379647,
                             "current_period_end": 1594971647,
                             "current_period_start": 1592379647,
@@ -251,12 +252,12 @@ request_body = PaymentsSubscriptionsBody(
                             "days_until_due": 30,
                             "discount": {
                                 "coupon": {
-                                    "amount_off": 0.13,
+                                    "amount_off": 6.55,
                                     "created": 1671697165,
                                     "currency": "GBP",
                                     "description": "Sample Coupon 1",
                                     "discount_duration_in_uses": 2,
-                                    "discount_valid_until": 7.67,
+                                    "discount_valid_until": 0.57,
                                     "discount_validity_in_months": 2,
                                     "duration": "forever",
                                     "duration_in_months": 3,
@@ -264,19 +265,19 @@ request_body = PaymentsSubscriptionsBody(
                                     "max_redemptions": 2,
                                     "metadata": {},
                                     "percent_off": 10,
-                                    "redeem_by": 0.44,
-                                    "times_redeemed": 6.69,
+                                    "redeem_by": 0.14,
+                                    "times_redeemed": 2.17,
                                     "valid": True
                                 },
                                 "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                                 "end": 1679473563,
                                 "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                                "number_of_uses": 2.89,
+                                "number_of_uses": 5.55,
                                 "start": 1679473563,
                                 "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                                 "valid": True
                             },
-                            "ended_at": 7.3,
+                            "ended_at": 4.95,
                             "id_": "sub_04fd8fbd78d7dd7e0e6323810a69275c",
                             "metadata": {},
                             "payment_fields": {},
@@ -287,12 +288,13 @@ request_body = PaymentsSubscriptionsBody(
                             "subscription_items": {
                                 "data": [
                                     {
-                                        "created": 1.05,
+                                        "created": 1.1,
                                         "id_": "subi_e5dbbf84c68e5bb7db761625158d4262",
                                         "metadata": "{\"merchant_defined\": True }",
                                         "plan": {
+                                            "active": True,
                                             "aggregate_usage": "max",
-                                            "amount": 5.37,
+                                            "amount": 1.34,
                                             "billing_scheme": "per_unit",
                                             "created_at": 1592311574,
                                             "currency": "GBP",
@@ -352,7 +354,7 @@ request_body = PaymentsSubscriptionsBody(
                                             "tiers": [
                                                 {
                                                     "amount": 15,
-                                                    "flat_amount": 6.45,
+                                                    "flat_amount": 4.6,
                                                     "up_to": "inf"
                                                 }
                                             ],
@@ -361,20 +363,20 @@ request_body = PaymentsSubscriptionsBody(
                                                 "divide_by": 1,
                                                 "round": "round"
                                             },
-                                            "trial_period_days": 9.42,
+                                            "trial_period_days": 4.85,
                                             "usage_type": "metered"
                                         },
-                                        "quantity": 4.27,
+                                        "quantity": 1.01,
                                         "subscription_id": "sub_0de9c79c1e2beee09499dc8220493d5"
                                     }
                                 ],
-                                "has_more": True,
+                                "has_more": False,
                                 "total_count": 1,
                                 "url": "/v1/subscription_items?subscription=sub_324ee75f8c26f1df94bc8cc693f3c729"
                             },
                             "tax_percent": 10.5,
-                            "trial_end": 9.98,
-                            "trial_start": 3.73,
+                            "trial_end": 4.72,
+                            "trial_start": 1.39,
                             "type_": "payout"
                         }
                     ]
@@ -382,17 +384,17 @@ request_body = PaymentsSubscriptionsBody(
                 "fingerprint": "fingerprint",
                 "image": "image",
                 "instructions": "instructions",
-                "is_cancelable": False,
-                "is_expirable": True,
+                "is_cancelable": True,
+                "is_expirable": False,
                 "is_online": True,
-                "is_refundable": True,
+                "is_refundable": False,
                 "is_required": False,
-                "is_tokenizable": False,
+                "is_tokenizable": True,
                 "is_virtual": False,
-                "last4": "0117",
-                "maximum_expiration_seconds": 10,
-                "minimum_expiration_seconds": 0,
-                "multiple_overage_allowed": False,
+                "last4": "6546",
+                "maximum_expiration_seconds": 5,
+                "minimum_expiration_seconds": 10,
+                "multiple_overage_allowed": True,
                 "name": "name",
                 "payment_flow_type": "direct"
             },
@@ -401,20 +403,20 @@ request_body = PaymentsSubscriptionsBody(
             "seller_message": "seller_message"
         },
         "paid": False,
-        "paid_at": 3.25,
+        "paid_at": 0.96,
         "payment_fees": {
             "fx_fee": {
                 "calc_type": "gross",
                 "value": 2.5
             },
             "gross_fees": 4.23,
-            "net_fees": 2.4,
+            "net_fees": 8.22,
             "transaction_fee": {
                 "calc_type": "gross",
                 "fee_type": "absolute",
                 "value": 2
             },
-            "total_merchant_fees": 3.19
+            "total_merchant_fees": 5.86
         },
         "payment_method": "payment_method",
         "payment_method_data": {},
@@ -425,35 +427,35 @@ request_body = PaymentsSubscriptionsBody(
         "receipt_number": "receipt_number",
         "redirect_url": "redirect_url",
         "refunded": True,
-        "refunded_amount": 4.58,
+        "refunded_amount": 0.3,
         "refunds": {
             "data": [
                 "data"
             ],
-            "has_more": True,
-            "total_count": 2,
+            "has_more": False,
+            "total_count": 3,
             "url": "url"
         },
         "remitter_information": {},
-        "save_payment_method": False,
+        "save_payment_method": True,
         "statement_descriptor": "statement_descriptor",
         "status": "ACT",
         "textual_codes": {},
         "transaction_id": "transaction_id",
         "visual_codes": {}
     },
-    payment_method="estminim adipis",
-    simultaneous_invoice=True,
+    payment_method="proid",
+    simultaneous_invoice=False,
     subscription_items=[
         {
             "plan": "plan",
-            "quantity": 8.42
+            "quantity": 2.68
         }
     ],
-    tax_percent=3.39,
-    trial_end=7.11,
+    tax_percent=4.93,
+    trial_end=3.06,
     trial_from_plan=True,
-    trial_period_days=2.81
+    trial_period_days=8.16
 )
 
 result = sdk.subscription.create_subscription(request_body=request_body)

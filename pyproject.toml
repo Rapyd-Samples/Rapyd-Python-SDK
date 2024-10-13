@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rapyd-sdk"
-version = "1.0.6"
+version = "1.0.9"
 license = { file = "LICENSE" }
-description = """This is Rapyd OpenAPI"""
+description = """This is a Beta release of the OpenAPI specification for Rapyd's API methods. It is recommended to initially run the methods in the sandbox environment. For the most uptodate documentation of Rapyd's methods, see the [online API Reference](https://docs.rapyd.net/en/index-en.html)."""
 readme = "PyPI_README.md"
 requires-python = ">=3.7"
 dependencies = [

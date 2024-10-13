@@ -7,11 +7,11 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription.get_subscription_list(
-    starting_after="starting_after",
     billing="billing",
     customer="customer",
     status="status",
     product="product",
+    starting_after="starting_after",
     ending_before="ending_before",
     limit="limit"
 )

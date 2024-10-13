@@ -15,7 +15,7 @@ class Beneficiary(BaseModel):
     :type account_number: str, optional
     :param ach_code: Automated Clearing House (ACH) code., defaults to None
     :type ach_code: str, optional
-    :param additional_data: Additional data required by the payout method. Object.., defaults to None
+    :param additional_data: Additional data required by the payout method. Object., defaults to None
     :type additional_data: dict, optional
     :param additional_last_name: The person's second last name., defaults to None
     :type additional_last_name: str, optional
@@ -67,7 +67,7 @@ class Beneficiary(BaseModel):
     :type company_name: str, optional
     :param confirmation_required: Indicates whether the beneficiary must respond to accept or decline a payout. Default is false. Relevant to the rapyd_ewallet payout method type, defaults to None
     :type confirmation_required: bool, optional
-    :param country: country, defaults to None
+    :param country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
     :type country: str, optional
     :param currency: currency, defaults to None
     :type currency: str, optional
@@ -81,13 +81,13 @@ class Beneficiary(BaseModel):
     :type email: str, optional
     :param entity_type: entity_type, defaults to None
     :type entity_type: EntityType, optional
-    :param ewallet: ID of the wallet that the money is transferred to. String starting with ewallet_. Relevant to payout to Rapyd Wallet., defaults to None
+    :param ewallet: ID of the wallet that the money is transferred to. String starting with **ewallet_**. Relevant to payout to Rapyd Wallet., defaults to None
     :type ewallet: str, optional
-    :param first_name: First name of the beneficiary. Relevant when entity_type is individual., defaults to None
+    :param first_name: First name of the beneficiary. Relevant when **entity_type** is individual., defaults to None
     :type first_name: str, optional
     :param iban: International Bank Account Number., defaults to None
     :type iban: str, optional
-    :param id_: ID of the 'beneficiary' object. String starting with beneficiary_. Response only., defaults to None
+    :param id_: ID of the 'beneficiary' object. String starting with **beneficiary_**. Response only., defaults to None
     :type id_: str, optional
     :param id_date_of_issue: The date of issuance of the person's identification document., defaults to None
     :type id_date_of_issue: str, optional
@@ -103,7 +103,7 @@ class Beneficiary(BaseModel):
     :type ifsc: str, optional
     :param issuer_code: NA., defaults to None
     :type issuer_code: str, optional
-    :param last_name: Last name of the beneficiary. Relevant when entity_type is individual., defaults to None
+    :param last_name: Last name of the beneficiary. Relevant when `entity_type` is individual., defaults to None
     :type last_name: str, optional
     :param merchant_reference_id: ID defined by the merchant. Rapyd does not validate this value to enforce uniqueness., defaults to None
     :type merchant_reference_id: str, optional
@@ -235,7 +235,7 @@ class Beneficiary(BaseModel):
         :type account_number: str, optional
         :param ach_code: Automated Clearing House (ACH) code., defaults to None
         :type ach_code: str, optional
-        :param additional_data: Additional data required by the payout method. Object.., defaults to None
+        :param additional_data: Additional data required by the payout method. Object., defaults to None
         :type additional_data: dict, optional
         :param additional_last_name: The person's second last name., defaults to None
         :type additional_last_name: str, optional
@@ -287,7 +287,7 @@ class Beneficiary(BaseModel):
         :type company_name: str, optional
         :param confirmation_required: Indicates whether the beneficiary must respond to accept or decline a payout. Default is false. Relevant to the rapyd_ewallet payout method type, defaults to None
         :type confirmation_required: bool, optional
-        :param country: country, defaults to None
+        :param country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
         :type country: str, optional
         :param currency: currency, defaults to None
         :type currency: str, optional
@@ -301,13 +301,13 @@ class Beneficiary(BaseModel):
         :type email: str, optional
         :param entity_type: entity_type, defaults to None
         :type entity_type: EntityType, optional
-        :param ewallet: ID of the wallet that the money is transferred to. String starting with ewallet_. Relevant to payout to Rapyd Wallet., defaults to None
+        :param ewallet: ID of the wallet that the money is transferred to. String starting with **ewallet_**. Relevant to payout to Rapyd Wallet., defaults to None
         :type ewallet: str, optional
-        :param first_name: First name of the beneficiary. Relevant when entity_type is individual., defaults to None
+        :param first_name: First name of the beneficiary. Relevant when **entity_type** is individual., defaults to None
         :type first_name: str, optional
         :param iban: International Bank Account Number., defaults to None
         :type iban: str, optional
-        :param id_: ID of the 'beneficiary' object. String starting with beneficiary_. Response only., defaults to None
+        :param id_: ID of the 'beneficiary' object. String starting with **beneficiary_**. Response only., defaults to None
         :type id_: str, optional
         :param id_date_of_issue: The date of issuance of the person's identification document., defaults to None
         :type id_date_of_issue: str, optional
@@ -323,7 +323,7 @@ class Beneficiary(BaseModel):
         :type ifsc: str, optional
         :param issuer_code: NA., defaults to None
         :type issuer_code: str, optional
-        :param last_name: Last name of the beneficiary. Relevant when entity_type is individual., defaults to None
+        :param last_name: Last name of the beneficiary. Relevant when `entity_type` is individual., defaults to None
         :type last_name: str, optional
         :param merchant_reference_id: ID defined by the merchant. Rapyd does not validate this value to enforce uniqueness., defaults to None
         :type merchant_reference_id: str, optional
@@ -433,12 +433,7 @@ class Beneficiary(BaseModel):
             "company_name", company_name, nullable=True
         )
         self.confirmation_required = confirmation_required
-        self.country = self._define_str(
-            "country",
-            country,
-            nullable=True,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
-        )
+        self.country = self._define_str("country", country, nullable=True)
         self.currency = self._define_str(
             "currency",
             currency,

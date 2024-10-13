@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type        | Required | Description |
-| :----- | :---------- | :------- | :---------- |
-| status | `Status`    | ❌       |             |
-| data   | `List[Sku]` | ❌       |             |
+| Name   | Type         | Required | Description |
+| :----- | :----------- | :------- | :---------- |
+| status | Status1      | ❌       |             |
+| data   | List[Refund] | ❌       |             |

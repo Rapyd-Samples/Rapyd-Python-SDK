@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type             | Required | Description |
-| :----- | :--------------- | :------- | :---------- |
-| status | `Status`         | ❌       |             |
-| data   | `List[Customer]` | ❌       |             |
+| Name   | Type                     | Required | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| data   | InlineResponse200_33Data | ❌       |             |
+| status | Status                   | ❌       |             |

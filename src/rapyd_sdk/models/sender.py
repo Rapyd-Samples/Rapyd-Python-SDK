@@ -26,7 +26,7 @@ class Sender(BaseModel):
     :type city: str, optional
     :param company_name: Name of the sender company. Relevant when entity_type is company., defaults to None
     :type company_name: str, optional
-    :param country: country, defaults to None
+    :param country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
     :type country: str, optional
     :param currency: currency, defaults to None
     :type currency: str, optional
@@ -38,9 +38,9 @@ class Sender(BaseModel):
     :type email: str, optional
     :param entity_type: entity_type, defaults to None
     :type entity_type: EntityType, optional
-    :param first_name: First name of the sender. Relevant when entity_type is individual., defaults to None
+    :param first_name: First name of the sender. Relevant when `entity_type` is **individual**., defaults to None
     :type first_name: str, optional
-    :param id_: ID of the Sender object. String starting with sender_. Response only., defaults to None
+    :param id_: ID of the Sender object. String starting with **sender_**. Response only., defaults to None
     :type id_: str, optional
     :param id_date_of_issue: The date of issuance of the person's identification document., defaults to None
     :type id_date_of_issue: str, optional
@@ -52,9 +52,9 @@ class Sender(BaseModel):
     :type id_issue_location: str, optional
     :param identification_type: Type of identification document for the sender. When entity_type is company, this field must be company_registered_number. When entity_type is individual, one of the following values:  * drivers_license  * identification_id  * international_passport  * residence_permit* social_security  * work_permit , defaults to None
     :type identification_type: str, optional
-    :param identification_value: identification number on the document mentioned in identification_type., defaults to None
+    :param identification_value: identification number on the document mentioned in `identification_type`., defaults to None
     :type identification_value: str, optional
-    :param last_name: Last name of the sender. Relevant when entity_type is individual., defaults to None
+    :param last_name: Last name of the sender. Relevant when `entity_type` is individual., defaults to None
     :type last_name: str, optional
     :param merchant_reference_id: ID defined by the merchant. Rapyd does not validate this value to enforce uniqueness., defaults to None
     :type merchant_reference_id: str, optional
@@ -62,7 +62,7 @@ class Sender(BaseModel):
     :type middle_name: str, optional
     :param mobile_number: Mobile phone number in E.164 format., defaults to None
     :type mobile_number: str, optional
-    :param name: Name of the sender. Relevant when entity_type is company., defaults to None
+    :param name: Name of the sender. Relevant when `entity_type` is company., defaults to None
     :type name: str, optional
     :param nationality: The person's nationality., defaults to None
     :type nationality: str, optional
@@ -150,7 +150,7 @@ class Sender(BaseModel):
         :type city: str, optional
         :param company_name: Name of the sender company. Relevant when entity_type is company., defaults to None
         :type company_name: str, optional
-        :param country: country, defaults to None
+        :param country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
         :type country: str, optional
         :param currency: currency, defaults to None
         :type currency: str, optional
@@ -162,9 +162,9 @@ class Sender(BaseModel):
         :type email: str, optional
         :param entity_type: entity_type, defaults to None
         :type entity_type: EntityType, optional
-        :param first_name: First name of the sender. Relevant when entity_type is individual., defaults to None
+        :param first_name: First name of the sender. Relevant when `entity_type` is **individual**., defaults to None
         :type first_name: str, optional
-        :param id_: ID of the Sender object. String starting with sender_. Response only., defaults to None
+        :param id_: ID of the Sender object. String starting with **sender_**. Response only., defaults to None
         :type id_: str, optional
         :param id_date_of_issue: The date of issuance of the person's identification document., defaults to None
         :type id_date_of_issue: str, optional
@@ -176,9 +176,9 @@ class Sender(BaseModel):
         :type id_issue_location: str, optional
         :param identification_type: Type of identification document for the sender. When entity_type is company, this field must be company_registered_number. When entity_type is individual, one of the following values:  * drivers_license  * identification_id  * international_passport  * residence_permit* social_security  * work_permit , defaults to None
         :type identification_type: str, optional
-        :param identification_value: identification number on the document mentioned in identification_type., defaults to None
+        :param identification_value: identification number on the document mentioned in `identification_type`., defaults to None
         :type identification_value: str, optional
-        :param last_name: Last name of the sender. Relevant when entity_type is individual., defaults to None
+        :param last_name: Last name of the sender. Relevant when `entity_type` is individual., defaults to None
         :type last_name: str, optional
         :param merchant_reference_id: ID defined by the merchant. Rapyd does not validate this value to enforce uniqueness., defaults to None
         :type merchant_reference_id: str, optional
@@ -186,7 +186,7 @@ class Sender(BaseModel):
         :type middle_name: str, optional
         :param mobile_number: Mobile phone number in E.164 format., defaults to None
         :type mobile_number: str, optional
-        :param name: Name of the sender. Relevant when entity_type is company., defaults to None
+        :param name: Name of the sender. Relevant when `entity_type` is company., defaults to None
         :type name: str, optional
         :param nationality: The person's nationality., defaults to None
         :type nationality: str, optional
@@ -228,12 +228,7 @@ class Sender(BaseModel):
         self.company_name = self._define_str(
             "company_name", company_name, nullable=True
         )
-        self.country = self._define_str(
-            "country",
-            country,
-            nullable=True,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
-        )
+        self.country = self._define_str("country", country, nullable=True)
         self.currency = self._define_str(
             "currency",
             currency,

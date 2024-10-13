@@ -4,9 +4,9 @@ Describes the physical size and weight of the product. Contains the following fi
 
 **Properties**
 
-| Name   | Type    | Required | Description |
-| :----- | :------ | :------- | :---------- |
-| height | `float` | ❌       | NA          |
-| length | `float` | ❌       | NA          |
-| weight | `float` | ❌       | NA          |
-| width  | `float` | ❌       | NA          |
+| Name   | Type  | Required | Description |
+| :----- | :---- | :------- | :---------- |
+| height | float | ❌       | NA          |
+| length | float | ❌       | NA          |
+| weight | float | ❌       | NA          |
+| width  | float | ❌       | NA          |

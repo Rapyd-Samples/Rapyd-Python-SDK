@@ -1,20 +1,11 @@
 from __future__ import annotations
-from typing import Union
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .utils.one_of_base_model import OneOfBaseModel
+from .payment import Payment
 from .order_item_response import OrderItemResponse
 from .order_returned_item_response import OrderReturnedItemResponse
 from .order_response_status_transitions import OrderResponseStatusTransitions
-from .payment import Payment
-
-
-class OrderResponsePaymentGuard(OneOfBaseModel):
-    class_list = {"str": str, "Payment": Payment}
-
-
-OrderResponsePayment = Union[str, Payment]
 
 
 @JsonMap({"id_": "id"})
@@ -27,8 +18,8 @@ class OrderResponse(BaseModel):
     :type amount: float, optional
     :param amount_returned: amount_returned, defaults to None
     :type amount_returned: float, optional
-    :param payment: payment, defaults to None
-    :type payment: OrderResponsePayment, optional
+    :param payment: Collects money from a payment method and deposits it into one or more Rapyd Wallets, defaults to None
+    :type payment: Payment, optional
     :param created: created, defaults to None
     :type created: int, optional
     :param customer: customer, defaults to None
@@ -64,7 +55,7 @@ class OrderResponse(BaseModel):
         id_: str = None,
         amount: float = None,
         amount_returned: float = None,
-        payment: OrderResponsePayment = None,
+        payment: Payment = None,
         created: int = None,
         customer: str = None,
         currency: str = None,
@@ -88,8 +79,8 @@ class OrderResponse(BaseModel):
         :type amount: float, optional
         :param amount_returned: amount_returned, defaults to None
         :type amount_returned: float, optional
-        :param payment: payment, defaults to None
-        :type payment: OrderResponsePayment, optional
+        :param payment: Collects money from a payment method and deposits it into one or more Rapyd Wallets, defaults to None
+        :type payment: Payment, optional
         :param created: created, defaults to None
         :type created: int, optional
         :param customer: customer, defaults to None
@@ -124,7 +115,7 @@ class OrderResponse(BaseModel):
         self.amount_returned = self._define_number(
             "amount_returned", amount_returned, nullable=True
         )
-        self.payment = OrderResponsePaymentGuard.return_one_of(payment)
+        self.payment = self._define_object(payment, Payment)
         self.created = self._define_number("created", created, nullable=True)
         self.customer = self._define_str("customer", customer, nullable=True)
         self.currency = self._define_str("currency", currency, nullable=True)

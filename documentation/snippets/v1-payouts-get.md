@@ -16,8 +16,8 @@ result = sdk.disburse.list_payouts(
     merchant_reference_id="merchant_reference_id",
     payout_method_type="payout_method_type",
     sender="sender",
-    sender_country="GB",
-    sender_currency="GBP",
+    sender_country="quis v",
+    sender_currency="NPR",
     starting_after="starting_after"
 )
 

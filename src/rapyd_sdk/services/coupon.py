@@ -2,11 +2,12 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_32 import InlineResponse200_32
-from ..models.inline_response_200_31 import InlineResponse200_31
-from ..models.inline_response_200_30 import InlineResponse200_30
-from ..models.inline_response_200_29 import InlineResponse200_29
-from ..models.coupon import Coupon
+from ..models import (
+    Coupon,
+    InlineResponse200_35,
+    InlineResponse200_36,
+    InlineResponse200_37,
+)
 
 
 class CouponService(BaseService):
@@ -14,12 +15,12 @@ class CouponService(BaseService):
     @cast_models
     def list_coupon(
         self, starting_after: str = None, ending_before: str = None, limit: str = None
-    ) -> InlineResponse200_29:
-        """Retrieve a list of all coupons
+    ) -> InlineResponse200_35:
+        """Retrieve a list of all coupons.
 
-        :param starting_after: The ID of the coupon created before the first coupon you want to retrieve, defaults to None
+        :param starting_after: The ID of the coupon created before the first coupon you want to retrieve., defaults to None
         :type starting_after: str, optional
-        :param ending_before: The ID of the coupon created after the last coupon you want to retrieve, defaults to None
+        :param ending_before: The ID of the coupon created after the last coupon you want to       retrieve., defaults to None
         :type ending_before: str, optional
         :param limit: The maximum number of coupons to return. Range is 1-100. Default is 10, defaults to None
         :type limit: str, optional
@@ -27,7 +28,7 @@ class CouponService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: List of coupons
-        :rtype: InlineResponse200_29
+        :rtype: InlineResponse200_35
         """
 
         Validator(str).is_optional().validate(starting_after)
@@ -44,10 +45,10 @@ class CouponService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_29._unmap(response)
+        return InlineResponse200_35._unmap(response)
 
     @cast_models
-    def create_coupon(self, request_body: Coupon) -> InlineResponse200_30:
+    def create_coupon(self, request_body: Coupon) -> InlineResponse200_36:
         """create a coupon
 
         :param request_body: The request body.
@@ -56,7 +57,7 @@ class CouponService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Coupon was created
-        :rtype: InlineResponse200_30
+        :rtype: InlineResponse200_36
         """
 
         Validator(Coupon).validate(request_body)
@@ -69,19 +70,19 @@ class CouponService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_30._unmap(response)
+        return InlineResponse200_36._unmap(response)
 
     @cast_models
-    def retrieve_coupon(self, coupon_id: str) -> InlineResponse200_31:
+    def retrieve_coupon(self, coupon_id: str) -> InlineResponse200_36:
         """Retrieve a coupon
 
-        :param coupon_id: coupon Id. String starting with coupon_.
+        :param coupon_id: coupon ID. String starting with **coupon_**.
         :type coupon_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: get Coupon details By coupon Id
-        :rtype: InlineResponse200_31
+        :return: Get Coupon details By coupon Id
+        :rtype: InlineResponse200_36
         """
 
         Validator(str).validate(coupon_id)
@@ -96,23 +97,23 @@ class CouponService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_31._unmap(response)
+        return InlineResponse200_36._unmap(response)
 
     @cast_models
     def update_coupon(
         self, request_body: Coupon, coupon_id: str
-    ) -> InlineResponse200_31:
-        """Modify the metadata of a coupon with coupon Id in Path
+    ) -> InlineResponse200_36:
+        """Modify the metadata of a coupon with a coupon ID in Path
 
         :param request_body: The request body.
         :type request_body: Coupon
-        :param coupon_id: coupon Id. String starting with coupon_.
+        :param coupon_id: coupon ID. String starting with **coupon_**.
         :type coupon_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: coupon was updated
-        :rtype: InlineResponse200_31
+        :return: Coupon was updated.
+        :rtype: InlineResponse200_36
         """
 
         Validator(Coupon).validate(request_body)
@@ -129,19 +130,19 @@ class CouponService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_31._unmap(response)
+        return InlineResponse200_36._unmap(response)
 
     @cast_models
-    def delete_coupon(self, coupon_id: str) -> InlineResponse200_32:
-        """Delete a coupon from the Rapyd platform. Deleting a coupon removes it from all customers and subscriptions, but does not affect invoices and payment authorizations that have already been calculated
+    def delete_coupon(self, coupon_id: str) -> InlineResponse200_37:
+        """Delete a coupon from the Rapyd platform. Deleting a coupon removes it from all customers and subscriptions, but does not affect invoices and payment authorizations that have already been calculated.
 
-        :param coupon_id: coupon Id. String starting with coupon_.
+        :param coupon_id: Coupon ID. String starting with **coupon_**.
         :type coupon_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: coupon was deleted
-        :rtype: InlineResponse200_32
+        :return: Coupon was deleted.
+        :rtype: InlineResponse200_37
         """
 
         Validator(str).validate(coupon_id)
@@ -156,4 +157,4 @@ class CouponService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_32._unmap(response)
+        return InlineResponse200_37._unmap(response)

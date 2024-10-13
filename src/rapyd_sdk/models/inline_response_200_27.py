@@ -1,27 +1,27 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
+from .ewallet_transaction_details import EwalletTransactionDetails
 from .status import Status
-from .checkout_page_response import CheckoutPageResponse
 
 
 @JsonMap({})
 class InlineResponse200_27(BaseModel):
     """InlineResponse200_27
 
+    :param data: data, defaults to None
+    :type data: EwalletTransactionDetails, optional
     :param status: status, defaults to None
     :type status: Status, optional
-    :param data: data, defaults to None
-    :type data: CheckoutPageResponse, optional
     """
 
-    def __init__(self, status: Status = None, data: CheckoutPageResponse = None):
+    def __init__(self, data: EwalletTransactionDetails = None, status: Status = None):
         """InlineResponse200_27
 
+        :param data: data, defaults to None
+        :type data: EwalletTransactionDetails, optional
         :param status: status, defaults to None
         :type status: Status, optional
-        :param data: data, defaults to None
-        :type data: CheckoutPageResponse, optional
         """
+        self.data = self._define_object(data, EwalletTransactionDetails)
         self.status = self._define_object(status, Status)
-        self.data = self._define_object(data, CheckoutPageResponse)

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .checkout_page_response import CheckoutPageResponse
+from .daily_rate import DailyRate
 from .status import Status
 
 
@@ -9,19 +9,19 @@ from .status import Status
 class InlineResponse200_28(BaseModel):
     """InlineResponse200_28
 
-    :param data: data, defaults to None
-    :type data: CheckoutPageResponse, optional
+    :param data: Describes currency conversion for payments and payouts. Rapyd uses a snapshot of daily foreign exchange rates fetched at 9 PM UTC. The rate returned includes the FX markup fees., defaults to None
+    :type data: DailyRate, optional
     :param status: status, defaults to None
     :type status: Status, optional
     """
 
-    def __init__(self, data: CheckoutPageResponse = None, status: Status = None):
+    def __init__(self, data: DailyRate = None, status: Status = None):
         """InlineResponse200_28
 
-        :param data: data, defaults to None
-        :type data: CheckoutPageResponse, optional
+        :param data: Describes currency conversion for payments and payouts. Rapyd uses a snapshot of daily foreign exchange rates fetched at 9 PM UTC. The rate returned includes the FX markup fees., defaults to None
+        :type data: DailyRate, optional
         :param status: status, defaults to None
         :type status: Status, optional
         """
-        self.data = self._define_object(data, CheckoutPageResponse)
+        self.data = self._define_object(data, DailyRate)
         self.status = self._define_object(status, Status)

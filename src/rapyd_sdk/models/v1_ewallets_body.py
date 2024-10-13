@@ -8,8 +8,8 @@ from .v1ewallets_contact import V1ewalletsContact
 class V1EwalletsBody(BaseModel):
     """V1EwalletsBody
 
-    :param contact: contact, defaults to None
-    :type contact: V1ewalletsContact, optional
+    :param contact: contact
+    :type contact: V1ewalletsContact
     :param ewallet_reference_id: Rapyd Wallet ID defined by the customer or end user. Must be unique., defaults to None
     :type ewallet_reference_id: str, optional
     :param first_name: First name of the Rapyd Wallet owner., defaults to None
@@ -24,7 +24,7 @@ class V1EwalletsBody(BaseModel):
 
     def __init__(
         self,
-        contact: V1ewalletsContact = None,
+        contact: V1ewalletsContact,
         ewallet_reference_id: str = None,
         first_name: str = None,
         last_name: str = None,
@@ -33,8 +33,8 @@ class V1EwalletsBody(BaseModel):
     ):
         """V1EwalletsBody
 
-        :param contact: contact, defaults to None
-        :type contact: V1ewalletsContact, optional
+        :param contact: contact
+        :type contact: V1ewalletsContact
         :param ewallet_reference_id: Rapyd Wallet ID defined by the customer or end user. Must be unique., defaults to None
         :type ewallet_reference_id: str, optional
         :param first_name: First name of the Rapyd Wallet owner., defaults to None

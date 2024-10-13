@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type            | Required | Description |
-| :----- | :-------------- | :------- | :---------- |
-| status | `Status`        | ❌       |             |
-| data   | `List[Account]` | ❌       |             |
+| Name   | Type          | Required | Description |
+| :----- | :------------ | :------- | :---------- |
+| data   | List[Account] | ❌       |             |
+| status | Status        | ❌       |             |

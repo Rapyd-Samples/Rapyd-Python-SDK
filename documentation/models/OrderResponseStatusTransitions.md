@@ -4,11 +4,11 @@ Indicates the last time in Unix time that the order transitioned to one of the f
 
 **Properties**
 
-| Name      | Type    | Required | Description |
-| :-------- | :------ | :------- | :---------- |
-| canceled  | `float` | ❌       |             |
-| fulfilled | `float` | ❌       |             |
-| paid      | `float` | ❌       |             |
-| returned  | `float` | ❌       |             |
-| pending   | `float` | ❌       |             |
-| partial   | `float` | ❌       |             |
+| Name      | Type  | Required | Description |
+| :-------- | :---- | :------- | :---------- |
+| canceled  | float | ❌       |             |
+| fulfilled | float | ❌       |             |
+| paid      | float | ❌       |             |
+| returned  | float | ❌       |             |
+| pending   | float | ❌       |             |
+| partial   | float | ❌       |             |

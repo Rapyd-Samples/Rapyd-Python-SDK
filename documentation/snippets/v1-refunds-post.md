@@ -8,7 +8,7 @@ sdk = RapydSdk(
 )
 
 request_body = V1RefundsBody(
-    amount=1.28,
+    amount=5.34,
     currency="currency",
     ewallets=[
         "ewallets"

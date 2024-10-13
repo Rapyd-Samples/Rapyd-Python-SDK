@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type       | Required | Description |
-| :----- | :--------- | :------- | :---------- |
-| status | `Status`   | ❌       |             |
-| data   | `Customer` | ❌       | customer    |
+| Name   | Type                 | Required | Description |
+| :----- | :------------------- | :------- | :---------- |
+| status | Status1              | ❌       |             |
+| data   | CheckoutPageResponse | ❌       |             |

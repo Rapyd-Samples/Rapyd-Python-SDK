@@ -4,9 +4,9 @@ Physical attributes of the SKU item. Contains the following fields, height lengt
 
 **Properties**
 
-| Name   | Type    | Required | Description |
-| :----- | :------ | :------- | :---------- |
-| height | `float` | ❌       | NA          |
-| length | `float` | ❌       | NA          |
-| weight | `float` | ❌       | NA          |
-| width  | `float` | ❌       | NA          |
+| Name   | Type  | Required | Description |
+| :----- | :---- | :------- | :---------- |
+| height | float | ❌       | NA          |
+| length | float | ❌       | NA          |
+| weight | float | ❌       | NA          |
+| width  | float | ❌       | NA          |

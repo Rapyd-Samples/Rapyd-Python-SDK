@@ -11,22 +11,22 @@ request_body = SkusSkuIdBody(
     currency="GBP",
     inventory={
         "type_": "finite",
-        "quantity": 9,
+        "quantity": 5,
         "value": "in_stock"
     },
-    price=3.63,
+    price=3.69,
     product="product",
-    active=True,
+    active=False,
     attributes=[
         "attributes"
     ],
     image="image",
     metadata={},
     package_dimensions={
-        "length": 3.17,
-        "height": 6.46,
-        "weight": 2.6,
-        "width": 2.52
+        "length": 4.84,
+        "height": 8.35,
+        "weight": 1.01,
+        "width": 7.9
     }
 )
 

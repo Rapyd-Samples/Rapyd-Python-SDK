@@ -46,7 +46,7 @@ class Coupon(BaseModel):
     :type duration: Duration, optional
     :param duration_in_months: Determines the number of months that the coupon remains in effect after its creation. Integer. Required when duration is repeating., defaults to None
     :type duration_in_months: float, optional
-    :param id_: Unique ID for this coupon. English alphanumeric characters with no special characters except underscore. If the merchant does not define an ID, Rapyd generates a string starting with coupon_., defaults to None
+    :param id_: Unique ID for this coupon. English alphanumeric characters with no special characters except underscore. If the merchant does not define an ID, Rapyd generates a string starting with **coupon_**., defaults to None
     :type id_: str, optional
     :param max_redemptions: Determines the number of times the coupon can be redeemed. The number of customers, subscriptions or orders that the coupon is applied to cannot exceed this number. Integer., defaults to None
     :type max_redemptions: float, optional
@@ -54,9 +54,9 @@ class Coupon(BaseModel):
     :type metadata: dict, optional
     :param percent_off: Determines the size of the discount, measured in percent. Integer. Range: 1-100., defaults to None
     :type percent_off: float, optional
-    :param redeem_by: The last time at which the coupon can be redeemed, in Unix time. After the redeem_by date, the coupon can no longer be applied to new customers. 'redeem_by' takes precedence over the setting of discount_duration_in_uses and duration_in_months., defaults to None
+    :param redeem_by: The last time at which the coupon can be redeemed, in Unix time. After the redeem_by date, the coupon can no longer be applied to new customers. 'redeem_by' takes precedence over the setting of **discount_duration_in_uses** and **duration_in_months**., defaults to None
     :type redeem_by: float, optional
-    :param times_redeemed: Indicates the number of times the coupon has been applied to a customer, subscription or invoice. If the discount has been used more than one time by a customer, subscription or invoice, the number of redemptions after the first is also added to this value. Integer. When this value equals max_redemptions, the coupon becomes no longer valid. Response only., defaults to None
+    :param times_redeemed: Indicates the number of times the coupon has been applied to a customer, subscription or invoice. If the discount has been used more than one time by a customer, subscription or invoice, the number of redemptions after the first is also added to this value. Integer. When this value equals **max_redemptions**, the coupon becomes no longer valid. Response only., defaults to None
     :type times_redeemed: float, optional
     :param valid: Indicates whether the coupon can be redeemed., defaults to None
     :type valid: bool, optional
@@ -101,7 +101,7 @@ class Coupon(BaseModel):
         :type duration: Duration, optional
         :param duration_in_months: Determines the number of months that the coupon remains in effect after its creation. Integer. Required when duration is repeating., defaults to None
         :type duration_in_months: float, optional
-        :param id_: Unique ID for this coupon. English alphanumeric characters with no special characters except underscore. If the merchant does not define an ID, Rapyd generates a string starting with coupon_., defaults to None
+        :param id_: Unique ID for this coupon. English alphanumeric characters with no special characters except underscore. If the merchant does not define an ID, Rapyd generates a string starting with **coupon_**., defaults to None
         :type id_: str, optional
         :param max_redemptions: Determines the number of times the coupon can be redeemed. The number of customers, subscriptions or orders that the coupon is applied to cannot exceed this number. Integer., defaults to None
         :type max_redemptions: float, optional
@@ -109,9 +109,9 @@ class Coupon(BaseModel):
         :type metadata: dict, optional
         :param percent_off: Determines the size of the discount, measured in percent. Integer. Range: 1-100., defaults to None
         :type percent_off: float, optional
-        :param redeem_by: The last time at which the coupon can be redeemed, in Unix time. After the redeem_by date, the coupon can no longer be applied to new customers. 'redeem_by' takes precedence over the setting of discount_duration_in_uses and duration_in_months., defaults to None
+        :param redeem_by: The last time at which the coupon can be redeemed, in Unix time. After the redeem_by date, the coupon can no longer be applied to new customers. 'redeem_by' takes precedence over the setting of **discount_duration_in_uses** and **duration_in_months**., defaults to None
         :type redeem_by: float, optional
-        :param times_redeemed: Indicates the number of times the coupon has been applied to a customer, subscription or invoice. If the discount has been used more than one time by a customer, subscription or invoice, the number of redemptions after the first is also added to this value. Integer. When this value equals max_redemptions, the coupon becomes no longer valid. Response only., defaults to None
+        :param times_redeemed: Indicates the number of times the coupon has been applied to a customer, subscription or invoice. If the discount has been used more than one time by a customer, subscription or invoice, the number of redemptions after the first is also added to this value. Integer. When this value equals **max_redemptions**, the coupon becomes no longer valid. Response only., defaults to None
         :type times_redeemed: float, optional
         :param valid: Indicates whether the coupon can be redeemed., defaults to None
         :type valid: bool, optional

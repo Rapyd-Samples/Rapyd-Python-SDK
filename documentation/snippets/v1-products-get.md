@@ -7,8 +7,8 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription_product.get_products_list(
-    ending_before=2.82,
-    limit=9.32,
+    ending_before="ending_before",
+    limit="limit",
     starting_after="starting_after"
 )
 

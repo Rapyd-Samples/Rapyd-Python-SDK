@@ -2,13 +2,14 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_40 import InlineResponse200_40
-from ..models.inline_response_200_39 import InlineResponse200_39
-from ..models.inline_response_200_38 import InlineResponse200_38
-from ..models.inline_response_200_37 import InlineResponse200_37
-from ..models.customer_payment_method import CustomerPaymentMethod
-from ..models.customer_id_payment_methods_body import CustomerIdPaymentMethodsBody
-from ..models.category import Category
+from ..models import (
+    Category,
+    CustomerIdPaymentMethodsBody,
+    CustomerPaymentMethod,
+    InlineResponse200_43,
+    InlineResponse200_44,
+    InlineResponse200_45,
+)
 
 
 class CustomerPaymentMethodService(BaseService):
@@ -22,7 +23,7 @@ class CustomerPaymentMethodService(BaseService):
         ending_before: str = None,
         limit: str = None,
         type_: str = None,
-    ) -> InlineResponse200_37:
+    ) -> InlineResponse200_43:
         """Retrieve payment methods for a customer
 
         :param customer_id: customer Id
@@ -41,7 +42,7 @@ class CustomerPaymentMethodService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: get customer details By customer Id
-        :rtype: InlineResponse200_37
+        :rtype: InlineResponse200_43
         """
 
         Validator(str).validate(customer_id)
@@ -67,12 +68,12 @@ class CustomerPaymentMethodService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_37._unmap(response)
+        return InlineResponse200_43._unmap(response)
 
     @cast_models
     def create_customer_payment_method(
         self, request_body: CustomerIdPaymentMethodsBody, customer_id: str
-    ) -> InlineResponse200_38:
+    ) -> InlineResponse200_44:
         """Add a payment method to a customer profile
 
         :param request_body: The request body.
@@ -83,7 +84,7 @@ class CustomerPaymentMethodService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Payment method was created for this customer successfully
-        :rtype: InlineResponse200_38
+        :rtype: InlineResponse200_44
         """
 
         Validator(CustomerIdPaymentMethodsBody).validate(request_body)
@@ -101,12 +102,12 @@ class CustomerPaymentMethodService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_38._unmap(response)
+        return InlineResponse200_44._unmap(response)
 
     @cast_models
     def get_customer_payment_method(
         self, customer_id: str, pmt_id: str
-    ) -> InlineResponse200_39:
+    ) -> InlineResponse200_44:
         """Retrieve a payment method for a specific customer
 
         :param customer_id: customer Id
@@ -117,7 +118,7 @@ class CustomerPaymentMethodService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: get customer details By customer Id
-        :rtype: InlineResponse200_39
+        :rtype: InlineResponse200_44
         """
 
         Validator(str).validate(customer_id)
@@ -135,12 +136,12 @@ class CustomerPaymentMethodService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_39._unmap(response)
+        return InlineResponse200_44._unmap(response)
 
     @cast_models
     def update_customer_payment_method(
         self, request_body: CustomerPaymentMethod, customer_id: str, pmt_id: str
-    ) -> InlineResponse200_39:
+    ) -> InlineResponse200_44:
         """Change or modify a payment method that was stored in a customer profile
 
         :param request_body: The request body.
@@ -153,7 +154,7 @@ class CustomerPaymentMethodService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: customer was updated successfully
-        :rtype: InlineResponse200_39
+        :rtype: InlineResponse200_44
         """
 
         Validator(CustomerPaymentMethod).validate(request_body)
@@ -173,12 +174,12 @@ class CustomerPaymentMethodService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_39._unmap(response)
+        return InlineResponse200_44._unmap(response)
 
     @cast_models
     def delete_customer_payment_method(
         self, customer_id: str, pmt_id: str
-    ) -> InlineResponse200_40:
+    ) -> InlineResponse200_45:
         """This method triggers the Webhook - Payment Method Canceled webhook. This webhook contains more information than the response.
 
         :param customer_id: customer Id
@@ -189,7 +190,7 @@ class CustomerPaymentMethodService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: payment method was deleted for this customer
-        :rtype: InlineResponse200_40
+        :rtype: InlineResponse200_45
         """
 
         Validator(str).validate(customer_id)
@@ -207,4 +208,4 @@ class CustomerPaymentMethodService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_40._unmap(response)
+        return InlineResponse200_45._unmap(response)

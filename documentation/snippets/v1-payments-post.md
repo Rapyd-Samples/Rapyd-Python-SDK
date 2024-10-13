@@ -12,7 +12,7 @@ request_body = V1PaymentsBody(
         "canton": "canton",
         "city": "city",
         "country": "GB",
-        "created_at": 3.34,
+        "created_at": 8.2,
         "district": "district",
         "id_": "id",
         "line_1": "line_1",
@@ -24,16 +24,16 @@ request_body = V1PaymentsBody(
         "state": "state",
         "zip": "zip"
     },
-    amount=5.04,
+    amount=5.22,
     capture=True,
     client_details={
         "ip_address": "ip_address",
-        "java_enabled": False,
+        "java_enabled": True,
         "java_script_enabled": False,
         "language": "language",
         "screen_color_depth": 1,
-        "screen_height": 4,
-        "screen_width": 8,
+        "screen_height": 8,
+        "screen_width": 2,
         "time_zone_offset": 5
     },
     complete_payment_url="complete_payment_url",
@@ -41,11 +41,11 @@ request_body = V1PaymentsBody(
     customer="customer",
     description="description",
     error_payment_url="error_payment_url",
-    escrow=True,
-    escrow_release_days="/6/",
+    escrow=False,
+    escrow_release_days="/0/",
     ewallet="ewallet",
     ewallets="",
-    expiration=3.35,
+    expiration=6.05,
     fixed_side="fixed_side",
     group_payment="group_payment",
     initiation_type="customer_present",
@@ -57,15 +57,15 @@ request_body = V1PaymentsBody(
             "value": 2.5
         },
         "gross_fees": 4.23,
-        "net_fees": 2.4,
+        "net_fees": 8.22,
         "transaction_fee": {
             "calc_type": "gross",
             "fee_type": "absolute",
             "value": 2
         },
-        "total_merchant_fees": 3.19
+        "total_merchant_fees": 5.86
     },
-    payment_method="uteli",
+    payment_method="minim magn",
     payment_method_options={},
     receipt_email="receipt_email",
     requested_currency="requested_currency",

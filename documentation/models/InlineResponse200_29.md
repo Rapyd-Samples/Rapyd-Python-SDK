@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type           | Required | Description |
-| :----- | :------------- | :------- | :---------- |
-| data   | `List[Coupon]` | ❌       |             |
-| status | `Status`       | ❌       |             |
+| Name   | Type                     | Required | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| data   | InlineResponse200_29Data | ❌       |             |
+| status | Status                   | ❌       |             |

@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type      | Required | Description                                                                         |
-| :----- | :-------- | :------- | :---------------------------------------------------------------------------------- |
-| data   | `Payment` | ❌       | Collects money from a payment method and deposits it into one or more Rapyd Wallets |
-| status | `Status`  | ❌       |                                                                                     |
+| Name   | Type                | Required | Description |
+| :----- | :------------------ | :------- | :---------- |
+| status | Status1             | ❌       |             |
+| data   | List[OrderResponse] | ❌       |             |

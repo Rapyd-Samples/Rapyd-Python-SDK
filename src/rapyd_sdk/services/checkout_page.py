@@ -1,25 +1,23 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.v1_checkout_body import V1CheckoutBody
 from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_28 import InlineResponse200_28
-from ..models.inline_response_200_27 import InlineResponse200_27
+from ..models import InlineResponse200_34, V1CheckoutBody
 
 
 class CheckoutPageService(BaseService):
 
     @cast_models
-    def get_hosted_page_payment(self, checkout_token: str) -> InlineResponse200_27:
+    def get_hosted_page_payment(self, checkout_token: str) -> InlineResponse200_34:
         """Retrieve a checkout page
 
-        :param checkout_token: ID of the checkout page. String starting with checkout_.
+        :param checkout_token: ID of the checkout page. String starting with **checkout_**.
         :type checkout_token: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Retrieve a checkout page
-        :rtype: InlineResponse200_27
+        :return: Retrieve a checkout page.
+        :rtype: InlineResponse200_34
         """
 
         Validator(str).validate(checkout_token)
@@ -35,12 +33,12 @@ class CheckoutPageService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_27._unmap(response)
+        return InlineResponse200_34._unmap(response)
 
     @cast_models
     def generate_hosted_page_payment(
         self, request_body: V1CheckoutBody = None
-    ) -> InlineResponse200_28:
+    ) -> InlineResponse200_34:
         """Create a checkout page that makes a payment.
 
         :param request_body: The request body., defaults to None
@@ -49,7 +47,7 @@ class CheckoutPageService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Create a checkout page that makes a payment.
-        :rtype: InlineResponse200_28
+        :rtype: InlineResponse200_34
         """
 
         Validator(V1CheckoutBody).is_optional().validate(request_body)
@@ -62,4 +60,4 @@ class CheckoutPageService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_28._unmap(response)
+        return InlineResponse200_34._unmap(response)

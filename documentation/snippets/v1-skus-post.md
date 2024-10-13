@@ -11,10 +11,10 @@ request_body = V1SkusBody(
     currency="GBP",
     inventory={
         "type_": "finite",
-        "quantity": 9,
+        "quantity": 5,
         "value": "in_stock"
     },
-    price=1.08,
+    price=2.67,
     product="product",
     active=False,
     attributes=[
@@ -23,10 +23,10 @@ request_body = V1SkusBody(
     image="image",
     metadata={},
     package_dimensions={
-        "length": 3.17,
-        "height": 6.46,
-        "weight": 2.6,
-        "width": 2.52
+        "length": 4.84,
+        "height": 8.35,
+        "weight": 1.01,
+        "width": 7.9
     }
 )
 

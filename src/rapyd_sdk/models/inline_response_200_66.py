@@ -1,28 +1,27 @@
 from __future__ import annotations
-from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .subscription_item import SubscriptionItem
-from .status import Status
+from .status_1 import Status1
+from .subscription import Subscription
 
 
 @JsonMap({})
 class InlineResponse200_66(BaseModel):
     """InlineResponse200_66
 
-    :param data: data, defaults to None
-    :type data: List[SubscriptionItem], optional
     :param status: status, defaults to None
-    :type status: Status, optional
+    :type status: Status1, optional
+    :param data: data, defaults to None
+    :type data: Subscription, optional
     """
 
-    def __init__(self, data: List[SubscriptionItem] = None, status: Status = None):
+    def __init__(self, status: Status1 = None, data: Subscription = None):
         """InlineResponse200_66
 
-        :param data: data, defaults to None
-        :type data: List[SubscriptionItem], optional
         :param status: status, defaults to None
-        :type status: Status, optional
+        :type status: Status1, optional
+        :param data: data, defaults to None
+        :type data: Subscription, optional
         """
-        self.data = self._define_list(data, SubscriptionItem)
-        self.status = self._define_object(status, Status)
+        self.status = self._define_object(status, Status1)
+        self.data = self._define_object(data, Subscription)

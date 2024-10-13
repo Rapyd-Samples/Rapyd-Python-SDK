@@ -8,7 +8,7 @@ class RefundsGroupPaymentsBody(BaseModel):
 
     :param amount: The amount of the refund, in the currency of the group payment. Decimal. If this parameter is omitted, the entire group payment is refunded., defaults to None
     :type amount: float, optional
-    :param group_payment: ID of the group payment that the refund is charged against. String starting with gp_.
+    :param group_payment: ID of the group payment that the refund is charged against. String starting with **gp_**.
     :type group_payment: str
     """
 
@@ -17,7 +17,7 @@ class RefundsGroupPaymentsBody(BaseModel):
 
         :param amount: The amount of the refund, in the currency of the group payment. Decimal. If this parameter is omitted, the entire group payment is refunded., defaults to None
         :type amount: float, optional
-        :param group_payment: ID of the group payment that the refund is charged against. String starting with gp_.
+        :param group_payment: ID of the group payment that the refund is charged against. String starting with **gp_**.
         :type group_payment: str
         """
         self.amount = self._define_number("amount", amount, nullable=True)

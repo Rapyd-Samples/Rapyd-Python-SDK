@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                      | Required | Description |
-| :----- | :------------------------ | :------- | :---------- |
-| data   | `InlineResponse200_3Data` | ❌       |             |
-| status | `Status`                  | ❌       |             |
+| Name   | Type                    | Required | Description |
+| :----- | :---------------------- | :------- | :---------- |
+| data   | InlineResponse200_3Data | ❌       |             |
+| status | Status                  | ❌       |             |

@@ -19,15 +19,15 @@ Retrieve a list of all products.
 
 **Parameters**
 
-| Name           | Type    | Required | Description                                                                   |
-| :------------- | :------ | :------- | :---------------------------------------------------------------------------- |
-| ending_before  | `float` | ❌       | The ID of the products created after the last product you want to retrieve.   |
-| limit          | `float` | ❌       | The maximum number of products to return. Range 1-100. Default is 10.         |
-| starting_after | `str`   | ❌       | The ID of the product created before the first products you want to retrieve. |
+| Name           | Type | Required | Description                                                                   |
+| :------------- | :--- | :------- | :---------------------------------------------------------------------------- |
+| ending_before  | str  | ❌       | The ID of the products created after the last product you want to retrieve.   |
+| limit          | str  | ❌       | The maximum number of products to return. Range 1-100. Default is 10.         |
+| starting_after | str  | ❌       | The ID of the product created before the first products you want to retrieve. |
 
 **Return Type**
 
-`InlineResponse200_61`
+`InlineResponse200_72`
 
 **Example Usage Code Snippet**
 
@@ -40,8 +40,8 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription_product.get_products_list(
-    ending_before=2.82,
-    limit=9.32,
+    ending_before="ending_before",
+    limit="limit",
     starting_after="starting_after"
 )
 
@@ -57,13 +57,13 @@ Create goods or services.
 
 **Parameters**
 
-| Name         | Type                                            | Required | Description       |
-| :----------- | :---------------------------------------------- | :------- | :---------------- |
-| request_body | `[V1ProductsBody](../models/V1ProductsBody.md)` | ✅       | The request body. |
+| Name         | Type                                          | Required | Description       |
+| :----------- | :-------------------------------------------- | :------- | :---------------- |
+| request_body | [V1ProductsBody](../models/V1ProductsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_62`
+`InlineResponse200_73`
 
 **Example Usage Code Snippet**
 
@@ -89,12 +89,12 @@ request_body = V1ProductsBody(
     metadata={},
     name="name",
     package_dimensions={
-        "height": 5.88,
-        "length": 3.28,
-        "weight": 1.4,
-        "width": 7.3
+        "height": 1.62,
+        "length": 4.73,
+        "weight": 6.81,
+        "width": 0.63
     },
-    shippable=True,
+    shippable=False,
     statement_descriptor="statement_descriptor",
     type_="services",
     unit_label="unit_label"
@@ -110,17 +110,17 @@ print(result)
 Retrieve details of a product or service.
 
 - HTTP Method: `GET`
-- Endpoint: `/v1/products/{products_id}`
+- Endpoint: `/v1/products/{productsId}`
 
 **Parameters**
 
-| Name        | Type  | Required | Description        |
-| :---------- | :---- | :------- | :----------------- |
-| products_id | `str` | ✅       | ID of the product. |
+| Name        | Type | Required | Description        |
+| :---------- | :--- | :------- | :----------------- |
+| products_id | str  | ✅       | ID of the product. |
 
 **Return Type**
 
-`InlineResponse200_62`
+`InlineResponse200_73`
 
 **Example Usage Code Snippet**
 
@@ -132,7 +132,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.subscription_product.get_product(products_id="products_id")
+result = sdk.subscription_product.get_product(products_id="productsId")
 
 print(result)
 ```
@@ -142,18 +142,18 @@ print(result)
 Change or modify a product or service.
 
 - HTTP Method: `POST`
-- Endpoint: `/v1/products/{products_id}`
+- Endpoint: `/v1/products/{productsId}`
 
 **Parameters**
 
-| Name         | Type                                                            | Required | Description        |
-| :----------- | :-------------------------------------------------------------- | :------- | :----------------- |
-| request_body | `[ProductsProductsIdBody](../models/ProductsProductsIdBody.md)` | ❌       | The request body.  |
-| products_id  | `str`                                                           | ✅       | ID of the product. |
+| Name         | Type                                                          | Required | Description        |
+| :----------- | :------------------------------------------------------------ | :------- | :----------------- |
+| request_body | [ProductsProductsIdBody](../models/ProductsProductsIdBody.md) | ❌       | The request body.  |
+| products_id  | str                                                           | ✅       | ID of the product. |
 
 **Return Type**
 
-`InlineResponse200_62`
+`InlineResponse200_73`
 
 **Example Usage Code Snippet**
 
@@ -174,10 +174,10 @@ request_body = ProductsProductsIdBody(
     metadata={},
     name="name",
     package_dimensions={
-        "height": 5.88,
-        "length": 3.28,
-        "weight": 1.4,
-        "width": 7.3
+        "height": 1.62,
+        "length": 4.73,
+        "weight": 6.81,
+        "width": 0.63
     },
     statement_descriptor="statement_descriptor",
     unit_label="unit_label"
@@ -185,7 +185,7 @@ request_body = ProductsProductsIdBody(
 
 result = sdk.subscription_product.update_product(
     request_body=request_body,
-    products_id="products_id"
+    products_id="productsId"
 )
 
 print(result)
@@ -196,17 +196,17 @@ print(result)
 Delete a product or service from the Rapyd platform. This action also deletes all associated plans.
 
 - HTTP Method: `DELETE`
-- Endpoint: `/v1/products/{products_id}`
+- Endpoint: `/v1/products/{productsId}`
 
 **Parameters**
 
-| Name        | Type  | Required | Description        |
-| :---------- | :---- | :------- | :----------------- |
-| products_id | `str` | ✅       | ID of the product. |
+| Name        | Type | Required | Description        |
+| :---------- | :--- | :------- | :----------------- |
+| products_id | str  | ✅       | ID of the product. |
 
 **Return Type**
 
-`InlineResponse200_60`
+`InlineResponse200_71`
 
 **Example Usage Code Snippet**
 
@@ -218,7 +218,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.subscription_product.delete_product(products_id="products_id")
+result = sdk.subscription_product.delete_product(products_id="productsId")
 
 print(result)
 ```

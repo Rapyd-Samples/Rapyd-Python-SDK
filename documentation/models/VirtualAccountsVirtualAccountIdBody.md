@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name                | Type  | Required | Description |
-| :------------------ | :---- | :------- | :---------- |
-| requesting_currency | `str` | ❌       |             |
+| Name                | Type | Required | Description |
+| :------------------ | :--- | :------- | :---------- |
+| requesting_currency | str  | ❌       |             |

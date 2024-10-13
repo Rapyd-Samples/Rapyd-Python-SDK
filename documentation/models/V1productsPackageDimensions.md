@@ -4,9 +4,9 @@ Describes the physical size and weight of the product. Relevant when type is goo
 
 **Properties**
 
-| Name   | Type    | Required | Description |
-| :----- | :------ | :------- | :---------- |
-| height | `float` | ❌       |             |
-| length | `float` | ❌       |             |
-| weight | `float` | ❌       |             |
-| width  | `float` | ❌       |             |
+| Name   | Type  | Required | Description |
+| :----- | :---- | :------- | :---------- |
+| height | float | ❌       |             |
+| length | float | ❌       |             |
+| weight | float | ❌       |             |
+| width  | float | ❌       |             |

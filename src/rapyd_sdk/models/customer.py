@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .address import Address
+from .address_1 import Address1
 from .discount import Discount
 from .customer_payment_methods import CustomerPaymentMethods
 from .subscription import Subscription
@@ -13,26 +13,26 @@ class Customer(BaseModel):
     """customer
 
     :param addresses: addresses, defaults to None
-    :type addresses: List[Address], optional
+    :type addresses: List[Address1], optional
     :param business_vat_id: The tax ID number of the customer. Relevant when the customer is a business, defaults to None
     :type business_vat_id: str, optional
     :param created_at: Time of creation of this customer, in Unix time. Response only, defaults to None
     :type created_at: int, optional
     :param default_payment_method: The payment method that is used when the 'payment' object or subscription does not specify a payment method. The value must also appear in the payment_methods list. The payment method is referenced by its name field., defaults to None
     :type default_payment_method: str, optional
-    :param delinquent: Indicates whether there is currently a failure of an automatic payment that is part of a subscription, or an invoice that was not paid when due. Response only. true - The account is delinquent false - The account is current, defaults to None
+    :param delinquent: Indicates whether there is currently a failure of an automatic payment that is part of a subscription, or an invoice that was not paid when due. Response only. true - The account is delinquent. false - The account is current, defaults to None
     :type delinquent: bool, optional
     :param description: A text description of the customer, defaults to None
     :type description: str, optional
-    :param discount: Describes the fields relating to discounts in REST messages and webhooks for customer profiles and subscriptions Contains information about the coupon that applies to the customer. Read-only field. Adding a discount is a 2-step process - 1. Create Coupon, which returns a coupon ID. 2. Add the coupon ID to the coupon field of the customer with Create Customer or Update Customer., defaults to None
+    :param discount: Describes the fields relating to discounts in REST messages and webhooks for customer profiles and subscriptions Contains information about the coupon that applies to the customer. Read-only field. Adding a discount is a 2-step process: <BR> 1. Create Coupon, which returns a coupon ID. <BR>2. Add the coupon ID to the coupon field of the customer with Create Customer or Update Customer., defaults to None
     :type discount: Discount, optional
     :param email: Customer's email address. Maximum 512 characters, defaults to None
     :type email: str, optional
-    :param ewallet: ID of the wallet that is linked to the customer. String starting with ewallet_. Each wallet can be associated with only one customer, defaults to None
+    :param ewallet: ID of the wallet that is linked to the customer. String starting with **ewallet_**. Each wallet can be associated with only one customer, defaults to None
     :type ewallet: str, optional
-    :param id_: ID of the Customer object. String starting with cus_, defaults to None
+    :param id_: ID of the Customer object. String starting with **cus_**, defaults to None
     :type id_: str, optional
-    :param invoice_prefix: A custom string that is prefixed to all invoices for this customer. For more information see Invoice Object at https://docs.rapyd.net/build-with-rapyd/reference/invoices#invoice-object, defaults to None
+    :param invoice_prefix: A custom string that is prefixed to all invoices for this customer. For more information see Invoice Object at "https://docs.rapyd.net/en/invoice-364856.html", defaults to None
     :type invoice_prefix: str, optional
     :param metadata: A JSON object defined by the client, defaults to None
     :type metadata: dict, optional
@@ -49,7 +49,7 @@ class Customer(BaseModel):
     def __init__(
         self,
         name: str,
-        addresses: List[Address] = None,
+        addresses: List[Address1] = None,
         business_vat_id: str = None,
         created_at: int = None,
         default_payment_method: str = None,
@@ -68,26 +68,26 @@ class Customer(BaseModel):
         """customer
 
         :param addresses: addresses, defaults to None
-        :type addresses: List[Address], optional
+        :type addresses: List[Address1], optional
         :param business_vat_id: The tax ID number of the customer. Relevant when the customer is a business, defaults to None
         :type business_vat_id: str, optional
         :param created_at: Time of creation of this customer, in Unix time. Response only, defaults to None
         :type created_at: int, optional
         :param default_payment_method: The payment method that is used when the 'payment' object or subscription does not specify a payment method. The value must also appear in the payment_methods list. The payment method is referenced by its name field., defaults to None
         :type default_payment_method: str, optional
-        :param delinquent: Indicates whether there is currently a failure of an automatic payment that is part of a subscription, or an invoice that was not paid when due. Response only. true - The account is delinquent false - The account is current, defaults to None
+        :param delinquent: Indicates whether there is currently a failure of an automatic payment that is part of a subscription, or an invoice that was not paid when due. Response only. true - The account is delinquent. false - The account is current, defaults to None
         :type delinquent: bool, optional
         :param description: A text description of the customer, defaults to None
         :type description: str, optional
-        :param discount: Describes the fields relating to discounts in REST messages and webhooks for customer profiles and subscriptions Contains information about the coupon that applies to the customer. Read-only field. Adding a discount is a 2-step process - 1. Create Coupon, which returns a coupon ID. 2. Add the coupon ID to the coupon field of the customer with Create Customer or Update Customer., defaults to None
+        :param discount: Describes the fields relating to discounts in REST messages and webhooks for customer profiles and subscriptions Contains information about the coupon that applies to the customer. Read-only field. Adding a discount is a 2-step process: <BR> 1. Create Coupon, which returns a coupon ID. <BR>2. Add the coupon ID to the coupon field of the customer with Create Customer or Update Customer., defaults to None
         :type discount: Discount, optional
         :param email: Customer's email address. Maximum 512 characters, defaults to None
         :type email: str, optional
-        :param ewallet: ID of the wallet that is linked to the customer. String starting with ewallet_. Each wallet can be associated with only one customer, defaults to None
+        :param ewallet: ID of the wallet that is linked to the customer. String starting with **ewallet_**. Each wallet can be associated with only one customer, defaults to None
         :type ewallet: str, optional
-        :param id_: ID of the Customer object. String starting with cus_, defaults to None
+        :param id_: ID of the Customer object. String starting with **cus_**, defaults to None
         :type id_: str, optional
-        :param invoice_prefix: A custom string that is prefixed to all invoices for this customer. For more information see Invoice Object at https://docs.rapyd.net/build-with-rapyd/reference/invoices#invoice-object, defaults to None
+        :param invoice_prefix: A custom string that is prefixed to all invoices for this customer. For more information see Invoice Object at "https://docs.rapyd.net/en/invoice-364856.html", defaults to None
         :type invoice_prefix: str, optional
         :param metadata: A JSON object defined by the client, defaults to None
         :type metadata: dict, optional
@@ -100,7 +100,7 @@ class Customer(BaseModel):
         :param subscriptions: subscriptions, defaults to None
         :type subscriptions: List[Subscription], optional
         """
-        self.addresses = self._define_list(addresses, Address)
+        self.addresses = self._define_list(addresses, Address1)
         self.business_vat_id = self._define_str(
             "business_vat_id", business_vat_id, nullable=True
         )

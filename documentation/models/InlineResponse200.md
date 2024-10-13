@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type       | Required | Description |
-| :----- | :--------- | :------- | :---------- |
-| data   | `Transfer` | ❌       |             |
-| status | `Status`   | ❌       |             |
+| Name   | Type     | Required | Description |
+| :----- | :------- | :------- | :---------- |
+| data   | Transfer | ❌       |             |
+| status | Status   | ❌       |             |

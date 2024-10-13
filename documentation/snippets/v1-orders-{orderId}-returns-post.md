@@ -14,15 +14,15 @@ request_body = OrderIdReturnsBody(
             "description": "description",
             "parent": "parent",
             "type_": "sku",
-            "quantity": 9.55,
+            "quantity": 8.5,
             "currency": "currency",
-            "amount": 7.78,
+            "amount": 0.51,
             "order_id": "order_id"
         }
     ]
 )
 
-result = sdk.order.returns_order(
+result = sdk.order_return.returns_order(
     request_body=request_body,
     order_id="orderId"
 )

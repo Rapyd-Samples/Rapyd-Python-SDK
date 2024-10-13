@@ -16,14 +16,14 @@ You can filter the results by specifying the currency query parameter
 
 **Parameters**
 
-| Name       | Type  | Required | Description                                                    |
-| :--------- | :---- | :------- | :------------------------------------------------------------- |
-| country_id | `str` | ✅       | Two-letter ISO 3166-1 ALPHA-2 code for the country. Uppercase. |
-| currency   | `str` | ❌       | currency                                                       |
+| Name       | Type | Required | Description                                                    |
+| :--------- | :--- | :------- | :------------------------------------------------------------- |
+| country_id | str  | ✅       | Two-letter ISO 3166-1 ALPHA-2 code for the country. Uppercase. |
+| currency   | str  | ❌       | currency                                                       |
 
 **Return Type**
 
-`InlineResponse200_51`
+`InlineResponse200_58`
 
 **Example Usage Code Snippet**
 
@@ -52,13 +52,13 @@ The fields are returned as a list of objects. The name of each field appears in 
 
 **Parameters**
 
-| Name   | Type  | Required | Description |
-| :----- | :---- | :------- | :---------- |
-| pmt_id | `str` | ✅       | discount Id |
+| Name   | Type | Required | Description |
+| :----- | :--- | :------- | :---------- |
+| pmt_id | str  | ✅       | discount Id |
 
 **Return Type**
 
-`InlineResponse200_52`
+`InlineResponse200_59`
 
 **Example Usage Code Snippet**
 

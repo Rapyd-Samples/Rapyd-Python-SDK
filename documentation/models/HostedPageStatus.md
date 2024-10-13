@@ -4,8 +4,8 @@ Status of the hosted page. One of the following: NEW - The hosted page was creat
 
 **Properties**
 
-| Name | Type  | Required | Description |
-| :--- | :---- | :------- | :---------- |
-| NEW  | `str` | ✅       | "NEW"       |
-| DON  | `str` | ✅       | "DON"       |
-| EXP  | `str` | ✅       | "EXP"       |
+| Name | Type | Required | Description |
+| :--- | :--- | :------- | :---------- |
+| NEW  | str  | ✅       | "NEW"       |
+| DON  | str  | ✅       | "DON"       |
+| EXP  | str  | ✅       | "EXP"       |

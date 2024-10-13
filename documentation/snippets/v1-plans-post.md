@@ -9,19 +9,19 @@ sdk = RapydSdk(
 
 request_body = V1PlansBody(
     aggregate_usage="aggregate_usage",
-    amount=2.52,
+    amount=0.54,
     billing_scheme="billing_scheme",
     currency="currency",
     id_="id",
     interval="interval",
-    interval_count=0.75,
+    interval_count=5.88,
     metadata={},
     nickname="nickname",
     product="product",
     tiers="tiers",
     tiers_mode="tiers_mode",
     transform_usage={},
-    trial_period_days=7.87,
+    trial_period_days=2.83,
     usage_type="usage_type"
 )
 

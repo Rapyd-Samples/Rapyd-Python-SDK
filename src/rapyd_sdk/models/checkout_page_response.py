@@ -21,15 +21,15 @@ class CheckoutPageResponse(BaseModel):
     :type merchant_alias: str, optional
     :param merchant_color: Color of the call-to-action (CTA) button on the hosted page. To configure this field, use the Client Portal, defaults to None
     :type merchant_color: str, optional
-    :param merchant_customer_support: merchant_customer_support, defaults to None
+    :param merchant_customer_support: Contains details of the client’s customer support. To configure these fields, use the Client Portal., defaults to None
     :type merchant_customer_support: MerchantCustomerSupport, optional
     :param merchant_logo: URL for the image of the client's logo. To configure this field, use the Client Portal, defaults to None
     :type merchant_logo: str, optional
-    :param merchant_website: The URL where the customer is redirected after exiting the hosted page. Relevant when one or both of the following fields is unset: * cancel_url* complete_url. To configure this field, use the Client Portal, defaults to None
+    :param merchant_website: The URL where the customer is redirected after exiting the hosted page. Relevant when one or both of the following fields is unset: <BR>* `cancel_url` <BR>* `complete_url`.<BR> To configure this field, use the Client Portal, defaults to None
     :type merchant_website: str, optional
     :param redirect_url: URL of the hosted page that is shown to the customer., defaults to None
     :type redirect_url: str, optional
-    :param merchant_terms: URL for the client's terms and conditions. To configure this field, use the Client Porta, defaults to None
+    :param merchant_terms: URL for the client's terms and conditions. To configure this field, use the Client Portal, defaults to None
     :type merchant_terms: str, optional
     :param merchant_privacy_policy: URL for the terms and conditions of the agreement between the client and the client’s customers. To configure this field, use the Client Portal., defaults to None
     :type merchant_privacy_policy: str, optional
@@ -53,7 +53,7 @@ class CheckoutPageResponse(BaseModel):
     :type escrow: bool, optional
     :param escrow_release_days: Determines the number of days after creation of the payment that funds are released from escrow. Funds are released at 5:00 pm GMT on the day indicated. Integer, range: 1-90., defaults to None
     :type escrow_release_days: float, optional
-    :param id_: ID of the Rapyd checkout page. String starting with checkout_., defaults to None
+    :param id_: ID of the Rapyd checkout page. String starting with **checkout_**., defaults to None
     :type id_: str, optional
     :param merchant_main_button: A string that represents the text on the main Call to Action (CTA) button. One of the following:* place_your_order - Place Your Order.* pay - Pay.* pay_now - Pay Now.* make_payment - Make Payment.* purchase - Purchase.* buy - Buy.* donate - Donate.* place_your_order To configure this button, use the Client Portal., defaults to None
     :type merchant_main_button: str, optional
@@ -100,15 +100,15 @@ class CheckoutPageResponse(BaseModel):
         :type merchant_alias: str, optional
         :param merchant_color: Color of the call-to-action (CTA) button on the hosted page. To configure this field, use the Client Portal, defaults to None
         :type merchant_color: str, optional
-        :param merchant_customer_support: merchant_customer_support, defaults to None
+        :param merchant_customer_support: Contains details of the client’s customer support. To configure these fields, use the Client Portal., defaults to None
         :type merchant_customer_support: MerchantCustomerSupport, optional
         :param merchant_logo: URL for the image of the client's logo. To configure this field, use the Client Portal, defaults to None
         :type merchant_logo: str, optional
-        :param merchant_website: The URL where the customer is redirected after exiting the hosted page. Relevant when one or both of the following fields is unset: * cancel_url* complete_url. To configure this field, use the Client Portal, defaults to None
+        :param merchant_website: The URL where the customer is redirected after exiting the hosted page. Relevant when one or both of the following fields is unset: <BR>* `cancel_url` <BR>* `complete_url`.<BR> To configure this field, use the Client Portal, defaults to None
         :type merchant_website: str, optional
         :param redirect_url: URL of the hosted page that is shown to the customer., defaults to None
         :type redirect_url: str, optional
-        :param merchant_terms: URL for the client's terms and conditions. To configure this field, use the Client Porta, defaults to None
+        :param merchant_terms: URL for the client's terms and conditions. To configure this field, use the Client Portal, defaults to None
         :type merchant_terms: str, optional
         :param merchant_privacy_policy: URL for the terms and conditions of the agreement between the client and the client’s customers. To configure this field, use the Client Portal., defaults to None
         :type merchant_privacy_policy: str, optional
@@ -132,7 +132,7 @@ class CheckoutPageResponse(BaseModel):
         :type escrow: bool, optional
         :param escrow_release_days: Determines the number of days after creation of the payment that funds are released from escrow. Funds are released at 5:00 pm GMT on the day indicated. Integer, range: 1-90., defaults to None
         :type escrow_release_days: float, optional
-        :param id_: ID of the Rapyd checkout page. String starting with checkout_., defaults to None
+        :param id_: ID of the Rapyd checkout page. String starting with **checkout_**., defaults to None
         :type id_: str, optional
         :param merchant_main_button: A string that represents the text on the main Call to Action (CTA) button. One of the following:* place_your_order - Place Your Order.* pay - Pay.* pay_now - Pay Now.* make_payment - Make Payment.* purchase - Purchase.* buy - Buy.* donate - Donate.* place_your_order To configure this button, use the Client Portal., defaults to None
         :type merchant_main_button: str, optional

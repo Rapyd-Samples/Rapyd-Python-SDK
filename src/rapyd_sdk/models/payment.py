@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .address import Address
+from .address_1 import Address1
 from .dispute import Dispute
 from .payment_ewallets import PaymentEwallets
 from .payment_instructions import PaymentInstructions
@@ -51,7 +51,7 @@ class Payment(BaseModel):
     """Collects money from a payment method and deposits it into one or more Rapyd Wallets
 
     :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-    :type address: Address, optional
+    :type address: Address1, optional
     :param amount: The amount received by the recipient, in units of the currency defined in currency. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. To verify a card, set to 0., defaults to None
     :type amount: float, optional
     :param auth_code: Indicates that the card payment was authorized by the card network., defaults to None
@@ -68,7 +68,7 @@ class Payment(BaseModel):
     :type created_at: int, optional
     :param currency_code: currency_code, defaults to None
     :type currency_code: str, optional
-    :param customer_token: ID of the customer who is making the payment. String starting with cus_. When a payment is created without an existing customer, the platform creates an anonymous customer with no payment methods. Response only., defaults to None
+    :param customer_token: ID of the customer who is making the payment. String starting with **cus_**. When a payment is created without an existing customer, the platform creates an anonymous customer with no payment methods. Response only., defaults to None
     :type customer_token: str, optional
     :param description: Description of the payment, defaults to None
     :type description: str, optional
@@ -172,7 +172,7 @@ class Payment(BaseModel):
 
     def __init__(
         self,
-        address: Address = None,
+        address: Address1 = None,
         amount: float = None,
         auth_code: str = None,
         cancel_reason: str = None,
@@ -235,7 +235,7 @@ class Payment(BaseModel):
         """Collects money from a payment method and deposits it into one or more Rapyd Wallets
 
         :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-        :type address: Address, optional
+        :type address: Address1, optional
         :param amount: The amount received by the recipient, in units of the currency defined in currency. Decimal, including the correct number of decimal places for the currency exponent, as defined in ISO 2417:2015. To verify a card, set to 0., defaults to None
         :type amount: float, optional
         :param auth_code: Indicates that the card payment was authorized by the card network., defaults to None
@@ -252,7 +252,7 @@ class Payment(BaseModel):
         :type created_at: int, optional
         :param currency_code: currency_code, defaults to None
         :type currency_code: str, optional
-        :param customer_token: ID of the customer who is making the payment. String starting with cus_. When a payment is created without an existing customer, the platform creates an anonymous customer with no payment methods. Response only., defaults to None
+        :param customer_token: ID of the customer who is making the payment. String starting with **cus_**. When a payment is created without an existing customer, the platform creates an anonymous customer with no payment methods. Response only., defaults to None
         :type customer_token: str, optional
         :param description: Description of the payment, defaults to None
         :type description: str, optional
@@ -353,7 +353,7 @@ class Payment(BaseModel):
         :param visual_codes: A set of images for the customer to use to complete the steps described in the instructions field. For example, a QR code or barcode. Response only., defaults to None
         :type visual_codes: dict, optional
         """
-        self.address = self._define_object(address, Address)
+        self.address = self._define_object(address, Address1)
         self.amount = self._define_number("amount", amount, nullable=True)
         self.auth_code = self._define_str("auth_code", auth_code, nullable=True)
         self.cancel_reason = self._define_str(

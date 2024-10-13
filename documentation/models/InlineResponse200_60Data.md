@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name    | Type   | Required | Description    |
-| :------ | :----- | :------- | :------------- |
-| deleted | `bool` | ❌       |                |
-| id\_    | `str`  | ❌       | ID of the plan |
+| Name    | Type | Required | Description    |
+| :------ | :--- | :------- | :------------- |
+| deleted | bool | ❌       |                |
+| id\_    | str  | ❌       | ID of the plan |

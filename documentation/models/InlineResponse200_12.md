@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type     | Required | Description |
-| :----- | :------- | :------- | :---------- |
-| data   | `Payout` | ❌       |             |
-| status | `Status` | ❌       |             |
+| Name   | Type   | Required | Description |
+| :----- | :----- | :------- | :---------- |
+| data   | Payout | ❌       |             |
+| status | Status | ❌       |             |

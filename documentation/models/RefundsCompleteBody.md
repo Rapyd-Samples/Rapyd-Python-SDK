@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name  | Type  | Required | Description                                      |
-| :---- | :---- | :------- | :----------------------------------------------- |
-| token | `str` | ✅       | ID of the refund. String starting with refund\_. |
+| Name  | Type | Required | Description                                          |
+| :---- | :--- | :------- | :--------------------------------------------------- |
+| token | str  | ✅       | ID of the refund. String starting with **refund\_**. |

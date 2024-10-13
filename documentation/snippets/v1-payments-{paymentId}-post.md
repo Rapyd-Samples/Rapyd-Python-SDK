@@ -12,7 +12,7 @@ request_body = PaymentsPaymentIdBody(
         "canton": "canton",
         "city": "city",
         "country": "GB",
-        "created_at": 3.34,
+        "created_at": 8.2,
         "district": "district",
         "id_": "id",
         "line_1": "line_1",
@@ -26,7 +26,7 @@ request_body = PaymentsPaymentIdBody(
     },
     description="description",
     escrow=True,
-    escrow_release_days="/3/",
+    escrow_release_days="/6/",
     initiation_type="initiation_type",
     metadata={},
     receipt_email="receipt_email"

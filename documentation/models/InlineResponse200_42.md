@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type      | Required | Description                                                                            |
-| :----- | :-------- | :------- | :------------------------------------------------------------------------------------- |
-| data   | `Dispute` | ❌       | Describes the fields contained in REST messages and webhooks for disputes of payments. |
-| status | `Status`  | ❌       |                                                                                        |
+| Name   | Type                     | Required | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| data   | InlineResponse200_40Data | ❌       |             |
+| status | Status1                  | ❌       |             |

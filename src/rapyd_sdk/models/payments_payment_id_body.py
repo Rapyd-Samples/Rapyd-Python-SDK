@@ -1,7 +1,7 @@
 from __future__ import annotations
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .address import Address
+from .address_1 import Address1
 
 
 @JsonMap({})
@@ -9,7 +9,7 @@ class PaymentsPaymentIdBody(BaseModel):
     """PaymentsPaymentIdBody
 
     :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-    :type address: Address, optional
+    :type address: Address1, optional
     :param description: Description of the payment., defaults to None
     :type description: str, optional
     :param escrow: To release escrow funds immediately, set to false. If there are multiple sellers, the funds are released to all of them. Relevant to payments with escrow., defaults to None
@@ -26,7 +26,7 @@ class PaymentsPaymentIdBody(BaseModel):
 
     def __init__(
         self,
-        address: Address = None,
+        address: Address1 = None,
         description: str = None,
         escrow: bool = None,
         escrow_release_days: int = None,
@@ -37,7 +37,7 @@ class PaymentsPaymentIdBody(BaseModel):
         """PaymentsPaymentIdBody
 
         :param address: address associated with this specific Rapyd entity Payment/Customer etc..., defaults to None
-        :type address: Address, optional
+        :type address: Address1, optional
         :param description: Description of the payment., defaults to None
         :type description: str, optional
         :param escrow: To release escrow funds immediately, set to false. If there are multiple sellers, the funds are released to all of them. Relevant to payments with escrow., defaults to None
@@ -51,7 +51,7 @@ class PaymentsPaymentIdBody(BaseModel):
         :param receipt_email: Email address that the receipt for this transaction is sent to., defaults to None
         :type receipt_email: str, optional
         """
-        self.address = self._define_object(address, Address)
+        self.address = self._define_object(address, Address1)
         self.description = self._define_str("description", description, nullable=True)
         self.escrow = escrow
         self.escrow_release_days = self._define_number(

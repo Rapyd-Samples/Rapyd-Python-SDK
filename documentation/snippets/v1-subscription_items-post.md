@@ -11,8 +11,8 @@ request_body = V1SubscriptionItemsBody(
     metadata={},
     plan="plan",
     prorate=False,
-    proration_date=9.19,
-    quantity=6.81,
+    proration_date=8.16,
+    quantity=2.99,
     subscription="subscription"
 )
 

@@ -1,12 +1,14 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.v1_payments_body import V1PaymentsBody
 from ..models.utils.cast_models import cast_models
-from ..models.payments_payment_id_body import PaymentsPaymentIdBody
-from ..models.inline_response_200_54 import InlineResponse200_54
-from ..models.inline_response_200_53 import InlineResponse200_53
-from ..models.customer import Customer
+from ..models import (
+    Customer,
+    InlineResponse200_62,
+    InlineResponse200_63,
+    PaymentsPaymentIdBody,
+    V1PaymentsBody,
+)
 
 
 class PaymentService(BaseService):
@@ -28,12 +30,12 @@ class PaymentService(BaseService):
         starting_after: str = None,
         subscription: str = None,
         merchant_reference_id: str = None,
-    ) -> InlineResponse200_53:
+    ) -> InlineResponse200_62:
         """Retrieve a list of all payments that you have created. You can filter the list with query parameters.
 
-        :param created_after: The ID of the payment created before the first payment you want to retrieve. String starting with payment_., defaults to None
+        :param created_after: The ID of the payment created before the first payment you want to retrieve. String starting with **payment_**., defaults to None
         :type created_after: str, optional
-        :param created_before: The ID of the payment created after the last payment you want to retrieve. String starting with payment_., defaults to None
+        :param created_before: The ID of the payment created after the last payment you want to retrieve. String starting with **payment_**., defaults to None
         :type created_before: str, optional
         :param customer: Filters the list for payments related to the specified customer., defaults to None
         :type customer: Customer, optional
@@ -63,7 +65,7 @@ class PaymentService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Payments Fetched successfully
-        :rtype: InlineResponse200_53
+        :rtype: InlineResponse200_62
         """
 
         Validator(str).is_optional().validate(created_after)
@@ -102,10 +104,10 @@ class PaymentService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_53._unmap(response)
+        return InlineResponse200_62._unmap(response)
 
     @cast_models
-    def create_payment(self, request_body: V1PaymentsBody) -> InlineResponse200_54:
+    def create_payment(self, request_body: V1PaymentsBody) -> InlineResponse200_63:
         """Create a payment
 
         :param request_body: The request body.
@@ -114,7 +116,7 @@ class PaymentService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Payment was created
-        :rtype: InlineResponse200_54
+        :rtype: InlineResponse200_63
         """
 
         Validator(V1PaymentsBody).validate(request_body)
@@ -127,19 +129,19 @@ class PaymentService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_54._unmap(response)
+        return InlineResponse200_63._unmap(response)
 
     @cast_models
-    def retrieve_payment(self, payment_id: str) -> InlineResponse200_54:
+    def retrieve_payment(self, payment_id: str) -> InlineResponse200_63:
         """Retrieve details of a payment
 
-        :param payment_id: ID of the payment. String starting with 'payment_'.
+        :param payment_id: ID of the payment. String starting with **payment_**.
         :type payment_id: str
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: Payment object
-        :rtype: InlineResponse200_54
+        :rtype: InlineResponse200_63
         """
 
         Validator(str).validate(payment_id)
@@ -154,12 +156,12 @@ class PaymentService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_54._unmap(response)
+        return InlineResponse200_63._unmap(response)
 
     @cast_models
     def update_payment(
         self, request_body: PaymentsPaymentIdBody, payment_id: str
-    ) -> InlineResponse200_54:
+    ) -> InlineResponse200_63:
         """Change or modify a payment when the status of the payment is ACT (active). You can update additional fields if they are listed under payment_options in the response from Get Payment Method Required Fields and is_updateable is set to true
 
         :param request_body: The request body.
@@ -170,7 +172,7 @@ class PaymentService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: payment updated successfully
-        :rtype: InlineResponse200_54
+        :rtype: InlineResponse200_63
         """
 
         Validator(PaymentsPaymentIdBody).validate(request_body)
@@ -187,10 +189,10 @@ class PaymentService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_54._unmap(response)
+        return InlineResponse200_63._unmap(response)
 
     @cast_models
-    def cancel_payment(self, payment_id: str) -> InlineResponse200_54:
+    def cancel_payment(self, payment_id: str) -> InlineResponse200_63:
         """Cancel a payment where the status of the payment is ACT. Relevant to payment methods where is_cancelable = true in the response to List Payment Methods by Country. This method triggers the Payment Canceled webhook. This webhook contains the same information as the response. NOTE: If the status is CLO, use the Create Refund method.
 
         :param payment_id: ID of the payment. String starting with payment_.
@@ -199,7 +201,7 @@ class PaymentService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: payment canceled successfully
-        :rtype: InlineResponse200_54
+        :rtype: InlineResponse200_63
         """
 
         Validator(str).validate(payment_id)
@@ -214,4 +216,4 @@ class PaymentService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_54._unmap(response)
+        return InlineResponse200_63._unmap(response)

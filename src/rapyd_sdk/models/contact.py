@@ -27,7 +27,7 @@ class ContactType(Enum):
         return list(map(lambda x: x.value, ContactType._member_map_.values()))
 
 
-class Gender(Enum):
+class ContactGender(Enum):
     """An enumeration representing different categories.
 
     :cvar MALE: "male"
@@ -51,7 +51,7 @@ class Gender(Enum):
         :return: A list of all category values.
         :rtype: list
         """
-        return list(map(lambda x: x.value, Gender._member_map_.values()))
+        return list(map(lambda x: x.value, ContactGender._member_map_.values()))
 
 
 class HouseType(Enum):
@@ -153,7 +153,7 @@ class Contact(BaseModel):
     :type compliance_profile: float, optional
     :param contact_type: Type of contact., defaults to None
     :type contact_type: ContactType, optional
-    :param country: country, defaults to None
+    :param country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
     :type country: str, optional
     :param created_at: created_at, defaults to None
     :type created_at: float, optional
@@ -161,12 +161,12 @@ class Contact(BaseModel):
     :type date_of_birth: str, optional
     :param email: Email address of the contact, defaults to None
     :type email: str, optional
-    :param ewallet: ID of the Rapyd Wallet that this contact is associated with. String starting with ewallet_., defaults to None
+    :param ewallet: ID of the Rapyd Wallet that this contact is associated with. String starting with **ewallet_**., defaults to None
     :type ewallet: str, optional
     :param first_name: First name of the personal contact or primary person associated with the business contact., defaults to None
     :type first_name: str, optional
     :param gender: Gender of the personal contact or primary person associated with the business contact, defaults to None
-    :type gender: Gender, optional
+    :type gender: ContactGender, optional
     :param house_type: Description of the type of residency at the contact's residence., defaults to None
     :type house_type: HouseType, optional
     :param id_: ID of the contact object. String starting with cont_., defaults to None
@@ -187,7 +187,7 @@ class Contact(BaseModel):
     :type middle_name: str, optional
     :param mothers_name: Name of the contact's mother, defaults to None
     :type mothers_name: str, optional
-    :param nationality: nationality, defaults to None
+    :param nationality: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
     :type nationality: str, optional
     :param phone_number: Phone number of the contact in E.164 format., defaults to None
     :type phone_number: str, optional
@@ -213,7 +213,7 @@ class Contact(BaseModel):
         email: str = None,
         ewallet: str = None,
         first_name: str = None,
-        gender: Gender = None,
+        gender: ContactGender = None,
         house_type: HouseType = None,
         id_: str = None,
         identification_number: str = None,
@@ -241,7 +241,7 @@ class Contact(BaseModel):
         :type compliance_profile: float, optional
         :param contact_type: Type of contact., defaults to None
         :type contact_type: ContactType, optional
-        :param country: country, defaults to None
+        :param country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
         :type country: str, optional
         :param created_at: created_at, defaults to None
         :type created_at: float, optional
@@ -249,12 +249,12 @@ class Contact(BaseModel):
         :type date_of_birth: str, optional
         :param email: Email address of the contact, defaults to None
         :type email: str, optional
-        :param ewallet: ID of the Rapyd Wallet that this contact is associated with. String starting with ewallet_., defaults to None
+        :param ewallet: ID of the Rapyd Wallet that this contact is associated with. String starting with **ewallet_**., defaults to None
         :type ewallet: str, optional
         :param first_name: First name of the personal contact or primary person associated with the business contact., defaults to None
         :type first_name: str, optional
         :param gender: Gender of the personal contact or primary person associated with the business contact, defaults to None
-        :type gender: Gender, optional
+        :type gender: ContactGender, optional
         :param house_type: Description of the type of residency at the contact's residence., defaults to None
         :type house_type: HouseType, optional
         :param id_: ID of the contact object. String starting with cont_., defaults to None
@@ -275,7 +275,7 @@ class Contact(BaseModel):
         :type middle_name: str, optional
         :param mothers_name: Name of the contact's mother, defaults to None
         :type mothers_name: str, optional
-        :param nationality: nationality, defaults to None
+        :param nationality: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
         :type nationality: str, optional
         :param phone_number: Phone number of the contact in E.164 format., defaults to None
         :type phone_number: str, optional
@@ -298,12 +298,7 @@ class Contact(BaseModel):
             if contact_type
             else None
         )
-        self.country = self._define_str(
-            "country",
-            country,
-            nullable=True,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
-        )
+        self.country = self._define_str("country", country, nullable=True)
         self.created_at = self._define_number("created_at", created_at, nullable=True)
         self.date_of_birth = self._define_str(
             "date_of_birth", date_of_birth, nullable=True
@@ -317,7 +312,9 @@ class Contact(BaseModel):
         self.ewallet = self._define_str("ewallet", ewallet, nullable=True)
         self.first_name = self._define_str("first_name", first_name, nullable=True)
         self.gender = (
-            self._enum_matching(gender, Gender.list(), "gender") if gender else None
+            self._enum_matching(gender, ContactGender.list(), "gender")
+            if gender
+            else None
         )
         self.house_type = (
             self._enum_matching(house_type, HouseType.list(), "house_type")
@@ -343,12 +340,7 @@ class Contact(BaseModel):
         self.mothers_name = self._define_str(
             "mothers_name", mothers_name, nullable=True
         )
-        self.nationality = self._define_str(
-            "nationality",
-            nationality,
-            nullable=True,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
-        )
+        self.nationality = self._define_str("nationality", nationality, nullable=True)
         self.phone_number = self._define_str(
             "phone_number", phone_number, nullable=True
         )

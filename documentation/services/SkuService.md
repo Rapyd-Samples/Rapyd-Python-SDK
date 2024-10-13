@@ -19,13 +19,13 @@ Retrieve the details of an SKU.
 
 **Parameters**
 
-| Name   | Type  | Required | Description                                         |
-| :----- | :---- | :------- | :-------------------------------------------------- |
-| sku_id | `str` | ✅       | ID of the 'sku' object. String starting with sku\_. |
+| Name   | Type | Required | Description                                             |
+| :----- | :--- | :------- | :------------------------------------------------------ |
+| sku_id | str  | ✅       | ID of the 'sku' object. String starting with **sku\_**. |
 
 **Return Type**
 
-`InlineResponse200_72`
+`InlineResponse200_83`
 
 **Example Usage Code Snippet**
 
@@ -51,14 +51,14 @@ Change or modify an SKU.
 
 **Parameters**
 
-| Name         | Type                                          | Required | Description                                         |
-| :----------- | :-------------------------------------------- | :------- | :-------------------------------------------------- |
-| request_body | `[SkusSkuIdBody](../models/SkusSkuIdBody.md)` | ❌       | The request body.                                   |
-| sku_id       | `str`                                         | ✅       | ID of the 'sku' object. String starting with sku\_. |
+| Name         | Type                                        | Required | Description                                         |
+| :----------- | :------------------------------------------ | :------- | :-------------------------------------------------- |
+| request_body | [SkusSkuIdBody](../models/SkusSkuIdBody.md) | ❌       | The request body.                                   |
+| sku_id       | str                                         | ✅       | ID of the 'sku' object. String starting with sku\_. |
 
 **Return Type**
 
-`InlineResponse200_72`
+`InlineResponse200_83`
 
 **Example Usage Code Snippet**
 
@@ -75,22 +75,22 @@ request_body = SkusSkuIdBody(
     currency="GBP",
     inventory={
         "type_": "finite",
-        "quantity": 9,
+        "quantity": 5,
         "value": "in_stock"
     },
-    price=3.63,
+    price=3.69,
     product="product",
-    active=True,
+    active=False,
     attributes=[
         "attributes"
     ],
     image="image",
     metadata={},
     package_dimensions={
-        "length": 3.17,
-        "height": 6.46,
-        "weight": 2.6,
-        "width": 2.52
+        "length": 4.84,
+        "height": 8.35,
+        "weight": 1.01,
+        "width": 7.9
     }
 )
 
@@ -111,13 +111,13 @@ Delete an SKU from the Rapyd platform.
 
 **Parameters**
 
-| Name   | Type  | Required | Description                                         |
-| :----- | :---- | :------- | :-------------------------------------------------- |
-| sku_id | `str` | ✅       | ID of the 'sku' object. String starting with sku\_. |
+| Name   | Type | Required | Description                                             |
+| :----- | :--- | :------- | :------------------------------------------------------ |
+| sku_id | str  | ✅       | ID of the 'sku' object. String starting with **sku\_**. |
 
 **Return Type**
 
-`InlineResponse200_73`
+`InlineResponse200_40`
 
 **Example Usage Code Snippet**
 
@@ -143,16 +143,16 @@ Retrieve a list of all SKUs.
 
 **Parameters**
 
-| Name           | Type    | Required | Description                                                                         |
-| :------------- | :------ | :------- | :---------------------------------------------------------------------------------- |
-| active         | `bool`  | ❌       | Determines whether the query returns active SKUs or inactive SKUs. Default is true. |
-| starting_after | `float` | ❌       | The ID of the SKU created before the first SKU you want to retrieve.                |
-| ending_before  | `float` | ❌       | The ID of the SKU created after the last SKU you want to retrieve.                  |
-| limit          | `float` | ❌       | The maximum number of SKUs to return. Range 1-100. Default is 10.                   |
+| Name           | Type  | Required | Description                                                                         |
+| :------------- | :---- | :------- | :---------------------------------------------------------------------------------- |
+| active         | bool  | ❌       | Determines whether the query returns active SKUs or inactive SKUs. Default is true. |
+| starting_after | float | ❌       | The ID of the SKU created before the first SKU you want to retrieve.                |
+| ending_before  | float | ❌       | The ID of the SKU created after the last SKU you want to retrieve.                  |
+| limit          | float | ❌       | The maximum number of SKUs to return. Range 1-100. Default is 10.                   |
 
 **Return Type**
 
-`InlineResponse200_74`
+`InlineResponse200_84`
 
 **Example Usage Code Snippet**
 
@@ -166,9 +166,9 @@ sdk = RapydSdk(
 
 result = sdk.sku.list_sku(
     active=False,
-    starting_after=9.68,
-    ending_before=5.31,
-    limit=1.17
+    starting_after=9.83,
+    ending_before=3.58,
+    limit=3.06
 )
 
 print(result)
@@ -183,13 +183,13 @@ Create an SKU and attach it to a product.
 
 **Parameters**
 
-| Name         | Type                                    | Required | Description       |
-| :----------- | :-------------------------------------- | :------- | :---------------- |
-| request_body | `[V1SkusBody](../models/V1SkusBody.md)` | ❌       | The request body. |
+| Name         | Type                                  | Required | Description       |
+| :----------- | :------------------------------------ | :------- | :---------------- |
+| request_body | [V1SkusBody](../models/V1SkusBody.md) | ❌       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_72`
+`InlineResponse200_83`
 
 **Example Usage Code Snippet**
 
@@ -206,10 +206,10 @@ request_body = V1SkusBody(
     currency="GBP",
     inventory={
         "type_": "finite",
-        "quantity": 9,
+        "quantity": 5,
         "value": "in_stock"
     },
-    price=1.08,
+    price=2.67,
     product="product",
     active=False,
     attributes=[
@@ -218,10 +218,10 @@ request_body = V1SkusBody(
     image="image",
     metadata={},
     package_dimensions={
-        "length": 3.17,
-        "height": 6.46,
-        "weight": 2.6,
-        "width": 2.52
+        "length": 4.84,
+        "height": 8.35,
+        "weight": 1.01,
+        "width": 7.9
     }
 )
 

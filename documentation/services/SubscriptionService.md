@@ -2,16 +2,17 @@
 
 A list of all methods in the `SubscriptionService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                                       | Description                                                                                                                                                |
-| :------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [get_subscription_list](#get_subscription_list)               | Retrieve a list of subscriptions. You can filter the list with query parameters.                                                                           |
-| [create_subscription](#create_subscription)                   | Create a subscription for regular, automatic payments.                                                                                                     |
-| [get_subscription](#get_subscription)                         | Retrieve the details of a subscription.                                                                                                                    |
-| [update_subscription](#update_subscription)                   | Update the details of a subscription.                                                                                                                      |
-| [cancel_subscription](#cancel_subscription)                   | Cancel a subscription.                                                                                                                                     |
-| [delete_subscription_discount](#delete_subscription_discount) | Delete the discount that was assigned to a subscription. This method does not affect the coupon that the discount was derived from.                        |
-| [complete_subscription_cycle](#complete_subscription_cycle)   | Cancel the subscription and create an invoice. This method is for testing purposes and runs only in the sandbox.                                           |
-| [simulate_start_new_cycle](#simulate_start_new_cycle)         | End a subscription cycle, create an invoice and move the subscription to the next cycle. This method is for testing purposes and runs only in the sandbox. |
+| Methods                                                             | Description                                                                                                                                                |
+| :------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get_subscription_list](#get_subscription_list)                     | Retrieve a list of subscriptions. You can filter the list with query parameters.                                                                           |
+| [create_subscription](#create_subscription)                         | Create a subscription for regular, automatic payments.                                                                                                     |
+| [get_subscription](#get_subscription)                               | Retrieve the details of a subscription.                                                                                                                    |
+| [update_subscription](#update_subscription)                         | Update the details of a subscription.                                                                                                                      |
+| [cancel_subscription](#cancel_subscription)                         | Cancel a subscription.                                                                                                                                     |
+| [delete_subscription_discount](#delete_subscription_discount)       | Delete the discount that was assigned to a subscription. This method does not affect the coupon that the discount was derived from.                        |
+| [complete_subscription_cycle](#complete_subscription_cycle)         | Cancel the subscription and create an invoice. This method is for testing purposes and runs only in the sandbox.                                           |
+| [simulate_start_new_cycle](#simulate_start_new_cycle)               | End a subscription cycle, create an invoice and move the subscription to the next cycle. This method is for testing purposes and runs only in the sandbox. |
+| [get_subscription_discount_by_id](#get_subscription_discount_by_id) | Retrieve a discount for a subscription.                                                                                                                    |
 
 ## get_subscription_list
 
@@ -22,19 +23,19 @@ Retrieve a list of subscriptions. You can filter the list with query parameters.
 
 **Parameters**
 
-| Name           | Type  | Required | Description                                                                                                                                                                                                    |
-| :------------- | :---- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| starting_after | `str` | ✅       | The ID of a record in the list. The list begins with the record that was created next after the record with this ID. Use this filter to get the next page of results. Relevant when ending_before is not used. |
-| billing        | `str` | ❌       | Method of billing. One of the following, pay_automatically, send_invoice.                                                                                                                                      |
-| customer       | `str` | ❌       | ID of the customer. String starting with cus\_                                                                                                                                                                 |
-| status         | `str` | ❌       | Status of the subscription. One of the following, active, canceled, trialing                                                                                                                                   |
-| product        | `str` | ❌       | ID of a 'product' object. The product must have type set to service. String starting with product\_. Filter for one product at a time.                                                                         |
-| ending_before  | `str` | ❌       | The ID of a record in the list. The list ends with the last record that was created before the record with this ID. Use this filter to get the previous page of results.                                       |
-| limit          | `str` | ❌       | The maximum number of subscriptions to return. Range, 1-100. Default is 10.                                                                                                                                    |
+| Name           | Type | Required | Description                                                                                                                                                                                                    |
+| :------------- | :--- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| billing        | str  | ❌       | Method of billing. One of the following, pay_automatically, send_invoice.                                                                                                                                      |
+| customer       | str  | ❌       | ID of the customer. String starting with cus\_                                                                                                                                                                 |
+| status         | str  | ❌       | Status of the subscription. One of the following, active, canceled, trialing                                                                                                                                   |
+| product        | str  | ❌       | ID of a 'product' object. The product must have type set to service. String starting with product\_. Filter for one product at a time.                                                                         |
+| starting_after | str  | ❌       | The ID of a record in the list. The list begins with the record that was created next after the record with this ID. Use this filter to get the next page of results. Relevant when ending_before is not used. |
+| ending_before  | str  | ❌       | The ID of a record in the list. The list ends with the last record that was created before the record with this ID. Use this filter to get the previous page of results.                                       |
+| limit          | str  | ❌       | The maximum number of subscriptions to return. Range, 1-100. Default is 10.                                                                                                                                    |
 
 **Return Type**
 
-`InlineResponse200_55`
+`InlineResponse200_65`
 
 **Example Usage Code Snippet**
 
@@ -47,11 +48,11 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription.get_subscription_list(
-    starting_after="starting_after",
     billing="billing",
     customer="customer",
     status="status",
     product="product",
+    starting_after="starting_after",
     ending_before="ending_before",
     limit="limit"
 )
@@ -68,13 +69,13 @@ Create a subscription for regular, automatic payments.
 
 **Parameters**
 
-| Name         | Type                                                                  | Required | Description       |
-| :----------- | :-------------------------------------------------------------------- | :------- | :---------------- |
-| request_body | `[PaymentsSubscriptionsBody](../models/PaymentsSubscriptionsBody.md)` | ✅       | The request body. |
+| Name         | Type                                                                | Required | Description       |
+| :----------- | :------------------------------------------------------------------ | :------- | :---------------- |
+| request_body | [PaymentsSubscriptionsBody](../models/PaymentsSubscriptionsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_56`
+`InlineResponse200_66`
 
 **Example Usage Code Snippet**
 
@@ -89,18 +90,18 @@ sdk = RapydSdk(
 
 request_body = PaymentsSubscriptionsBody(
     billing="billing",
-    billing_cycle_anchor=2.91,
+    billing_cycle_anchor=7.45,
     cancel_at_period_end=True,
     coupon="coupon",
     customer="customer",
-    days_until_due=4.17,
+    days_until_due=4.24,
     metadata={},
     payment_fields={
         "address": {
             "canton": "canton",
             "city": "city",
             "country": "GB",
-            "created_at": 3.34,
+            "created_at": 8.2,
             "district": "district",
             "id_": "id",
             "line_1": "line_1",
@@ -112,13 +113,13 @@ request_body = PaymentsSubscriptionsBody(
             "state": "state",
             "zip": "zip"
         },
-        "amount": 3.28,
+        "amount": 0.07,
         "auth_code": "auth_code",
         "cancel_reason": "cancel_reason",
         "captured": True,
         "complete_payment_url": "complete_payment_url",
         "country_code": "GB",
-        "created_at": 3,
+        "created_at": 9,
         "currency_code": "GBP",
         "customer_token": "customer_token",
         "description": "description",
@@ -126,26 +127,26 @@ request_body = PaymentsSubscriptionsBody(
             "id_": "id",
             "token": "dispute_6bd95ecec6bee6a505d39b56dbded2ec",
             "status": "ACT",
-            "amount": 6.69,
+            "amount": 1.06,
             "currency": "currency",
             "dispute_category": "dispute_category",
             "dispute_reason_description": "dispute_reason_description",
             "original_transaction_currency": "GBP",
-            "original_transaction_amount": 5.78,
-            "original_dispute_amount": 9.23,
+            "original_transaction_amount": 0.51,
+            "original_dispute_amount": 7.33,
             "original_dispute_currency": "GBP",
             "original_transaction_id": "payment_ce936f36d93bc9307a3db9ebfd3deaaa",
             "ewallet_id": "ewallet_id",
-            "central_processing_date": 0.59,
-            "created_at": 0.69,
-            "updated_at": 9.59,
-            "due_date": 6.87,
-            "payment_method": "card_39d8aee398dfa5492fc2a0ea2822958f\"",
+            "central_processing_date": 2.02,
+            "created_at": 6.13,
+            "updated_at": 0.9,
+            "due_date": 8.04,
+            "payment_method": "card_39d8aee398dfa5492fc2a0ea2822958f",
             "payment_method_data": {},
-            "rate": 8.99,
+            "rate": 8.7,
             "evidence": "evidence",
             "evidence_reason_code": "evidence_reason_code",
-            "pre_dispute": False,
+            "pre_dispute": True,
             "arn": "arn"
         },
         "error_code": "error_code",
@@ -155,12 +156,13 @@ request_body = PaymentsSubscriptionsBody(
         "ewallets": [
             {
                 "ewallet_id": "ewallet_id",
-                "amount": 8.57,
-                "percent": 5.39,
-                "refunded_amount": 4.4
+                "amount": 2.05,
+                "percent": 0.82,
+                "refunded_amount": 5.53,
+                "released_amount": 4.48
             }
         ],
-        "expiration": 2.42,
+        "expiration": 3.15,
         "failure_code": "failure_code",
         "failure_message": "failure_message",
         "fixed_side": "fixed_side",
@@ -180,7 +182,7 @@ request_body = PaymentsSubscriptionsBody(
             }
         ],
         "invoice": "invoice",
-        "is_partial": True,
+        "is_partial": False,
         "merchant_reference_id": "merchant_reference_id",
         "merchant_requested_amount": "merchant_requested_amount",
         "merchant_requested_currency": "merchant_requested_currency",
@@ -188,7 +190,7 @@ request_body = PaymentsSubscriptionsBody(
         "mid": "mid",
         "next_action": "3d_verification",
         "order": "order",
-        "original_amount": 7.95,
+        "original_amount": 7.53,
         "outcome": {
             "network_status": "approved_by_network",
             "payment_flow_type": "direct",
@@ -197,7 +199,7 @@ request_body = PaymentsSubscriptionsBody(
                     "canton": "canton",
                     "city": "city",
                     "country": "GB",
-                    "created_at": 3.34,
+                    "created_at": 8.2,
                     "district": "district",
                     "id_": "id",
                     "line_1": "line_1",
@@ -211,8 +213,8 @@ request_body = PaymentsSubscriptionsBody(
                 },
                 "amount_range_per_currency": [
                     {
-                        "maximum_amount": 8.96,
-                        "minimum_amount": 8.01,
+                        "maximum_amount": 4.53,
+                        "minimum_amount": 0.65,
                         "currency": "GBP"
                     }
                 ],
@@ -230,7 +232,7 @@ request_body = PaymentsSubscriptionsBody(
                         "description": "description",
                         "element_name": "element_name",
                         "operator": "operator",
-                        "threshold_value": "estadi"
+                        "threshold_value": "quis sed u"
                     }
                 ],
                 "country": "GB",
@@ -243,7 +245,7 @@ request_body = PaymentsSubscriptionsBody(
                             "canton": "canton",
                             "city": "city",
                             "country": "GB",
-                            "created_at": 3.34,
+                            "created_at": 8.2,
                             "district": "district",
                             "id_": "id",
                             "line_1": "line_1",
@@ -257,18 +259,18 @@ request_body = PaymentsSubscriptionsBody(
                         }
                     ],
                     "business_vat_id": "business_vat_id",
-                    "created_at": 7,
+                    "created_at": 3,
                     "default_payment_method": "default_payment_method",
                     "delinquent": False,
                     "description": "description",
                     "discount": {
                         "coupon": {
-                            "amount_off": 0.13,
+                            "amount_off": 6.55,
                             "created": 1671697165,
                             "currency": "GBP",
                             "description": "Sample Coupon 1",
                             "discount_duration_in_uses": 2,
-                            "discount_valid_until": 7.67,
+                            "discount_valid_until": 0.57,
                             "discount_validity_in_months": 2,
                             "duration": "forever",
                             "duration_in_months": 3,
@@ -276,14 +278,14 @@ request_body = PaymentsSubscriptionsBody(
                             "max_redemptions": 2,
                             "metadata": {},
                             "percent_off": 10,
-                            "redeem_by": 0.44,
-                            "times_redeemed": 6.69,
+                            "redeem_by": 0.14,
+                            "times_redeemed": 2.17,
                             "valid": True
                         },
                         "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                         "end": 1679473563,
                         "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                        "number_of_uses": 2.89,
+                        "number_of_uses": 5.55,
                         "start": 1679473563,
                         "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                         "valid": True
@@ -301,7 +303,7 @@ request_body = PaymentsSubscriptionsBody(
                                 "fingerprint_token": "fingerprint_token",
                                 "id_": "id",
                                 "image": "image",
-                                "last4": "4487",
+                                "last4": "6326",
                                 "metadata": {},
                                 "name": "name",
                                 "network_reference_id": "network_reference_id",
@@ -313,8 +315,8 @@ request_body = PaymentsSubscriptionsBody(
                                 "webhook_url": "webhook_url"
                             }
                         ],
-                        "has_more": True,
-                        "total_count": 7,
+                        "has_more": False,
+                        "total_count": 3,
                         "url": "url"
                     },
                     "phone_number": "phone_number",
@@ -323,7 +325,7 @@ request_body = PaymentsSubscriptionsBody(
                             "billing": "pay_automatically",
                             "billing_cycle_anchor": "now",
                             "cancel_at_period_end": True,
-                            "canceled_at": 5.63,
+                            "canceled_at": 4,
                             "created_at": 1592379647,
                             "current_period_end": 1594971647,
                             "current_period_start": 1592379647,
@@ -331,12 +333,12 @@ request_body = PaymentsSubscriptionsBody(
                             "days_until_due": 30,
                             "discount": {
                                 "coupon": {
-                                    "amount_off": 0.13,
+                                    "amount_off": 6.55,
                                     "created": 1671697165,
                                     "currency": "GBP",
                                     "description": "Sample Coupon 1",
                                     "discount_duration_in_uses": 2,
-                                    "discount_valid_until": 7.67,
+                                    "discount_valid_until": 0.57,
                                     "discount_validity_in_months": 2,
                                     "duration": "forever",
                                     "duration_in_months": 3,
@@ -344,19 +346,19 @@ request_body = PaymentsSubscriptionsBody(
                                     "max_redemptions": 2,
                                     "metadata": {},
                                     "percent_off": 10,
-                                    "redeem_by": 0.44,
-                                    "times_redeemed": 6.69,
+                                    "redeem_by": 0.14,
+                                    "times_redeemed": 2.17,
                                     "valid": True
                                 },
                                 "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                                 "end": 1679473563,
                                 "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                                "number_of_uses": 2.89,
+                                "number_of_uses": 5.55,
                                 "start": 1679473563,
                                 "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                                 "valid": True
                             },
-                            "ended_at": 7.3,
+                            "ended_at": 4.95,
                             "id_": "sub_04fd8fbd78d7dd7e0e6323810a69275c",
                             "metadata": {},
                             "payment_fields": {},
@@ -367,12 +369,13 @@ request_body = PaymentsSubscriptionsBody(
                             "subscription_items": {
                                 "data": [
                                     {
-                                        "created": 1.05,
+                                        "created": 1.1,
                                         "id_": "subi_e5dbbf84c68e5bb7db761625158d4262",
                                         "metadata": "{\"merchant_defined\": True }",
                                         "plan": {
+                                            "active": True,
                                             "aggregate_usage": "max",
-                                            "amount": 5.37,
+                                            "amount": 1.34,
                                             "billing_scheme": "per_unit",
                                             "created_at": 1592311574,
                                             "currency": "GBP",
@@ -432,7 +435,7 @@ request_body = PaymentsSubscriptionsBody(
                                             "tiers": [
                                                 {
                                                     "amount": 15,
-                                                    "flat_amount": 6.45,
+                                                    "flat_amount": 4.6,
                                                     "up_to": "inf"
                                                 }
                                             ],
@@ -441,20 +444,20 @@ request_body = PaymentsSubscriptionsBody(
                                                 "divide_by": 1,
                                                 "round": "round"
                                             },
-                                            "trial_period_days": 9.42,
+                                            "trial_period_days": 4.85,
                                             "usage_type": "metered"
                                         },
-                                        "quantity": 4.27,
+                                        "quantity": 1.01,
                                         "subscription_id": "sub_0de9c79c1e2beee09499dc8220493d5"
                                     }
                                 ],
-                                "has_more": True,
+                                "has_more": False,
                                 "total_count": 1,
                                 "url": "/v1/subscription_items?subscription=sub_324ee75f8c26f1df94bc8cc693f3c729"
                             },
                             "tax_percent": 10.5,
-                            "trial_end": 9.98,
-                            "trial_start": 3.73,
+                            "trial_end": 4.72,
+                            "trial_start": 1.39,
                             "type_": "payout"
                         }
                     ]
@@ -462,17 +465,17 @@ request_body = PaymentsSubscriptionsBody(
                 "fingerprint": "fingerprint",
                 "image": "image",
                 "instructions": "instructions",
-                "is_cancelable": False,
-                "is_expirable": True,
+                "is_cancelable": True,
+                "is_expirable": False,
                 "is_online": True,
-                "is_refundable": True,
+                "is_refundable": False,
                 "is_required": False,
-                "is_tokenizable": False,
+                "is_tokenizable": True,
                 "is_virtual": False,
-                "last4": "0117",
-                "maximum_expiration_seconds": 10,
-                "minimum_expiration_seconds": 0,
-                "multiple_overage_allowed": False,
+                "last4": "6546",
+                "maximum_expiration_seconds": 5,
+                "minimum_expiration_seconds": 10,
+                "multiple_overage_allowed": True,
                 "name": "name",
                 "payment_flow_type": "direct"
             },
@@ -481,20 +484,20 @@ request_body = PaymentsSubscriptionsBody(
             "seller_message": "seller_message"
         },
         "paid": False,
-        "paid_at": 3.25,
+        "paid_at": 0.96,
         "payment_fees": {
             "fx_fee": {
                 "calc_type": "gross",
                 "value": 2.5
             },
             "gross_fees": 4.23,
-            "net_fees": 2.4,
+            "net_fees": 8.22,
             "transaction_fee": {
                 "calc_type": "gross",
                 "fee_type": "absolute",
                 "value": 2
             },
-            "total_merchant_fees": 3.19
+            "total_merchant_fees": 5.86
         },
         "payment_method": "payment_method",
         "payment_method_data": {},
@@ -505,35 +508,35 @@ request_body = PaymentsSubscriptionsBody(
         "receipt_number": "receipt_number",
         "redirect_url": "redirect_url",
         "refunded": True,
-        "refunded_amount": 4.58,
+        "refunded_amount": 0.3,
         "refunds": {
             "data": [
                 "data"
             ],
-            "has_more": True,
-            "total_count": 2,
+            "has_more": False,
+            "total_count": 3,
             "url": "url"
         },
         "remitter_information": {},
-        "save_payment_method": False,
+        "save_payment_method": True,
         "statement_descriptor": "statement_descriptor",
         "status": "ACT",
         "textual_codes": {},
         "transaction_id": "transaction_id",
         "visual_codes": {}
     },
-    payment_method="estminim adipis",
-    simultaneous_invoice=True,
+    payment_method="proid",
+    simultaneous_invoice=False,
     subscription_items=[
         {
             "plan": "plan",
-            "quantity": 8.42
+            "quantity": 2.68
         }
     ],
-    tax_percent=3.39,
-    trial_end=7.11,
+    tax_percent=4.93,
+    trial_end=3.06,
     trial_from_plan=True,
-    trial_period_days=2.81
+    trial_period_days=8.16
 )
 
 result = sdk.subscription.create_subscription(request_body=request_body)
@@ -550,13 +553,13 @@ Retrieve the details of a subscription.
 
 **Parameters**
 
-| Name            | Type  | Required | Description                                         |
-| :-------------- | :---- | :------- | :-------------------------------------------------- |
-| subscription_id | `str` | ✅       | ID of the subscription. String starting with sub\_. |
+| Name            | Type | Required | Description                                         |
+| :-------------- | :--- | :------- | :-------------------------------------------------- |
+| subscription_id | str  | ✅       | ID of the subscription. String starting with sub\_. |
 
 **Return Type**
 
-`InlineResponse200_56`
+`InlineResponse200_66`
 
 **Example Usage Code Snippet**
 
@@ -582,14 +585,14 @@ Update the details of a subscription.
 
 **Parameters**
 
-| Name            | Type                                                                              | Required | Description                                         |
-| :-------------- | :-------------------------------------------------------------------------------- | :------- | :-------------------------------------------------- |
-| request_body    | `[SubscriptionsSubscriptionIdBody](../models/SubscriptionsSubscriptionIdBody.md)` | ✅       | The request body.                                   |
-| subscription_id | `str`                                                                             | ✅       | ID of the subscription. String starting with sub\_. |
+| Name            | Type                                                                            | Required | Description                                             |
+| :-------------- | :------------------------------------------------------------------------------ | :------- | :------------------------------------------------------ |
+| request_body    | [SubscriptionsSubscriptionIdBody](../models/SubscriptionsSubscriptionIdBody.md) | ✅       | The request body.                                       |
+| subscription_id | str                                                                             | ✅       | ID of the subscription. String starting with **sub\_**. |
 
 **Return Type**
 
-`InlineResponse200_56`
+`InlineResponse200_66`
 
 **Example Usage Code Snippet**
 
@@ -605,16 +608,16 @@ sdk = RapydSdk(
 request_body = SubscriptionsSubscriptionIdBody(
     billing="billing",
     billing_cycle_anchor="billing_cycle_anchor",
-    cancel_at_period_end=False,
+    cancel_at_period_end=True,
     coupon="coupon",
-    days_until_due=1.94,
+    days_until_due=6.04,
     metadata={},
     payment_fields={
         "address": {
             "canton": "canton",
             "city": "city",
             "country": "GB",
-            "created_at": 3.34,
+            "created_at": 8.2,
             "district": "district",
             "id_": "id",
             "line_1": "line_1",
@@ -628,8 +631,8 @@ request_body = SubscriptionsSubscriptionIdBody(
         },
         "amount_range_per_currency": [
             {
-                "maximum_amount": 8.96,
-                "minimum_amount": 8.01,
+                "maximum_amount": 4.53,
+                "minimum_amount": 0.65,
                 "currency": "GBP"
             }
         ],
@@ -647,7 +650,7 @@ request_body = SubscriptionsSubscriptionIdBody(
                 "description": "description",
                 "element_name": "element_name",
                 "operator": "operator",
-                "threshold_value": "estadi"
+                "threshold_value": "quis sed u"
             }
         ],
         "country": "GB",
@@ -660,7 +663,7 @@ request_body = SubscriptionsSubscriptionIdBody(
                     "canton": "canton",
                     "city": "city",
                     "country": "GB",
-                    "created_at": 3.34,
+                    "created_at": 8.2,
                     "district": "district",
                     "id_": "id",
                     "line_1": "line_1",
@@ -674,18 +677,18 @@ request_body = SubscriptionsSubscriptionIdBody(
                 }
             ],
             "business_vat_id": "business_vat_id",
-            "created_at": 7,
+            "created_at": 3,
             "default_payment_method": "default_payment_method",
             "delinquent": False,
             "description": "description",
             "discount": {
                 "coupon": {
-                    "amount_off": 0.13,
+                    "amount_off": 6.55,
                     "created": 1671697165,
                     "currency": "GBP",
                     "description": "Sample Coupon 1",
                     "discount_duration_in_uses": 2,
-                    "discount_valid_until": 7.67,
+                    "discount_valid_until": 0.57,
                     "discount_validity_in_months": 2,
                     "duration": "forever",
                     "duration_in_months": 3,
@@ -693,14 +696,14 @@ request_body = SubscriptionsSubscriptionIdBody(
                     "max_redemptions": 2,
                     "metadata": {},
                     "percent_off": 10,
-                    "redeem_by": 0.44,
-                    "times_redeemed": 6.69,
+                    "redeem_by": 0.14,
+                    "times_redeemed": 2.17,
                     "valid": True
                 },
                 "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                 "end": 1679473563,
                 "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                "number_of_uses": 2.89,
+                "number_of_uses": 5.55,
                 "start": 1679473563,
                 "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                 "valid": True
@@ -718,7 +721,7 @@ request_body = SubscriptionsSubscriptionIdBody(
                         "fingerprint_token": "fingerprint_token",
                         "id_": "id",
                         "image": "image",
-                        "last4": "4487",
+                        "last4": "6326",
                         "metadata": {},
                         "name": "name",
                         "network_reference_id": "network_reference_id",
@@ -730,8 +733,8 @@ request_body = SubscriptionsSubscriptionIdBody(
                         "webhook_url": "webhook_url"
                     }
                 ],
-                "has_more": True,
-                "total_count": 7,
+                "has_more": False,
+                "total_count": 3,
                 "url": "url"
             },
             "phone_number": "phone_number",
@@ -740,7 +743,7 @@ request_body = SubscriptionsSubscriptionIdBody(
                     "billing": "pay_automatically",
                     "billing_cycle_anchor": "now",
                     "cancel_at_period_end": True,
-                    "canceled_at": 5.63,
+                    "canceled_at": 4,
                     "created_at": 1592379647,
                     "current_period_end": 1594971647,
                     "current_period_start": 1592379647,
@@ -748,12 +751,12 @@ request_body = SubscriptionsSubscriptionIdBody(
                     "days_until_due": 30,
                     "discount": {
                         "coupon": {
-                            "amount_off": 0.13,
+                            "amount_off": 6.55,
                             "created": 1671697165,
                             "currency": "GBP",
                             "description": "Sample Coupon 1",
                             "discount_duration_in_uses": 2,
-                            "discount_valid_until": 7.67,
+                            "discount_valid_until": 0.57,
                             "discount_validity_in_months": 2,
                             "duration": "forever",
                             "duration_in_months": 3,
@@ -761,19 +764,19 @@ request_body = SubscriptionsSubscriptionIdBody(
                             "max_redemptions": 2,
                             "metadata": {},
                             "percent_off": 10,
-                            "redeem_by": 0.44,
-                            "times_redeemed": 6.69,
+                            "redeem_by": 0.14,
+                            "times_redeemed": 2.17,
                             "valid": True
                         },
                         "customer": "cus_3f4ed3168413d863671602dfbe839aa2",
                         "end": 1679473563,
                         "id_": "dis_ab0445dee00fdcdd83811760ffe90e3b",
-                        "number_of_uses": 2.89,
+                        "number_of_uses": 5.55,
                         "start": 1679473563,
                         "subscription": "sub_199e8c92ec0ec2bcbe56740042639d6e",
                         "valid": True
                     },
-                    "ended_at": 7.3,
+                    "ended_at": 4.95,
                     "id_": "sub_04fd8fbd78d7dd7e0e6323810a69275c",
                     "metadata": {},
                     "payment_fields": {},
@@ -784,12 +787,13 @@ request_body = SubscriptionsSubscriptionIdBody(
                     "subscription_items": {
                         "data": [
                             {
-                                "created": 1.05,
+                                "created": 1.1,
                                 "id_": "subi_e5dbbf84c68e5bb7db761625158d4262",
                                 "metadata": "{\"merchant_defined\": True }",
                                 "plan": {
+                                    "active": True,
                                     "aggregate_usage": "max",
-                                    "amount": 5.37,
+                                    "amount": 1.34,
                                     "billing_scheme": "per_unit",
                                     "created_at": 1592311574,
                                     "currency": "GBP",
@@ -849,7 +853,7 @@ request_body = SubscriptionsSubscriptionIdBody(
                                     "tiers": [
                                         {
                                             "amount": 15,
-                                            "flat_amount": 6.45,
+                                            "flat_amount": 4.6,
                                             "up_to": "inf"
                                         }
                                     ],
@@ -858,20 +862,20 @@ request_body = SubscriptionsSubscriptionIdBody(
                                         "divide_by": 1,
                                         "round": "round"
                                     },
-                                    "trial_period_days": 9.42,
+                                    "trial_period_days": 4.85,
                                     "usage_type": "metered"
                                 },
-                                "quantity": 4.27,
+                                "quantity": 1.01,
                                 "subscription_id": "sub_0de9c79c1e2beee09499dc8220493d5"
                             }
                         ],
-                        "has_more": True,
+                        "has_more": False,
                         "total_count": 1,
                         "url": "/v1/subscription_items?subscription=sub_324ee75f8c26f1df94bc8cc693f3c729"
                     },
                     "tax_percent": 10.5,
-                    "trial_end": 9.98,
-                    "trial_start": 3.73,
+                    "trial_end": 4.72,
+                    "trial_start": 1.39,
                     "type_": "payout"
                 }
             ]
@@ -879,29 +883,29 @@ request_body = SubscriptionsSubscriptionIdBody(
         "fingerprint": "fingerprint",
         "image": "image",
         "instructions": "instructions",
-        "is_cancelable": False,
-        "is_expirable": True,
+        "is_cancelable": True,
+        "is_expirable": False,
         "is_online": True,
-        "is_refundable": True,
+        "is_refundable": False,
         "is_required": False,
-        "is_tokenizable": False,
+        "is_tokenizable": True,
         "is_virtual": False,
-        "last4": "0117",
-        "maximum_expiration_seconds": 10,
-        "minimum_expiration_seconds": 0,
-        "multiple_overage_allowed": False,
+        "last4": "6546",
+        "maximum_expiration_seconds": 5,
+        "minimum_expiration_seconds": 10,
+        "multiple_overage_allowed": True,
         "name": "name",
         "payment_flow_type": "direct"
     },
-    payment_method="pariatur",
-    simultaneous_invoice=True,
+    payment_method="id ipsum et dol",
+    simultaneous_invoice=False,
     subscription_items=[
         "subscription_items"
     ],
-    tax_percent=3.25,
-    trial_end=1.6,
-    trial_from_plan=False,
-    trial_period_days=4.21
+    tax_percent=8.25,
+    trial_end=9.65,
+    trial_from_plan=True,
+    trial_period_days=0.56
 )
 
 result = sdk.subscription.update_subscription(
@@ -921,13 +925,13 @@ Cancel a subscription.
 
 **Parameters**
 
-| Name            | Type  | Required | Description                                         |
-| :-------------- | :---- | :------- | :-------------------------------------------------- |
-| subscription_id | `str` | ✅       | ID of the subscription. String starting with sub\_. |
+| Name            | Type | Required | Description                                             |
+| :-------------- | :--- | :------- | :------------------------------------------------------ |
+| subscription_id | str  | ✅       | ID of the subscription. String starting with **sub\_**. |
 
 **Return Type**
 
-`InlineResponse200_56`
+`InlineResponse200_66`
 
 **Example Usage Code Snippet**
 
@@ -953,13 +957,13 @@ Delete the discount that was assigned to a subscription. This method does not af
 
 **Parameters**
 
-| Name            | Type  | Required | Description                                        |
-| :-------------- | :---- | :------- | :------------------------------------------------- |
-| subscription_id | `str` | ✅       | ID of the subscription. String starting with sub\_ |
+| Name            | Type | Required | Description                                             |
+| :-------------- | :--- | :------- | :------------------------------------------------------ |
+| subscription_id | str  | ✅       | ID of the subscription. String starting with **sub\_**. |
 
 **Return Type**
 
-`InlineResponse200_57`
+`InlineResponse200_67`
 
 **Example Usage Code Snippet**
 
@@ -985,13 +989,13 @@ Cancel the subscription and create an invoice. This method is for testing purpos
 
 **Parameters**
 
-| Name            | Type  | Required | Description                                         |
-| :-------------- | :---- | :------- | :-------------------------------------------------- |
-| subscription_id | `str` | ✅       | ID of the subscription. String starting with sub\_. |
+| Name            | Type | Required | Description                                         |
+| :-------------- | :--- | :------- | :-------------------------------------------------- |
+| subscription_id | str  | ✅       | ID of the subscription. String starting with sub\_. |
 
 **Return Type**
 
-`InlineResponse200_56`
+`InlineResponse200_68`
 
 **Example Usage Code Snippet**
 
@@ -1017,13 +1021,13 @@ End a subscription cycle, create an invoice and move the subscription to the nex
 
 **Parameters**
 
-| Name            | Type  | Required | Description                                         |
-| :-------------- | :---- | :------- | :-------------------------------------------------- |
-| subscription_id | `str` | ✅       | ID of the subscription. String starting with sub\_. |
+| Name            | Type | Required | Description                                         |
+| :-------------- | :--- | :------- | :-------------------------------------------------- |
+| subscription_id | str  | ✅       | ID of the subscription. String starting with sub\_. |
 
 **Return Type**
 
-`InlineResponse200_56`
+`InlineResponse200_68`
 
 **Example Usage Code Snippet**
 
@@ -1036,6 +1040,38 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription.simulate_start_new_cycle(subscription_id="subscriptionId")
+
+print(result)
+```
+
+## get_subscription_discount_by_id
+
+Retrieve a discount for a subscription.
+
+- HTTP Method: `GET`
+- Endpoint: `/v1/subscriptions/discount/{discountId}`
+
+**Parameters**
+
+| Name        | Type | Required | Description |
+| :---------- | :--- | :------- | :---------- |
+| discount_id | str  | ✅       | discount Id |
+
+**Return Type**
+
+`InlineResponse200_82`
+
+**Example Usage Code Snippet**
+
+```python
+from rapyd_sdk import RapydSdk, Environment
+
+sdk = RapydSdk(
+    base_url=Environment.DEFAULT.value,
+    timeout=10000
+)
+
+result = sdk.subscription.get_subscription_discount_by_id(discount_id="discountId")
 
 print(result)
 ```

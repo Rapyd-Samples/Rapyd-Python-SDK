@@ -2,9 +2,11 @@ from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
 from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_42 import InlineResponse200_42
-from ..models.inline_response_200_41 import InlineResponse200_41
-from ..models.get_disputes_list_by_org_id_status import GetDisputesListByOrgIdStatus
+from ..models import (
+    GetDisputesListByOrgIdStatus,
+    InlineResponse200_47,
+    InlineResponse200_48,
+)
 
 
 class DisputeService(BaseService):
@@ -17,7 +19,7 @@ class DisputeService(BaseService):
         limit: str = None,
         status: GetDisputesListByOrgIdStatus = None,
         payment: str = None,
-    ) -> InlineResponse200_41:
+    ) -> InlineResponse200_47:
         """Retrieve a detailed list of 'dispute' objects.
 
         :param starting_after: The ID of the dispute created before the first dispute you want to retrieve. String starting with dispute_., defaults to None
@@ -34,7 +36,7 @@ class DisputeService(BaseService):
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
         :return: disputes fetched successfuly
-        :rtype: InlineResponse200_41
+        :rtype: InlineResponse200_47
         """
 
         Validator(str).is_optional().validate(starting_after)
@@ -55,10 +57,10 @@ class DisputeService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_41._unmap(response)
+        return InlineResponse200_47._unmap(response)
 
     @cast_models
-    def get_dispute(self, dispute_id: str) -> InlineResponse200_42:
+    def get_dispute(self, dispute_id: str) -> InlineResponse200_48:
         """Retrieve the details of a dispute.
 
         :param dispute_id: ID of the dispute you want to retrieve. String starting with dispute_.
@@ -66,8 +68,8 @@ class DisputeService(BaseService):
         ...
         :raises RequestError: Raised when a request fails, with optional HTTP status code and details.
         ...
-        :return: Get dispute details by dispute id
-        :rtype: InlineResponse200_42
+        :return: Get dispute details by dispute ID.
+        :rtype: InlineResponse200_48
         """
 
         Validator(str).validate(dispute_id)
@@ -82,4 +84,4 @@ class DisputeService(BaseService):
         )
 
         response = self.send_request(serialized_request)
-        return InlineResponse200_42._unmap(response)
+        return InlineResponse200_48._unmap(response)

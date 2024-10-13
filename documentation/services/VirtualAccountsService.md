@@ -2,16 +2,16 @@
 
 A list of all methods in the `VirtualAccountsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                                                                                   | Description                                                                                                                                                                                                                                                              |
-| :-------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [create_issuing](#create_issuing)                                                                         | Issue a virtual account number to an existing wallet.                                                                                                                                                                                                                    |
-| [simulate_complete_bank_account_issuing_transaction](#simulate_complete_bank_account_issuing_transaction) | Simulate a deposit to a virtual account number that was issued to a wallet. This method is relevant only for testing in the sandbox. The currency of the transfer must be supported by the specific virtual account. This method triggers the Deposit Completed webhook. |
-| [retrieve_issuing_by_rapyd_token](#retrieve_issuing_by_rapyd_token)                                       | Retrieve a Virtual Account Number object for a wallet.                                                                                                                                                                                                                   |
-| [update_issuing_by_rapyd_token](#update_issuing_by_rapyd_token)                                           | Update Receiving Currency                                                                                                                                                                                                                                                |
-| [close_issuing](#close_issuing)                                                                           | Delete a virtual account number of an existing wallet. In order to close a virtual account its status must be ACT.                                                                                                                                                       |
-| [retrieve_issuing_transaction](#retrieve_issuing_transaction)                                             | Retrieve a virtual account transaction.                                                                                                                                                                                                                                  |
+| Methods                                                                                 | Description                                                                                                                                                                                                                                                              |
+| :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [create_virtual_account](#create_virtual_account)                                       | Issue a virtual account number to an existing wallet.                                                                                                                                                                                                                    |
+| [simulate_bank_transfer_to_virtual_account](#simulate_bank_transfer_to_virtual_account) | Simulate a deposit to a virtual account number that was issued to a wallet. This method is relevant only for testing in the sandbox. The currency of the transfer must be supported by the specific virtual account. This method triggers the Deposit Completed webhook. |
+| [retrieve_virtual_account](#retrieve_virtual_account)                                   | Retrieve a Virtual Account Number object for a wallet.                                                                                                                                                                                                                   |
+| [update_issuing_by_rapyd_token](#update_issuing_by_rapyd_token)                         | Update Receiving Currency                                                                                                                                                                                                                                                |
+| [close_issuing](#close_issuing)                                                         | Delete a virtual account number of an existing wallet. In order to close a virtual account its status must be ACT.                                                                                                                                                       |
+| [retrieve_virtual_account_transaction](#retrieve_virtual_account_transaction)           | Retrieve a virtual account transaction.                                                                                                                                                                                                                                  |
 
-## create_issuing
+## create_virtual_account
 
 Issue a virtual account number to an existing wallet.
 
@@ -20,9 +20,9 @@ Issue a virtual account number to an existing wallet.
 
 **Parameters**
 
-| Name         | Type                                                          | Required | Description       |
-| :----------- | :------------------------------------------------------------ | :------- | :---------------- |
-| request_body | `[V1VirtualAccountsBody](../models/V1VirtualAccountsBody.md)` | ✅       | The request body. |
+| Name         | Type                                                        | Required | Description       |
+| :----------- | :---------------------------------------------------------- | :------- | :---------------- |
+| request_body | [V1VirtualAccountsBody](../models/V1VirtualAccountsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
@@ -49,12 +49,12 @@ request_body = V1VirtualAccountsBody(
     requested_currency="requested_currency"
 )
 
-result = sdk.virtual_accounts.create_issuing(request_body=request_body)
+result = sdk.virtual_accounts.create_virtual_account(request_body=request_body)
 
 print(result)
 ```
 
-## simulate_complete_bank_account_issuing_transaction
+## simulate_bank_transfer_to_virtual_account
 
 Simulate a deposit to a virtual account number that was issued to a wallet. This method is relevant only for testing in the sandbox. The currency of the transfer must be supported by the specific virtual account. This method triggers the Deposit Completed webhook.
 
@@ -63,9 +63,9 @@ Simulate a deposit to a virtual account number that was issued to a wallet. This
 
 **Parameters**
 
-| Name         | Type                                                                              | Required | Description       |
-| :----------- | :-------------------------------------------------------------------------------- | :------- | :---------------- |
-| request_body | `[VirtualAccountsTransactionsBody](../models/VirtualAccountsTransactionsBody.md)` | ✅       | The request body. |
+| Name         | Type                                                                            | Required | Description       |
+| :----------- | :------------------------------------------------------------------------------ | :------- | :---------------- |
+| request_body | [VirtualAccountsTransactionsBody](../models/VirtualAccountsTransactionsBody.md) | ✅       | The request body. |
 
 **Return Type**
 
@@ -88,12 +88,12 @@ request_body = VirtualAccountsTransactionsBody(
     issued_bank_account="issued_bank_account"
 )
 
-result = sdk.virtual_accounts.simulate_complete_bank_account_issuing_transaction(request_body=request_body)
+result = sdk.virtual_accounts.simulate_bank_transfer_to_virtual_account(request_body=request_body)
 
 print(result)
 ```
 
-## retrieve_issuing_by_rapyd_token
+## retrieve_virtual_account
 
 Retrieve a Virtual Account Number object for a wallet.
 
@@ -102,9 +102,9 @@ Retrieve a Virtual Account Number object for a wallet.
 
 **Parameters**
 
-| Name               | Type  | Required | Description                                                              |
-| :----------------- | :---- | :------- | :----------------------------------------------------------------------- |
-| virtual_account_id | `str` | ✅       | ID of the Virtual Account Number object. String starting with issuing\_. |
+| Name               | Type | Required | Description                                                              |
+| :----------------- | :--- | :------- | :----------------------------------------------------------------------- |
+| virtual_account_id | str  | ✅       | ID of the Virtual Account Number object. String starting with issuing\_. |
 
 **Return Type**
 
@@ -120,7 +120,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.virtual_accounts.retrieve_issuing_by_rapyd_token(virtual_account_id="virtualAccountId")
+result = sdk.virtual_accounts.retrieve_virtual_account(virtual_account_id="virtualAccountId")
 
 print(result)
 ```
@@ -134,10 +134,10 @@ Update Receiving Currency
 
 **Parameters**
 
-| Name               | Type                                                                                      | Required | Description                                                              |
-| :----------------- | :---------------------------------------------------------------------------------------- | :------- | :----------------------------------------------------------------------- |
-| request_body       | `[VirtualAccountsVirtualAccountIdBody](../models/VirtualAccountsVirtualAccountIdBody.md)` | ✅       | The request body.                                                        |
-| virtual_account_id | `str`                                                                                     | ✅       | ID of the Virtual Account Number object. String starting with issuing\_. |
+| Name               | Type                                                                                    | Required | Description                                                              |
+| :----------------- | :-------------------------------------------------------------------------------------- | :------- | :----------------------------------------------------------------------- |
+| request_body       | [VirtualAccountsVirtualAccountIdBody](../models/VirtualAccountsVirtualAccountIdBody.md) | ✅       | The request body.                                                        |
+| virtual_account_id | str                                                                                     | ✅       | ID of the Virtual Account Number object. String starting with issuing\_. |
 
 **Return Type**
 
@@ -175,9 +175,9 @@ Delete a virtual account number of an existing wallet. In order to close a virtu
 
 **Parameters**
 
-| Name               | Type  | Required | Description                                                |
-| :----------------- | :---- | :------- | :--------------------------------------------------------- |
-| virtual_account_id | `str` | ✅       | ID of the virtual account. String starting with issuing\_. |
+| Name               | Type | Required | Description                                                |
+| :----------------- | :--- | :------- | :--------------------------------------------------------- |
+| virtual_account_id | str  | ✅       | ID of the virtual account. String starting with issuing\_. |
 
 **Return Type**
 
@@ -198,7 +198,7 @@ result = sdk.virtual_accounts.close_issuing(virtual_account_id="virtualAccountId
 print(result)
 ```
 
-## retrieve_issuing_transaction
+## retrieve_virtual_account_transaction
 
 Retrieve a virtual account transaction.
 
@@ -207,10 +207,10 @@ Retrieve a virtual account transaction.
 
 **Parameters**
 
-| Name               | Type  | Required | Description                                                                                                           |
-| :----------------- | :---- | :------- | :-------------------------------------------------------------------------------------------------------------------- |
-| virtual_account_id | `str` | ✅       | ID of the Virtual Account Number object. String starting with issuing\_.                                              |
-| transaction_id     | `str` | ✅       | ID of the transaction, as appears in the array of transactions in the response to 'Retrieve Virtual Account History'. |
+| Name               | Type | Required | Description                                                                                                           |
+| :----------------- | :--- | :------- | :-------------------------------------------------------------------------------------------------------------------- |
+| virtual_account_id | str  | ✅       | ID of the Virtual Account Number object. String starting with issuing\_.                                              |
+| transaction_id     | str  | ✅       | ID of the transaction, as appears in the array of transactions in the response to 'Retrieve Virtual Account History'. |
 
 **Return Type**
 
@@ -226,7 +226,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.virtual_accounts.retrieve_issuing_transaction(
+result = sdk.virtual_accounts.retrieve_virtual_account_transaction(
     virtual_account_id="virtualAccountId",
     transaction_id="transactionId"
 )

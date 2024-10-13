@@ -1,8 +1,9 @@
 from __future__ import annotations
+from typing import List
 from .utils.json_map import JsonMap
 from .utils.base_model import BaseModel
-from .status import Status
-from .customer_payment_method import CustomerPaymentMethod
+from .status_1 import Status1
+from .customer import Customer
 
 
 @JsonMap({})
@@ -10,18 +11,18 @@ class InlineResponse200_38(BaseModel):
     """InlineResponse200_38
 
     :param status: status, defaults to None
-    :type status: Status, optional
-    :param data: Describes the fields contained in REST messages and webhooks for payment methods saved to a customer profile, defaults to None
-    :type data: CustomerPaymentMethod, optional
+    :type status: Status1, optional
+    :param data: data, defaults to None
+    :type data: List[Customer], optional
     """
 
-    def __init__(self, status: Status = None, data: CustomerPaymentMethod = None):
+    def __init__(self, status: Status1 = None, data: List[Customer] = None):
         """InlineResponse200_38
 
         :param status: status, defaults to None
-        :type status: Status, optional
-        :param data: Describes the fields contained in REST messages and webhooks for payment methods saved to a customer profile, defaults to None
-        :type data: CustomerPaymentMethod, optional
+        :type status: Status1, optional
+        :param data: data, defaults to None
+        :type data: List[Customer], optional
         """
-        self.status = self._define_object(status, Status)
-        self.data = self._define_object(data, CustomerPaymentMethod)
+        self.status = self._define_object(status, Status1)
+        self.data = self._define_list(data, Customer)

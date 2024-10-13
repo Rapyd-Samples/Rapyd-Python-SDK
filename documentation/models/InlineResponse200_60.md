@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                       | Required | Description |
-| :----- | :------------------------- | :------- | :---------- |
-| data   | `InlineResponse200_60Data` | ❌       |             |
-| status | `Status`                   | ❌       |             |
+| Name   | Type              | Required | Description |
+| :----- | :---------------- | :------- | :---------- |
+| status | Status1           | ❌       |             |
+| data   | List[PaymentLink] | ❌       |             |

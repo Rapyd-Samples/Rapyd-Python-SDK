@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name        | Type          | Required | Description       |
-| :---------- | :------------ | :------- | :---------------- |
-| beneficiary | `Beneficiary` | ❌       |                   |
-| validated   | `bool`        | ❌       | validation status |
+| Name        | Type        | Required | Description       |
+| :---------- | :---------- | :------- | :---------------- |
+| beneficiary | Beneficiary | ❌       |                   |
+| validated   | bool        | ❌       | validation status |

@@ -8,9 +8,9 @@ sdk = RapydSdk(
 
 result = sdk.subscription_subscription_item.usage_record_summaries(
     subscription_item_id="subscriptionItemId",
-    limit=4.1,
-    ending_before=9.52,
-    starting_after=0.05
+    limit=3.23,
+    ending_before=6.55,
+    starting_after=4.66
 )
 
 print(result)

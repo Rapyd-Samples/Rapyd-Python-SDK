@@ -8,7 +8,7 @@ sdk = RapydSdk(
 )
 
 request_body = RefundsGroupPaymentsBody(
-    amount=3.98,
+    amount=1.08,
     group_payment="group_payment"
 )
 

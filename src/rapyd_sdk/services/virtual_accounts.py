@@ -1,23 +1,23 @@
 from .utils.validator import Validator
 from .utils.base_service import BaseService
 from ..net.transport.serializer import Serializer
-from ..models.virtual_accounts_virtual_account_id_body import (
+from ..models.utils.cast_models import cast_models
+from ..models import (
+    InlineResponse200_5,
+    InlineResponse200_6,
+    InlineResponse200_7,
+    InlineResponse200_8,
+    InlineResponse200_9,
+    V1VirtualAccountsBody,
+    VirtualAccountsTransactionsBody,
     VirtualAccountsVirtualAccountIdBody,
 )
-from ..models.virtual_accounts_transactions_body import VirtualAccountsTransactionsBody
-from ..models.v1_virtual_accounts_body import V1VirtualAccountsBody
-from ..models.utils.cast_models import cast_models
-from ..models.inline_response_200_9 import InlineResponse200_9
-from ..models.inline_response_200_8 import InlineResponse200_8
-from ..models.inline_response_200_7 import InlineResponse200_7
-from ..models.inline_response_200_6 import InlineResponse200_6
-from ..models.inline_response_200_5 import InlineResponse200_5
 
 
 class VirtualAccountsService(BaseService):
 
     @cast_models
-    def create_issuing(
+    def create_virtual_account(
         self, request_body: V1VirtualAccountsBody
     ) -> InlineResponse200_5:
         """Issue a virtual account number to an existing wallet.
@@ -46,7 +46,7 @@ class VirtualAccountsService(BaseService):
         return InlineResponse200_5._unmap(response)
 
     @cast_models
-    def simulate_complete_bank_account_issuing_transaction(
+    def simulate_bank_transfer_to_virtual_account(
         self, request_body: VirtualAccountsTransactionsBody
     ) -> InlineResponse200_6:
         """Simulate a deposit to a virtual account number that was issued to a wallet. This method is relevant only for testing in the sandbox. The currency of the transfer must be supported by the specific virtual account. This method triggers the Deposit Completed webhook.
@@ -76,9 +76,7 @@ class VirtualAccountsService(BaseService):
         return InlineResponse200_6._unmap(response)
 
     @cast_models
-    def retrieve_issuing_by_rapyd_token(
-        self, virtual_account_id: str
-    ) -> InlineResponse200_7:
+    def retrieve_virtual_account(self, virtual_account_id: str) -> InlineResponse200_7:
         """Retrieve a Virtual Account Number object for a wallet.
 
         :param virtual_account_id: ID of the Virtual Account Number object. String starting with issuing_.
@@ -168,7 +166,7 @@ class VirtualAccountsService(BaseService):
         return InlineResponse200_8._unmap(response)
 
     @cast_models
-    def retrieve_issuing_transaction(
+    def retrieve_virtual_account_transaction(
         self, virtual_account_id: str, transaction_id: str
     ) -> InlineResponse200_9:
         """Retrieve a virtual account transaction.

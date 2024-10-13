@@ -41,7 +41,7 @@ class PayoutRequiredFields(BaseModel):
     :type is_required: bool, optional
     :param name: Name of the field, defaults to None
     :type name: str, optional
-    :param regex: A regular expression that defines the format when type is string. Note: Rapyd uses a unique variant of the regex standard https://docs.rapyd.net/build-with-rapyd/reference/payout-method-types#rapyd-regex, defaults to None
+    :param regex: A regular expression that defines the format when type is string. Note: Rapyd uses a unique variant of the regex standard. See note in           "https://docs.rapyd.net/en/get-payment-method-required-fields.html" , defaults to None
     :type regex: str, optional
     :param transfer_type: Indicates transfer type of the payout, defaults to None
     :type transfer_type: str, optional
@@ -69,7 +69,7 @@ class PayoutRequiredFields(BaseModel):
         :type is_required: bool, optional
         :param name: Name of the field, defaults to None
         :type name: str, optional
-        :param regex: A regular expression that defines the format when type is string. Note: Rapyd uses a unique variant of the regex standard https://docs.rapyd.net/build-with-rapyd/reference/payout-method-types#rapyd-regex, defaults to None
+        :param regex: A regular expression that defines the format when type is string. Note: Rapyd uses a unique variant of the regex standard. See note in           "https://docs.rapyd.net/en/get-payment-method-required-fields.html" , defaults to None
         :type regex: str, optional
         :param transfer_type: Indicates transfer type of the payout, defaults to None
         :type transfer_type: str, optional

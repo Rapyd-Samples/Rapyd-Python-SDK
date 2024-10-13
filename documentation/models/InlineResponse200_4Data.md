@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name              | Type                                            | Required | Description |
-| :---------------- | :---------------------------------------------- | :------- | :---------- |
-| compliance_levels | `List[InlineResponse200_4DataComplianceLevels]` | ❌       |             |
+| Name              | Type                                          | Required | Description |
+| :---------------- | :-------------------------------------------- | :------- | :---------- |
+| compliance_levels | List[InlineResponse200_4DataComplianceLevels] | ❌       |             |

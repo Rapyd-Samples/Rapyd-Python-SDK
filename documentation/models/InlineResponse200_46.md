@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                  | Required | Description |
-| :----- | :-------------------- | :------- | :---------- |
-| status | `Status`              | ❌       |             |
-| data   | `List[OrderResponse]` | ❌       |             |
+| Name   | Type                         | Required | Description |
+| :----- | :--------------------------- | :------- | :---------- |
+| status | Status1                      | ❌       |             |
+| data   | List[ApplePayObjectResponse] | ❌       |             |

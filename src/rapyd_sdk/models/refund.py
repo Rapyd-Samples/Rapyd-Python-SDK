@@ -23,7 +23,7 @@ class Refund(BaseModel):
     :type fixed_side: str, optional
     :param fx_rate: Exchange rate for the transaction. When fixed_side is buy, fx_rate is the buy rate. When fixed_side is sell, fx_rate is the sell rate. Decimal number as string. Relevant to refunds with foreign exchange. Response only., defaults to None
     :type fx_rate: str, optional
-    :param id_: ID of the Refund object. String starting with refund_., defaults to None
+    :param id_: ID of the Refund object. String starting with **refund_**., defaults to None
     :type id_: str, optional
     :param merchant_debited_amount: Amount debited from the merchant. Relevant to refunds with foreign exchange. Response only., defaults to None
     :type merchant_debited_amount: str, optional
@@ -90,7 +90,7 @@ class Refund(BaseModel):
         :type fixed_side: str, optional
         :param fx_rate: Exchange rate for the transaction. When fixed_side is buy, fx_rate is the buy rate. When fixed_side is sell, fx_rate is the sell rate. Decimal number as string. Relevant to refunds with foreign exchange. Response only., defaults to None
         :type fx_rate: str, optional
-        :param id_: ID of the Refund object. String starting with refund_., defaults to None
+        :param id_: ID of the Refund object. String starting with **refund_**., defaults to None
         :type id_: str, optional
         :param merchant_debited_amount: Amount debited from the merchant. Relevant to refunds with foreign exchange. Response only., defaults to None
         :type merchant_debited_amount: str, optional

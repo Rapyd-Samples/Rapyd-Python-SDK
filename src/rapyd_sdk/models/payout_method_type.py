@@ -13,7 +13,7 @@ class PayoutMethodType(BaseModel):
 
     :param amount_range_per_currency: An array of objects that describe limits on the amount, per currency. Contains the following fields: maximum_amount - Maximum amount supported by this payout method for the indicated currency. Decimal number. minimum_amount - Minimum amount supported by this payout method for the indicated currency. Decimal number. * payout_currency - Currency of the payout. Three-letter ISO 4217 code. Uppercase., defaults to None
     :type amount_range_per_currency: List[List[PayoutAmountRangePerCurrencyInner]], optional
-    :param beneficiary_country: beneficiary_country, defaults to None
+    :param beneficiary_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
     :type beneficiary_country: str, optional
     :param beneficiary_entity_types: A list of the beneficiary entity types supported by this payout method. One or more of the following: company individual Response only., defaults to None
     :type beneficiary_entity_types: List[EntityType], optional
@@ -37,7 +37,7 @@ class PayoutMethodType(BaseModel):
     :type payout_currencies: List[str], optional
     :param payout_method_type: The type of payout method. The two-letter prefix must match the beneficiary country code. Required when default_payout_method_type is not used., defaults to None
     :type payout_method_type: str, optional
-    :param sender_country: sender_country, defaults to None
+    :param sender_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
     :type sender_country: str, optional
     :param sender_currencies: List of currencies that the sender is paying with. Currency consists of a three-letter ISO 4217 code. Response only., defaults to None
     :type sender_currencies: List[str], optional
@@ -74,7 +74,7 @@ class PayoutMethodType(BaseModel):
 
         :param amount_range_per_currency: An array of objects that describe limits on the amount, per currency. Contains the following fields: maximum_amount - Maximum amount supported by this payout method for the indicated currency. Decimal number. minimum_amount - Minimum amount supported by this payout method for the indicated currency. Decimal number. * payout_currency - Currency of the payout. Three-letter ISO 4217 code. Uppercase., defaults to None
         :type amount_range_per_currency: List[List[PayoutAmountRangePerCurrencyInner]], optional
-        :param beneficiary_country: beneficiary_country, defaults to None
+        :param beneficiary_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
         :type beneficiary_country: str, optional
         :param beneficiary_entity_types: A list of the beneficiary entity types supported by this payout method. One or more of the following: company individual Response only., defaults to None
         :type beneficiary_entity_types: List[EntityType], optional
@@ -98,7 +98,7 @@ class PayoutMethodType(BaseModel):
         :type payout_currencies: List[str], optional
         :param payout_method_type: The type of payout method. The two-letter prefix must match the beneficiary country code. Required when default_payout_method_type is not used., defaults to None
         :type payout_method_type: str, optional
-        :param sender_country: sender_country, defaults to None
+        :param sender_country: Country of the beneficiary. Two-letter ISO 3166-1 ALPHA-2 code. The two-letter prefix of the payout method type must match the beneficiary country code., defaults to None
         :type sender_country: str, optional
         :param sender_currencies: List of currencies that the sender is paying with. Currency consists of a three-letter ISO 4217 code. Response only., defaults to None
         :type sender_currencies: List[str], optional
@@ -111,10 +111,7 @@ class PayoutMethodType(BaseModel):
         """
         self.amount_range_per_currency = amount_range_per_currency
         self.beneficiary_country = self._define_str(
-            "beneficiary_country",
-            beneficiary_country,
-            nullable=True,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
+            "beneficiary_country", beneficiary_country, nullable=True
         )
         self.beneficiary_entity_types = self._define_list(
             beneficiary_entity_types, EntityType
@@ -146,10 +143,7 @@ class PayoutMethodType(BaseModel):
             "payout_method_type", payout_method_type, nullable=True
         )
         self.sender_country = self._define_str(
-            "sender_country",
-            sender_country,
-            nullable=True,
-            pattern="^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|Y(E|T)|Z(A|M|W))$",
+            "sender_country", sender_country, nullable=True
         )
         self.sender_currencies = sender_currencies
         self.sender_entity_types = self._define_list(sender_entity_types, EntityType)

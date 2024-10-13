@@ -10,7 +10,7 @@ sdk = RapydSdk(
 request_body = OrdersOrderIdBody(
     coupon="coupon",
     metadata={},
-    tax_percent=6.19,
+    tax_percent=2.48,
     status="paid"
 )
 

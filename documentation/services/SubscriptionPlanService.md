@@ -19,15 +19,15 @@ Retrieve a list of all plans. Use the optional query parameters to filter the re
 
 **Parameters**
 
-| Name           | Type    | Required | Description                                                            |
-| :------------- | :------ | :------- | :--------------------------------------------------------------------- |
-| ending_before  | `float` | ❌       | The ID of the plan created after the last plan you want to retrieve.   |
-| limit          | `float` | ❌       | The maximum number of plans to return. Range 1-100. Default is 10.     |
-| starting_after | `str`   | ❌       | The ID of the plan created before the first plan you want to retrieve. |
+| Name           | Type | Required | Description                                                            |
+| :------------- | :--- | :------- | :--------------------------------------------------------------------- |
+| ending_before  | str  | ❌       | The ID of the plan created after the last plan you want to retrieve.   |
+| limit          | str  | ❌       | The maximum number of plans to return. Range 1-100. Default is 10.     |
+| starting_after | str  | ❌       | The ID of the plan created before the first plan you want to retrieve. |
 
 **Return Type**
 
-`InlineResponse200_58`
+`InlineResponse200_69`
 
 **Example Usage Code Snippet**
 
@@ -40,8 +40,8 @@ sdk = RapydSdk(
 )
 
 result = sdk.subscription_plan.list_plans(
-    ending_before=8.11,
-    limit=4.41,
+    ending_before="ending_before",
+    limit="limit",
     starting_after="starting_after"
 )
 
@@ -57,13 +57,13 @@ Create a pricing plan for services.
 
 **Parameters**
 
-| Name         | Type                                      | Required | Description       |
-| :----------- | :---------------------------------------- | :------- | :---------------- |
-| request_body | `[V1PlansBody](../models/V1PlansBody.md)` | ✅       | The request body. |
+| Name         | Type                                    | Required | Description       |
+| :----------- | :-------------------------------------- | :------- | :---------------- |
+| request_body | [V1PlansBody](../models/V1PlansBody.md) | ✅       | The request body. |
 
 **Return Type**
 
-`InlineResponse200_59`
+`InlineResponse200_70`
 
 **Example Usage Code Snippet**
 
@@ -78,19 +78,19 @@ sdk = RapydSdk(
 
 request_body = V1PlansBody(
     aggregate_usage="aggregate_usage",
-    amount=2.52,
+    amount=0.54,
     billing_scheme="billing_scheme",
     currency="currency",
     id_="id",
     interval="interval",
-    interval_count=0.75,
+    interval_count=5.88,
     metadata={},
     nickname="nickname",
     product="product",
     tiers="tiers",
     tiers_mode="tiers_mode",
     transform_usage={},
-    trial_period_days=7.87,
+    trial_period_days=2.83,
     usage_type="usage_type"
 )
 
@@ -104,17 +104,17 @@ print(result)
 Retrieve the details of a pricing plan for services.
 
 - HTTP Method: `GET`
-- Endpoint: `/v1/plans/{plan_id}`
+- Endpoint: `/v1/plans/{planId}`
 
 **Parameters**
 
-| Name    | Type  | Required | Description     |
-| :------ | :---- | :------- | :-------------- |
-| plan_id | `str` | ✅       | ID of the plan. |
+| Name    | Type | Required | Description     |
+| :------ | :--- | :------- | :-------------- |
+| plan_id | str  | ✅       | ID of the plan. |
 
 **Return Type**
 
-`InlineResponse200_59`
+`InlineResponse200_70`
 
 **Example Usage Code Snippet**
 
@@ -126,7 +126,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.subscription_plan.retrieve_plan(plan_id="plan_id")
+result = sdk.subscription_plan.retrieve_plan(plan_id="planId")
 
 print(result)
 ```
@@ -136,18 +136,18 @@ print(result)
 Change or modify a pricing plan for services. You can update a plan's nickname or metadata.
 
 - HTTP Method: `POST`
-- Endpoint: `/v1/plans/{plan_id}`
+- Endpoint: `/v1/plans/{planId}`
 
 **Parameters**
 
-| Name         | Type                                              | Required | Description       |
-| :----------- | :------------------------------------------------ | :------- | :---------------- |
-| request_body | `[PlansPlanIdBody](../models/PlansPlanIdBody.md)` | ✅       | The request body. |
-| plan_id      | `str`                                             | ✅       | ID of the plan.   |
+| Name         | Type                                            | Required | Description       |
+| :----------- | :---------------------------------------------- | :------- | :---------------- |
+| request_body | [PlansPlanIdBody](../models/PlansPlanIdBody.md) | ✅       | The request body. |
+| plan_id      | str                                             | ✅       | ID of the plan.   |
 
 **Return Type**
 
-`InlineResponse200_59`
+`InlineResponse200_70`
 
 **Example Usage Code Snippet**
 
@@ -167,7 +167,7 @@ request_body = PlansPlanIdBody(
 
 result = sdk.subscription_plan.update_plan(
     request_body=request_body,
-    plan_id="plan_id"
+    plan_id="planId"
 )
 
 print(result)
@@ -178,17 +178,17 @@ print(result)
 Delete a pricing plan for services.
 
 - HTTP Method: `DELETE`
-- Endpoint: `/v1/plans/{plan_id}`
+- Endpoint: `/v1/plans/{planId}`
 
 **Parameters**
 
-| Name    | Type  | Required | Description     |
-| :------ | :---- | :------- | :-------------- |
-| plan_id | `str` | ✅       | ID of the plan. |
+| Name    | Type | Required | Description     |
+| :------ | :--- | :------- | :-------------- |
+| plan_id | str  | ✅       | ID of the plan. |
 
 **Return Type**
 
-`InlineResponse200_60`
+`InlineResponse200_71`
 
 **Example Usage Code Snippet**
 
@@ -200,7 +200,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.subscription_plan.delete_plan(plan_id="plan_id")
+result = sdk.subscription_plan.delete_plan(plan_id="planId")
 
 print(result)
 ```

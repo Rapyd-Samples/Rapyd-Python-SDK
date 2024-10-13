@@ -17,7 +17,7 @@ request_body = V1VirtualAccountsBody(
     requested_currency="requested_currency"
 )
 
-result = sdk.virtual_accounts.create_issuing(request_body=request_body)
+result = sdk.virtual_accounts.create_virtual_account(request_body=request_body)
 
 print(result)
 

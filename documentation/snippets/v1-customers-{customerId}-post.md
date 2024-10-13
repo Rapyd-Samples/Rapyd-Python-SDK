@@ -13,7 +13,7 @@ request_body = CustomerRequest(
             "canton": "canton",
             "city": "city",
             "country": "GB",
-            "created_at": 3.34,
+            "created_at": 8.2,
             "district": "district",
             "id_": "id",
             "line_1": "line_1",
@@ -28,7 +28,51 @@ request_body = CustomerRequest(
     ],
     business_vat_id="business_vat_id",
     coupon="coupon",
-    default_payment_method="default_payment_method",
+    payment_method={
+        "fields": [
+            {
+                "code": "code",
+                "is_required": False,
+                "is_updatable": True,
+                "instructions": "instructions",
+                "name": "name",
+                "numeric_code": "numeric_code",
+                "required_fields": [
+                    {
+                        "code": "code",
+                        "is_required": False,
+                        "is_updatable": True,
+                        "instructions": "instructions",
+                        "name": "name",
+                        "numeric_code": "numeric_code",
+                        "type_": "boolean",
+                        "regex": "regex",
+                        "conditions": [
+                            {
+                                "description": "description",
+                                "element_name": "element_name",
+                                "operator": "operator",
+                                "threshold_value": "reprehenderit "
+                            }
+                        ],
+                        "description": "description"
+                    }
+                ],
+                "type_": "boolean",
+                "regex": "regex",
+                "conditions": [
+                    {
+                        "description": "description",
+                        "element_name": "element_name",
+                        "operator": "operator",
+                        "threshold_value": "reprehenderit "
+                    }
+                ],
+                "description": "description"
+            }
+        ],
+        "type_": "type"
+    },
     description="description",
     email="email",
     ewallet="ewallet",

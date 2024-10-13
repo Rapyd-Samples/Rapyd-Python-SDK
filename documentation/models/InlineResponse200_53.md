@@ -4,5 +4,5 @@
 
 | Name   | Type            | Required | Description |
 | :----- | :-------------- | :------- | :---------- |
-| data   | `List[Payment]` | ❌       |             |
-| status | `Status`        | ❌       |             |
+| status | Status1         | ❌       |             |
+| data   | InvoiceResponse | ❌       | Invoice     |

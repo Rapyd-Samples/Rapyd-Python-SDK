@@ -20,12 +20,12 @@ request_body = V1ProductsBody(
     metadata={},
     name="name",
     package_dimensions={
-        "height": 5.88,
-        "length": 3.28,
-        "weight": 1.4,
-        "width": 7.3
+        "height": 1.62,
+        "length": 4.73,
+        "weight": 6.81,
+        "width": 0.63
     },
-    shippable=True,
+    shippable=False,
     statement_descriptor="statement_descriptor",
     type_="services",
     unit_label="unit_label"

@@ -4,17 +4,17 @@ from enum import Enum
 class UpdateEwalletStatusStatus(Enum):
     """An enumeration representing different categories.
 
-    :cvar ENABLE: "enable"
-    :vartype ENABLE: str
-    :cvar DISABLE: "disable"
-    :vartype DISABLE: str
-    :cvar CLOSE: "close"
-    :vartype CLOSE: str
+    :cvar ACT: "ACT"
+    :vartype ACT: str
+    :cvar DIS: "DIS"
+    :vartype DIS: str
+    :cvar CLO: "CLO"
+    :vartype CLO: str
     """
 
-    ENABLE = "enable"
-    DISABLE = "disable"
-    CLOSE = "close"
+    ACT = "ACT"
+    DIS = "DIS"
+    CLO = "CLO"
 
     def list():
         """Lists all category values.

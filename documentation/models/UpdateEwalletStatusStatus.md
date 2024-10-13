@@ -2,8 +2,8 @@
 
 **Properties**
 
-| Name    | Type  | Required | Description |
-| :------ | :---- | :------- | :---------- |
-| ENABLE  | `str` | ✅       | "enable"    |
-| DISABLE | `str` | ✅       | "disable"   |
-| CLOSE   | `str` | ✅       | "close"     |
+| Name | Type | Required | Description |
+| :--- | :--- | :------- | :---------- |
+| ACT  | str  | ✅       | "ACT"       |
+| DIS  | str  | ✅       | "DIS"       |
+| CLO  | str  | ✅       | "CLO"       |

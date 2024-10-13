@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name    | Type   | Required | Description                                                 |
-| :------ | :----- | :------- | :---------------------------------------------------------- |
-| id\_    | `str`  | ❌       | ID of the account. String starting with issuing\_           |
-| deleted | `bool` | ❌       | Indicates whether the account has been successfully deleted |
+| Name    | Type | Required | Description                                                 |
+| :------ | :--- | :------- | :---------------------------------------------------------- |
+| id\_    | str  | ❌       | ID of the account. String starting with issuing\_           |
+| deleted | bool | ❌       | Indicates whether the account has been successfully deleted |

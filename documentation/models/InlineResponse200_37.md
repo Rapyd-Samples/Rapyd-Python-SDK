@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                          | Required | Description |
-| :----- | :---------------------------- | :------- | :---------- |
-| data   | `List[CustomerPaymentMethod]` | ❌       |             |
-| status | `Status`                      | ❌       |             |
+| Name   | Type                     | Required | Description |
+| :----- | :----------------------- | :------- | :---------- |
+| status | Status1                  | ❌       |             |
+| data   | InlineResponse200_37Data | ❌       |             |

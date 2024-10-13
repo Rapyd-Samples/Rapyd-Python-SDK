@@ -6,7 +6,7 @@ sdk = RapydSdk(
     timeout=10000
 )
 
-result = sdk.subscription_plan.delete_plan(plan_id="plan_id")
+result = sdk.subscription_plan.delete_plan(plan_id_1="plan_id")
 
 print(result)
 

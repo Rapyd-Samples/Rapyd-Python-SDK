@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name   | Type                              | Required | Description |
-| :----- | :-------------------------------- | :------- | :---------- |
-| data   | `List[EwalletTransactionDetails]` | ❌       |             |
-| status | `Status`                          | ❌       |             |
+| Name   | Type    | Required | Description |
+| :----- | :------ | :------- | :---------- |
+| status | Status  | ❌       |             |
+| data   | Account | ❌       |             |

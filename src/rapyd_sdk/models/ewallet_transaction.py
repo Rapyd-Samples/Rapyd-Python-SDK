@@ -32,7 +32,7 @@ class EwalletTransactionBalanceType(Enum):
         )
 
 
-class EwalletTransactionDestinationBalanceType(Enum):
+class DestinationBalanceType(Enum):
     """An enumeration representing different categories.
 
     :cvar AVAILABLEBALANCE: "available_balance"
@@ -57,14 +57,11 @@ class EwalletTransactionDestinationBalanceType(Enum):
         :rtype: list
         """
         return list(
-            map(
-                lambda x: x.value,
-                EwalletTransactionDestinationBalanceType._member_map_.values(),
-            )
+            map(lambda x: x.value, DestinationBalanceType._member_map_.values())
         )
 
 
-class EwalletTransactionSourceBalanceType(Enum):
+class SourceBalanceType(Enum):
     """An enumeration representing different categories.
 
     :cvar AVAILABLEBALANCE: "available_balance"
@@ -88,12 +85,7 @@ class EwalletTransactionSourceBalanceType(Enum):
         :return: A list of all category values.
         :rtype: list
         """
-        return list(
-            map(
-                lambda x: x.value,
-                EwalletTransactionSourceBalanceType._member_map_.values(),
-            )
-        )
+        return list(map(lambda x: x.value, SourceBalanceType._member_map_.values()))
 
 
 @JsonMap({"id_": "id", "type_": "type"})
@@ -112,16 +104,20 @@ class EwalletTransaction(BaseModel):
     :type created_at: float, optional
     :param currency: Three-letter ISO 4217 code for the currency used in the amount field., defaults to None
     :type currency: str, optional
-    :param destination_balance_type: The destination balance type when funds are transferred from one balance to another within the wallet, defaults to None
-    :type destination_balance_type: EwalletTransactionDestinationBalanceType, optional
-    :param ewallet_id: ID of the wallet. String starting with ewallet_., defaults to None
+    :param destination_balance_type: The destination balance type when funds are transferred from one balance to another within the wallet., defaults to None
+    :type destination_balance_type: DestinationBalanceType, optional
+    :param destination_ewallet_id: ID of the wallet receiving the money. String starting with **ewallet_**. Response only., defaults to None
+    :type destination_ewallet_id: str, optional
+    :param ewallet_id: ID of the wallet. String starting with **ewallet_**., defaults to None
     :type ewallet_id: str, optional
     :param id_: ID of the transaction. String starting with wt_ or UUID., defaults to None
     :type id_: str, optional
-    :param reason: Unique identifier of the wallet object. String starting with ewallet_., defaults to None
+    :param reason: Unique identifier of the wallet object. String starting with **ewallet_**., defaults to None
     :type reason: str, optional
     :param source_balance_type: The source balance type when funds are transferred from one balance to another within the wallet, defaults to None
-    :type source_balance_type: EwalletTransactionSourceBalanceType, optional
+    :type source_balance_type: SourceBalanceType, optional
+    :param source_ewallet_id: ID of the wallet sending the money. String starting with **ewallet_**., defaults to None
+    :type source_ewallet_id: str, optional
     :param status: Status of the transaction., defaults to None
     :type status: str, optional
     :param type_: Type of transaction, defaults to None
@@ -140,11 +136,13 @@ class EwalletTransaction(BaseModel):
         balance_type: EwalletTransactionBalanceType = None,
         created_at: float = None,
         currency: str = None,
-        destination_balance_type: EwalletTransactionDestinationBalanceType = None,
+        destination_balance_type: DestinationBalanceType = None,
+        destination_ewallet_id: str = None,
         ewallet_id: str = None,
         id_: str = None,
         reason: str = None,
-        source_balance_type: EwalletTransactionSourceBalanceType = None,
+        source_balance_type: SourceBalanceType = None,
+        source_ewallet_id: str = None,
         status: str = None,
         type_: str = None,
         subtype: float = None,
@@ -164,16 +162,20 @@ class EwalletTransaction(BaseModel):
         :type created_at: float, optional
         :param currency: Three-letter ISO 4217 code for the currency used in the amount field., defaults to None
         :type currency: str, optional
-        :param destination_balance_type: The destination balance type when funds are transferred from one balance to another within the wallet, defaults to None
-        :type destination_balance_type: EwalletTransactionDestinationBalanceType, optional
-        :param ewallet_id: ID of the wallet. String starting with ewallet_., defaults to None
+        :param destination_balance_type: The destination balance type when funds are transferred from one balance to another within the wallet., defaults to None
+        :type destination_balance_type: DestinationBalanceType, optional
+        :param destination_ewallet_id: ID of the wallet receiving the money. String starting with **ewallet_**. Response only., defaults to None
+        :type destination_ewallet_id: str, optional
+        :param ewallet_id: ID of the wallet. String starting with **ewallet_**., defaults to None
         :type ewallet_id: str, optional
         :param id_: ID of the transaction. String starting with wt_ or UUID., defaults to None
         :type id_: str, optional
-        :param reason: Unique identifier of the wallet object. String starting with ewallet_., defaults to None
+        :param reason: Unique identifier of the wallet object. String starting with **ewallet_**., defaults to None
         :type reason: str, optional
         :param source_balance_type: The source balance type when funds are transferred from one balance to another within the wallet, defaults to None
-        :type source_balance_type: EwalletTransactionSourceBalanceType, optional
+        :type source_balance_type: SourceBalanceType, optional
+        :param source_ewallet_id: ID of the wallet sending the money. String starting with **ewallet_**., defaults to None
+        :type source_ewallet_id: str, optional
         :param status: Status of the transaction., defaults to None
         :type status: str, optional
         :param type_: Type of transaction, defaults to None
@@ -198,23 +200,27 @@ class EwalletTransaction(BaseModel):
         self.destination_balance_type = (
             self._enum_matching(
                 destination_balance_type,
-                EwalletTransactionDestinationBalanceType.list(),
+                DestinationBalanceType.list(),
                 "destination_balance_type",
             )
             if destination_balance_type
             else None
+        )
+        self.destination_ewallet_id = self._define_str(
+            "destination_ewallet_id", destination_ewallet_id, nullable=True
         )
         self.ewallet_id = self._define_str("ewallet_id", ewallet_id, nullable=True)
         self.id_ = self._define_str("id_", id_, nullable=True)
         self.reason = self._define_str("reason", reason, nullable=True)
         self.source_balance_type = (
             self._enum_matching(
-                source_balance_type,
-                EwalletTransactionSourceBalanceType.list(),
-                "source_balance_type",
+                source_balance_type, SourceBalanceType.list(), "source_balance_type"
             )
             if source_balance_type
             else None
+        )
+        self.source_ewallet_id = self._define_str(
+            "source_ewallet_id", source_ewallet_id, nullable=True
         )
         self.status = self._define_str("status", status, nullable=True)
         self.type_ = self._define_str("type_", type_, nullable=True)

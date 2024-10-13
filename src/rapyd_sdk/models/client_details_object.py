@@ -7,21 +7,21 @@ class ScreenColorDepth(Enum):
     """An enumeration representing different categories.
 
     :cvar _1: 1
-    :vartype _1: str
+    :vartype _1: int
     :cvar _4: 4
-    :vartype _4: str
+    :vartype _4: int
     :cvar _8: 8
-    :vartype _8: str
+    :vartype _8: int
     :cvar _15: 15
-    :vartype _15: str
+    :vartype _15: int
     :cvar _16: 16
-    :vartype _16: str
+    :vartype _16: int
     :cvar _24: 24
-    :vartype _24: str
+    :vartype _24: int
     :cvar _32: 32
-    :vartype _32: str
+    :vartype _32: int
     :cvar _48: 48
-    :vartype _48: str
+    :vartype _48: int
     """
 
     _1 = 1
